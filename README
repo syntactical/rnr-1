@@ -30,3 +30,9 @@ If there is no artifact:
 	Project Structure - Artifacts tab
 	Plus sign, added Web App Exploded, selected main folder
 	Make sure to add all the libraries to the artifact
+
+If Intellij is throwing errors after these steps:
+    Delete the project
+    Check out from VCS on the home IntelliJ page using GIT
+    Then open the project from the home IntelliJ page
+    Repeat all above steps as necessary
