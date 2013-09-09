@@ -13,11 +13,11 @@ Given /^a user is using the browser Safari$/ do
 end
 
 When /^the user goes to rnr\.thoughtworks\.com$/ do
-   @browser.goto "rnr.thoughtworks.com"
+   @browser.goto "http://localhost:8080/"
 end
 
 Then /^a banner should be visible$/ do
-   banner = @browser.div :id => "banner"
+   banner = @browser.div(:id, "banner")
    raise NotImplementedError.new unless banner.exists?
 end
 
