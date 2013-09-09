@@ -1,0 +1,32 @@
+README
+
+Getting stuff to work on Mac OS X (Lion)
+
+To run the RnR on localhost:8080
+	open Run -> Edit Configurations -> Server tab
+		Plus sign (top left corner)
+			select Tomcat server -> local
+
+		Plus sign (bottom box)
+			select Build Artifacts, select the exploded web app you created (only one option usually)
+
+		Application Server: Tomcat 7.0 (copy/paste the CATALINA_BASE directory you get from typing catalina start in the terminal (remember to type catalina stop afterwards))
+
+	Run -> Edit Configurations -> Deployment tab
+Plus sign (for Deploy at the server startup box), select artifact, select the exploded web app artifact
+
+~~~
+
+Troubleshooting
+
+If code shows errors due to missing libraries:
+	import libraries: junit-4.1.0 and spring-framework-web if it's not there
+
+If 'catalina start' in the terminal does not work:
+	Install Tomcat 7.0.42
+	have port 8080 open
+
+If there is no artifact:
+	Project Structure - Artifacts tab
+	Plus sign, added Web App Exploded, selected main folder
+	Make sure to add all the libraries to the artifact
