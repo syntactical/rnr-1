@@ -1,9 +1,8 @@
-package stories.view_banner;
+package com.springapp.mvc.web;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.jbehave.core.steps.Steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.assertTrue;
 
-public class NavigationSteps extends Steps {
+public class NavigationSteps {
 
     private WebDriver driver;
 
