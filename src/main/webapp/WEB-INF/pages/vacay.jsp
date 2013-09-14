@@ -1,0 +1,22 @@
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+
+    <title>RnR at ThoughtWorks</title>
+    <link rel="stylesheet" href="rnr.css">
+    <link href="scripts/css/bootstrap.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+<table colspan=3>
+    <td><p class="text-info"><strong>R<br>n<br>R</strong></p></td>
+    <td><p class="text-warning">@</p></td>
+    <td><img class="headerimg" src="/images/tw-logo.png" class="img-rounded"/></td>
+</table>
+<br>
+       <p>You started at ThoughtWorks on ${postedValues.date} so you have ${postedValues.days} vacation days</p>
+
+</body>
+</html>
