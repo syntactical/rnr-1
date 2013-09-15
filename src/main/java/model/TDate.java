@@ -9,13 +9,13 @@ import java.util.Scanner;
  * Time: 11:17 AM
  * To change this template use File | Settings | File Templates.
  */
-public class TWDate {
+public class TDate {
 
     private String date;
     private String[] parsedDate;
 
 
-    public TWDate setDate(String date) {
+    public TDate setDate(String date) {
         this.date = date;
         parsedDate = parseDate(date);
         return this;

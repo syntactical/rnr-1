@@ -12,11 +12,11 @@ import static org.junit.Assert.assertThat;
  * Time: 11:19 AM
  * To change this template use File | Settings | File Templates.
  */
-public class TWDateTest {
+public class TDateTest {
 
     @Test
     public void shouldGetMonth() throws Exception {
-        TWDate start = new TWDate().setDate("1/3/2103");
+        TDate start = new TDate().setDate("1/3/2103");
         assertThat(start.getMonth(), is(1));
         start.setDate("10/4/2011");
         assertThat(start.getMonth(), is(10));
@@ -25,7 +25,7 @@ public class TWDateTest {
 
     @Test
     public void shouldGetDay() throws Exception {
-        TWDate start = new TWDate().setDate("2/4/2000");
+        TDate start = new TDate().setDate("2/4/2000");
         assertThat(start.getDay(), is(4));
         start.setDate("7/11/2011");
         assertThat(start.getDay(), is(11));
@@ -33,7 +33,7 @@ public class TWDateTest {
 
     @Test
     public void shouldGetYear() throws Exception {
-        TWDate start = new TWDate().setDate("2/4/2000");
+        TDate start = new TDate().setDate("2/4/2000");
         assertThat(start.getYear(), is(2000));
         start.setDate("7/11/2011");
         assertThat(start.getYear(), is(2011));
