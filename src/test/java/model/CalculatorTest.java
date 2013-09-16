@@ -16,12 +16,12 @@ import static org.junit.Assert.assertThat;
 public class CalculatorTest {
 
     private Calculator calc;
-    private TWDate startDate;
+    private TDate startDate;
 
     @Before
     public void setUp() throws Exception {
         calc = new Calculator();
-        startDate = new TWDate();
+        startDate = new TDate();
 
     }
 
@@ -63,11 +63,67 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldReturnFiveOneHundredAndEightieths() throws Exception {
+    public void shouldCountOneDayBetweenDates() throws Exception {
         startDate.setDate("8/13/2013");
+        TDate currentDate = new TDate().setDate("8/14/2013");
+        assertThat(calc.daysBetween(startDate,currentDate), is(1));
+    }
+
+    @Test
+    public void shouldReturnFiveOneHundredEightieths() throws Exception {
+        startDate.setDate("9/15/2013");
         assertThat(calc.getVacationBasedOnDays(startDate), is(roundedNumber(5/180d)));
 
     }
+
+    @Test
+    public void shouldCountTwoDaysBetweenDates() throws Exception {
+        startDate.setDate("8/13/2013");
+        TDate currentDate = new TDate().setDate("8/15/2013");
+        assertThat(calc.daysBetween(startDate,currentDate), is(2));
+
+    }
+
+    @Test
+    public void shouldReturnTenOneHundredEightieths() throws Exception {
+        startDate.setDate("9/14/2013");
+        assertThat(calc.getVacationBasedOnDays(startDate), is(roundedNumber(10/180d)));
+
+    }
+
+    @Test
+    public void shouldCountDaysBetweenDatesOfDifferentMonths() throws Exception {
+        startDate.setDate("8/31/2013");
+        TDate currentDate = new TDate().setDate("9/15/2013");
+        assertThat(calc.daysBetween(startDate,currentDate), is(15));
+
+    }
+
+    @Test
+    public void shouldReturnFortyFourths() throws Exception {
+        startDate.setDate("8/31/2013");
+        assertThat(calc.getVacationBasedOnDays(startDate), is(roundedNumber(80/180d)));
+
+    }
+
+
+
+    @Test
+    public void shouldCountDaysBetweenDatesOfDifferentYears() throws Exception {
+        startDate.setDate("8/31/2012");
+        TDate currentDate = new TDate().setDate("9/15/2013");
+        assertThat(calc.daysBetween(startDate,currentDate), is(380));
+
+    }
+
+    @Test
+    public void shouldReturnTenAndFiftyEightHundreths() throws Exception {
+        startDate.setDate("8/31/2012");
+        assertThat(calc.getVacationBasedOnDays(startDate), is(roundedNumber(1905/180d)));
+
+    }
+
+
 
     private Double roundedNumber(Double unrounded){
         return (double)(Math.round(unrounded*100))/100;

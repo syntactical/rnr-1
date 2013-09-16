@@ -2,20 +2,16 @@ package model;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Thoughtworker
- * Date: 9/12/13
- * Time: 8:48 AM
- * To change this template use File | Settings | File Templates.
- */
+
 public class Calculator {
     private HashMap<Integer, Integer> daysInMonth;
     private Double MONTHLY_ACCRUAL_RATE = 5 / 6d;
     private Double DAILY_ACCRUAL_RATE = (5 / 180d);
     private Double NO_VACATION_DAYS = 0d;
+
 
     public Calculator() {
         daysInMonth = createMap();
@@ -38,7 +34,7 @@ public class Calculator {
         return numberOfDaysInAMonth;
     }
 
-    public Double getVacationDaysBasedOnMonth(TWDate startDate) {
+    public Double getVacationDaysBasedOnMonth(TDate startDate) {
         Calendar cal = getCurrentDate();
         int month = cal.get(Calendar.MONTH) + 1;
         if (cal.get(Calendar.YEAR) < startDate.getYear()) return NO_VACATION_DAYS;
@@ -50,21 +46,29 @@ public class Calculator {
         }
     }
 
-    private Double getDaysIfStartedInSameYear(TWDate startDate, int month) {
+    private Double getDaysIfStartedInSameYear(TDate startDate, int month) {
         if (startDate.getMonth() > month) return NO_VACATION_DAYS;
+
         int timeDifference = month - startDate.getMonth();
+
         Double numberOfVacationDays = (MONTHLY_ACCRUAL_RATE * timeDifference);
+
         return roundedNumber(numberOfVacationDays);
     }
 
-    private Double getDaysIfStartedInADifferentYear(TWDate startDate, int month) {
+    private Double getDaysIfStartedInADifferentYear(TDate startDate, int month) {
         int pastMonths = 11 - startDate.getMonth() + month;
         Double numberOfVacationDays = (MONTHLY_ACCRUAL_RATE * pastMonths);
         return roundedNumber(numberOfVacationDays);
     }
 
-    public Double getVacationBasedOnDays(TWDate startDate) {
-        return roundedNumber(DAILY_ACCRUAL_RATE);
+    public Double getVacationBasedOnDays(TDate startDate) {
+        Calendar cal = getCurrentDate();
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.get(Calendar.YEAR);
+        String date = (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DAY_OF_MONTH) + "/" + cal.get(Calendar.YEAR);
+        TDate currentDate = new TDate().setDate(date);
+        return roundedNumber(DAILY_ACCRUAL_RATE * daysBetween(startDate, currentDate));
     }
 
     private Calendar getCurrentDate() {
@@ -79,4 +83,24 @@ public class Calculator {
     }
 
 
+    public Integer daysBetween(TDate startDate, TDate currentDate) {
+        int currentDays = getDays(currentDate);
+        if (!startDate.getYear().equals(currentDate.getYear())){
+            int startDays = getDays(startDate);
+            int difference = 365 - startDays;
+            return currentDays + difference;
+        }
+        if (startDate.getMonth() == currentDate.getMonth()) return currentDate.getDay() - startDate.getDay();
+
+        int startDays = getDays(startDate);
+        return currentDays - startDays;
+
+    }
+
+    private int getDays(TDate date) {
+        int days = 0;
+        for (Integer month = 1; month <= date.getMonth(); month++) days += daysInMonth.get(month);
+        int differenceOfDays = daysInMonth.get(date.getMonth()) - date.getDay();
+        return days - differenceOfDays;
+    }
 }

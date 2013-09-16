@@ -16,7 +16,8 @@
     <td><img class="headerimg" src="/images/tw-logo.png" class="img-rounded"/></td>
 </table>
 <br>
-       <p>You started at ThoughtWorks on ${postedValues.date} so you have ${postedValues.days} vacation days</p>
+       <p>You started at ThoughtWorks on ${postedValues.date} so you have ${postedValues.months} vacation days based on a monthly accrual</p>
+       <p>You started at ThoughtWorks on ${postedValues.date} so you have ${postedValues.days} vacation days based on a daily accrual</p>
 
 </body>
 </html>
