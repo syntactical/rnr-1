@@ -64,8 +64,6 @@ public class Calculator {
 
     public Double getVacationBasedOnDays(TDate startDate) {
         Calendar cal = getCurrentDate();
-        GregorianCalendar calendar = new GregorianCalendar();
-        calendar.get(Calendar.YEAR);
         String date = (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DAY_OF_MONTH) + "/" + cal.get(Calendar.YEAR);
         TDate currentDate = new TDate().setDate(date);
         return roundedNumber(DAILY_ACCRUAL_RATE * daysBetween(startDate, currentDate));

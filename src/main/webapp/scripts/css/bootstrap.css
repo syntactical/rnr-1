@@ -31,11 +31,6 @@ video {
   display: inline-block;
 }
 
-.headerimg{
-    width: 35%;
-    height: auto;
-}
-
 audio:not([controls]) {
   display: none;
   height: 0;

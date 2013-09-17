@@ -1,66 +1,29 @@
 package com.springapp.mvc.web;
 
-import org.junit.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
+import org.jbehave.core.junit.JUnitStories;
+import org.jbehave.core.steps.InjectableStepsFactory;
+import org.jbehave.core.steps.InstanceStepsFactory;
+import org.junit.runner.RunWith;
+import java.util.Arrays;
+import java.util.List;
 
-import java.net.MalformedURLException;
+@RunWith(JUnitReportingRunner.class)
 
-import static com.thoughtworks.selenium.SeleneseTestBase.assertTrue;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+public class HomeControllerTest extends JUnitStories {
 
-public class HomeControllerTest {
-
-    private WebDriver chrome;
-    private String baseUrl;
-
-
-    @Before
-    public void createDriver() throws MalformedURLException {
-        chrome = new ChromeDriver();
-        baseUrl = "http://localhost:8080";
-        chrome.get(baseUrl);
-
+    public HomeControllerTest() {
+        super();
     }
 
-    @After
-    public void quitDriver() {
-        chrome.quit();
+    @Override
+    public InjectableStepsFactory stepsFactory() {
+        return new InstanceStepsFactory(configuration(), new NavigationSteps());
     }
 
-
-
-    @Test
-    public void simple() throws Exception {
-        assertThat(true, is(true));
-    }
-
-    @Test
-    public void shouldFindBanner() throws Exception {
-        WebElement banner = chrome.findElement(By.className("headerimg"));
-        assertTrue(banner!=null);
-
-    }
-    @Test
-    public void shouldCheckTitle() throws Exception {
-        assertThat(chrome.getTitle(), is("RnR at ThoughtWorks"));
-
-    }
-
-    @Test
-    public void shouldFillFormWithDateWhenCalendarClicked() throws Exception {
-       WebElement dateButton = chrome.findElement(By.xpath("/html/body/table[2]/tbody/tr/td[1]/div/button"));
-       dateButton.click();
-       WebElement calendar = chrome.findElement(By.id("datepicker"));
-       calendar.click();
-       WebElement form = chrome.findElement(By.id("date_form"));
-       String date = form.getText();
-       assertTrue(date!=null);
-
+    @Override
+    protected List<String> storyPaths() {
+        return Arrays.asList("HomeController.story");
     }
 
 

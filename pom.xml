@@ -61,11 +61,11 @@
             <artifactId>jbehave-core</artifactId>
             <version>3.8</version>
         </dependency>
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>jbehave-junit-runner</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>de.codecentric</groupId>-->
+            <!--<artifactId>jbehave-junit-runner</artifactId>-->
+            <!--<version>1.0.2-SNAPSHOT</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>

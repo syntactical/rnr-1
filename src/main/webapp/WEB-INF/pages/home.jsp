@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <title>RnR at ThoughtWorks</title>
 <link href="../../scripts/css/bootstrap.css" rel="stylesheet" media="screen">
 <link href="../../scripts/css/datepicker.css" rel="stylesheet" type="text/css"/>
+<link href="../../scripts/css/rnr.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../scripts/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="../../scripts/js/jquery-ui-1.8.18.custom.min.js"></script>
 <script type="text/javascript" src="../../scripts/js/rnr.js"></script>
@@ -11,14 +11,15 @@
 
 
 <body>
+<div id="wrap">
 <script src="../../scripts/js/bootstrap.js"></script>
 
-<table colspan=3>
+<table colspan=3 id="banner">
     <td><p class="text-info"><strong>R<br>n<br>R</strong></p></td>
     <td><p class="text-warning">@</p></td>
     <td><img class="headerimg" src="/images/tw-logo.png" class="img-rounded"/></td>
 </table>
-<h2>USE YOUR VACATION DAYS</h2>
+<%--<h2>USE YOUR VACATION DAYS</h2>--%>
 
 <p class="lead">Please select your <strong>start date.</strong></p>
 
@@ -44,6 +45,6 @@
 
     </table>
 
-
+</div>
 </body>
 </html>
