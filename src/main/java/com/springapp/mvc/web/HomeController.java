@@ -24,7 +24,7 @@ public class HomeController {
 
     @RequestMapping(value = "/vacationDays", method = RequestMethod.POST)
     public ModelAndView postDate(HttpServletRequest request) throws IOException {
-        TDate startDate = new TDate().setDate(request.getParameter("user"));
+        TDate startDate = new TDate(request.getParameter("user"));
         Calculator calc = new Calculator();
         Double vacationDays = calc.getVacationDaysBasedOnMonth(startDate);
         return showSuccess(startDate, vacationDays);

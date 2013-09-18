@@ -2,7 +2,6 @@ package model;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 
@@ -34,46 +33,18 @@ public class Calculator {
         return numberOfDaysInAMonth;
     }
 
-    public Double getVacationDaysBasedOnMonth(TDate startDate) {
-        Calendar cal = getCurrentDate();
-        int month = cal.get(Calendar.MONTH) + 1;
-        if (cal.get(Calendar.YEAR) < startDate.getYear()) return NO_VACATION_DAYS;
-        else if (cal.get(Calendar.YEAR) == startDate.getYear()) {
-            return getDaysIfStartedInSameYear(startDate, month);
-        } else {
-            return getDaysIfStartedInADifferentYear(startDate, month);
-
-        }
-    }
-
-    private Double getDaysIfStartedInSameYear(TDate startDate, int month) {
-        if (startDate.getMonth() > month) return NO_VACATION_DAYS;
-
-        int timeDifference = month - startDate.getMonth();
-
-        Double numberOfVacationDays = (MONTHLY_ACCRUAL_RATE * timeDifference);
-
-        return roundedNumber(numberOfVacationDays);
-    }
-
-    private Double getDaysIfStartedInADifferentYear(TDate startDate, int month) {
-        int pastMonths = 11 - startDate.getMonth() + month;
-        Double numberOfVacationDays = (MONTHLY_ACCRUAL_RATE * pastMonths);
-        return roundedNumber(numberOfVacationDays);
-    }
-
     public Double getVacationBasedOnDays(TDate startDate) {
-        Calendar cal = getCurrentDate();
-        String date = (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DAY_OF_MONTH) + "/" + cal.get(Calendar.YEAR);
-        TDate currentDate = new TDate().setDate(date);
+        Calendar calendar = getCurrentDate();
+        String date = (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.YEAR);
+        TDate currentDate = new TDate(date);
         return roundedNumber(DAILY_ACCRUAL_RATE * daysBetween(startDate, currentDate));
     }
 
     private Calendar getCurrentDate() {
         Date date = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        return cal;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar;
     }
 
     private Double roundedNumber(Double unrounded) {

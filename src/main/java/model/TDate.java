@@ -7,10 +7,10 @@ public class TDate {
     private String date;
     private String[] parsedDate;
 
-    public TDate setDate(String date) {
+    public TDate(String date)
+    {
         this.date = date;
         parsedDate = parseDate(date);
-        return this;
     }
 
     public String getDate() {
