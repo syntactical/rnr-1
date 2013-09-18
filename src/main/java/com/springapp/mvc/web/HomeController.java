@@ -26,7 +26,7 @@ public class HomeController {
     public ModelAndView postDate(HttpServletRequest request) throws IOException {
         TDate startDate = new TDate(request.getParameter("user"));
         Calculator calc = new Calculator();
-        Double vacationDays = calc.getVacationDaysBasedOnMonth(startDate);
+        Double vacationDays = calc.getVacationBasedOnDays(startDate);
         return showSuccess(startDate, vacationDays);
     }
 

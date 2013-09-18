@@ -16,28 +16,19 @@ public class TDateTest {
 
     @Test
     public void shouldGetMonth() throws Exception {
-        TDate start = new TDate().setDate("1/3/2103");
+        TDate start = new TDate("1/3/2103");
         assertThat(start.getMonth(), is(1));
-        start.setDate("10/4/2011");
-        assertThat(start.getMonth(), is(10));
-
     }
 
     @Test
     public void shouldGetDay() throws Exception {
-        TDate start = new TDate().setDate("2/4/2000");
+        TDate start = new TDate("2/4/2000");
         assertThat(start.getDay(), is(4));
-        start.setDate("7/11/2011");
-        assertThat(start.getDay(), is(11));
     }
 
     @Test
     public void shouldGetYear() throws Exception {
-        TDate start = new TDate().setDate("2/4/2000");
+        TDate start = new TDate("2/4/2000");
         assertThat(start.getYear(), is(2000));
-        start.setDate("7/11/2011");
-        assertThat(start.getYear(), is(2011));
-
-
     }
 }
