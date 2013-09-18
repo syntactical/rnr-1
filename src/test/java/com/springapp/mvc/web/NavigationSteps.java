@@ -1,6 +1,5 @@
 package com.springapp.mvc.web;
 
-import com.thoughtworks.selenium.SeleneseTestBase;
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -8,11 +7,8 @@ import org.jbehave.core.annotations.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class NavigationSteps {
@@ -36,13 +32,13 @@ public class NavigationSteps {
         assertTrue(banner.isDisplayed());
     }
 
-    @Given("a user is using the chrome browser")
-    public void aChromeBrowser() {
-        driver = new ChromeDriver();
-        String baseUrl = "http://localhost:8080";
-        driver.get(baseUrl);
-
-    }
+//    @Given("a user is using the chrome browser")
+//    public void aChromeBrowser() {
+//        driver = new ChromeDriver();
+//        String baseUrl = "http://localhost:8080";
+//        driver.get(baseUrl);
+//
+//    }
 
     @When("the user clicks selects a date")
     public void userSelectsDate() {
