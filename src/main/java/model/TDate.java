@@ -2,30 +2,20 @@ package model;
 
 import java.util.Scanner;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Thoughtworker
- * Date: 9/11/13
- * Time: 11:17 AM
- * To change this template use File | Settings | File Templates.
- */
 public class TDate {
 
     private String date;
     private String[] parsedDate;
 
-
-    public TDate setDate(String date) {
+    public TDate(String date)
+    {
         this.date = date;
         parsedDate = parseDate(date);
-        return this;
     }
 
     public String getDate() {
         return date;
     }
-
-
 
     public Integer getMonth() {
         String month = parsedDate[0];
@@ -42,7 +32,6 @@ public class TDate {
         String year = parsedDate[2];
         return Integer.parseInt(year);
     }
-
 
     private String[] parseDate(String date) {
         Scanner sc = new Scanner(date);

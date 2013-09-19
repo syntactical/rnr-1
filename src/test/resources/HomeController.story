@@ -1,13 +1,12 @@
 
 Scenario: Fill in Date in Submit Box
 
-Given a user is using the chrome browser
+Given a user is using the browser Firefox
 When the user clicks selects a date
 Then the form box should contain a date
-Then close browser
 
-Scenario: View banner in Chrome
+Scenario: View banner in Firefox
 
-Given a user is using the chrome Browser
+Given a user is using the browser Firefox
 When the user goes to rnr.thoughtworks.com
 Then a banner should be visible
