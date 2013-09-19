@@ -1,19 +1,18 @@
 package model;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 
 
 public class Calculator {
+    private final TDate currentDate;
     private HashMap<Integer, Integer> daysInMonth;
-    private Double MONTHLY_ACCRUAL_RATE = 5 / 6d;
-    private Double DAILY_ACCRUAL_RATE = (5 / 180d);
+    private Double DAILY_ACCRUAL_RATE = (10 / 365d);
     private Double NO_VACATION_DAYS = 0d;
 
 
-    public Calculator() {
+    public Calculator(TDate currentDate) {
         daysInMonth = createMap();
+        this.currentDate = currentDate;
     }
 
     private HashMap<Integer, Integer> createMap() {
@@ -34,41 +33,33 @@ public class Calculator {
     }
 
     public Double getVacationBasedOnDays(TDate startDate) {
-        Calendar calendar = getCurrentDate();
-        String date = (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.YEAR);
-        TDate currentDate = new TDate(date);
         return roundedNumber(DAILY_ACCRUAL_RATE * daysBetween(startDate, currentDate));
-    }
-
-    private Calendar getCurrentDate() {
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar;
     }
 
     private Double roundedNumber(Double unrounded) {
         return (double) (Math.round(unrounded * 100)) / 100;
     }
 
-
     public Integer daysBetween(TDate startDate, TDate currentDate) {
-        int currentDays = getDays(currentDate);
+        int currentDays = getDaysPassedThisYear(currentDate);
         if (!startDate.getYear().equals(currentDate.getYear())){
-            int startDays = getDays(startDate);
-            int difference = 365 - startDays;
+            int yearsDifference = currentDate.getYear() - startDate.getYear();
+            int startDays = getDaysPassedThisYear(startDate);
+            int difference = 365 * yearsDifference - startDays;
             return currentDays + difference;
         }
         if (startDate.getMonth() == currentDate.getMonth()) return currentDate.getDay() - startDate.getDay();
 
-        int startDays = getDays(startDate);
+        int startDays = getDaysPassedThisYear(startDate);
         return currentDays - startDays;
 
     }
 
-    private int getDays(TDate date) {
+    private int getDaysPassedThisYear(TDate date) {
         int days = 0;
-        for (Integer month = 1; month <= date.getMonth(); month++) days += daysInMonth.get(month);
+        for (Integer month = 1; month <= date.getMonth(); month++) {
+            days += daysInMonth.get(month);
+        }
         int differenceOfDays = daysInMonth.get(date.getMonth()) - date.getDay();
         return days - differenceOfDays;
     }
