@@ -10,9 +10,9 @@ import java.util.List;
 
 @RunWith(JUnitReportingRunner.class)
 
-public class HomeControllerTest extends JUnitStories {
+public class HomepageFunctionalityTest extends JUnitStories {
 
-    public HomeControllerTest() {
+    public HomepageFunctionalityTest() {
         super();
     }
 
@@ -23,7 +23,7 @@ public class HomeControllerTest extends JUnitStories {
 
     @Override
     protected List<String> storyPaths() {
-        return Arrays.asList("HomeController.story");
+        return Arrays.asList("Banner.story", "StartDate.story");
     }
 
 
