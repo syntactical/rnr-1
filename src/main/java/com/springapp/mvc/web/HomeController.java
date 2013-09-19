@@ -1,7 +1,7 @@
 package com.springapp.mvc.web;
 
 import model.Calculator;
-import model.TWDate;
+import model.TDate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -24,13 +24,13 @@ public class HomeController {
 
     @RequestMapping(value = "/vacationDays", method = RequestMethod.POST)
     public ModelAndView postDate(HttpServletRequest request) throws IOException {
-        TWDate startDate = new TWDate().setDate(request.getParameter("user"));
-        Calculator calc = new Calculator();
-        Double vacationDays = calc.getVacationDaysBasedOnMonth(startDate);
+        TDate startDate = new TDate(request.getParameter("user"));
+        Calculator calc = new Calculator(startDate);
+        Double vacationDays = calc.getVacationBasedOnDays(startDate);
         return showSuccess(startDate, vacationDays);
     }
 
-    private ModelAndView showSuccess(TWDate date, Double vacationDays) {
+    private ModelAndView showSuccess(TDate date, Double vacationDays) {
         ModelMap model = new ModelMap();
         model.put("date", date.getDate());
         model.put("days", vacationDays);
