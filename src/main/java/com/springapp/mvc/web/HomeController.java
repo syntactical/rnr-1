@@ -2,6 +2,7 @@ package com.springapp.mvc.web;
 
 import model.Calculator;
 import model.TDate;
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -16,7 +17,6 @@ import java.io.IOException;
 @RequestMapping("/")
 public class HomeController {
 
-
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getDate(Model model) {
         return new ModelAndView("home", "command", model);
@@ -24,17 +24,17 @@ public class HomeController {
 
     @RequestMapping(value = "/vacationDays", method = RequestMethod.POST)
     public ModelAndView postDate(HttpServletRequest request) throws IOException {
-        TDate startDate = new TDate(request.getParameter("user"));
+        String dateAsString = request.getParameter("user");
         Calculator calc = new Calculator();
-        Double vacationDays = calc.calculateVacationDays(startDate, new TDate("9/19/2013"));
-        return showSuccess(startDate, vacationDays);
+        DateTime startDate = calc.convertStringToDateTime(dateAsString);
+        Double vacationDays = calc.calculateVacationDays(startDate, new DateTime());
+        return showSuccess(dateAsString, vacationDays);
     }
 
-    private ModelAndView showSuccess(TDate date, Double vacationDays) {
+    private ModelAndView showSuccess(String startDate, Double vacationDays) {
         ModelMap model = new ModelMap();
-        model.put("date", date.getDate());
+        model.put("date", startDate);
         model.put("days", vacationDays);
         return new ModelAndView("vacay", "postedValues", model);
     }
 }
-
