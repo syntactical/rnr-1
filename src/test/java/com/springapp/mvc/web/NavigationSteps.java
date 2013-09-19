@@ -30,8 +30,6 @@ public class NavigationSteps {
 
     @When("I select a date")
     public void iSelectDate() {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("date_selector")));
         WebElement dateButton = driver.findElement(By.id("date_selector"));
         dateButton.click();
         WebElement calendar = driver.findElement(By.id("datepicker"));
