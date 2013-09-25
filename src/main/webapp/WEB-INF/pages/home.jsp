@@ -22,8 +22,7 @@
 <%--<h2>USE YOUR VACATION DAYS</h2>--%>
 
 <p id="vacationDays" class="lead">Hey, your balance is 0.00</p>
-
-<p id="lead" class="lead">Please select your <strong>start date.</strong></p>
+<p class="lead">Please select your <strong>start date.</strong></p>
 
     <table colspan=2>
         <td>
@@ -44,7 +43,6 @@
                 <input type="submit" value="Submit">
             </form>
         </td>
-
     </table>
 
 </div>
