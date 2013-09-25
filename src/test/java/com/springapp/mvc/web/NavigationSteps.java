@@ -12,7 +12,7 @@ public class NavigationSteps {
 
     private WebDriver driver;
 
-    @Given("I am a user")
+    @Given("I am a Thoughtworker")
     public void iAmAUser() {
     }
 
@@ -45,6 +45,13 @@ public class NavigationSteps {
         WebElement form = driver.findElement(By.id("date_form"));
         String date = form.getText();
         assertTrue(date!=null);
+    }
+
+    @Then("my vacation days are displayed")
+    public void vacationDaysShouldBeInForm(){
+        WebElement form = driver.findElement(By.id("vacationDays"));
+        String vacationDays = form.getText();
+        assertTrue(vacationDays.equals("Hey, your balance is 0.00"));
     }
 
     @BeforeScenario
