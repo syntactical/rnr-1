@@ -30,8 +30,12 @@ public class NavigationSteps {
     public void iSelectDate() {
         WebElement dateButton = driver.findElement(By.id("date_selector"));
         dateButton.click();
-        WebElement calendar = driver.findElement(By.id("datepicker"));
-        calendar.click();
+        WebElement month = driver.findElement(By.id("monthdropdown"));
+        WebElement day = driver.findElement(By.id("daydropdown"));
+        WebElement year = driver.findElement(By.id("yeardropdown"));
+        month.click();
+        day.click();
+        year.click();
     }
 
     @Then("a banner should be visible")
@@ -44,11 +48,11 @@ public class NavigationSteps {
     public void dateShouldBeInForm() {
         WebElement form = driver.findElement(By.id("date_form"));
         String date = form.getText();
-        assertTrue(date!=null);
+        assertTrue(date != null);
     }
 
     @Then("my vacation days are displayed")
-    public void vacationDaysShouldBeInForm(){
+    public void vacationDaysShouldBeInForm() {
         WebElement form = driver.findElement(By.id("vacationDays"));
         String vacationDays = form.getText();
         assertTrue(vacationDays.equals("Hey, your balance is 0.00"));
@@ -60,7 +64,7 @@ public class NavigationSteps {
     }
 
     @AfterScenario
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
 }

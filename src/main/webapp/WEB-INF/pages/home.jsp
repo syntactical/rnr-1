@@ -12,37 +12,39 @@
 
 <body>
 <div id="wrap">
-<script src="../../scripts/js/bootstrap.js"></script>
+    <script src="../../scripts/js/bootstrap.js"></script>
 
-<table colspan=3 id="banner">
-    <td><p class="text-info"><strong>R<br>n<br>R</strong></p></td>
-    <td><p class="text-warning">@</p></td>
-    <td><img class="headerimg" src="/images/tw-logo.png" class="img-rounded"/></td>
-</table>
-<%--<h2>USE YOUR VACATION DAYS</h2>--%>
+    <table colspan=3 id="banner">
+        <td><p class="text-info"><strong>R<br>n<br>R</strong></p></td>
+        <td><p class="text-warning">@</p></td>
+        <td><img class="headerimg" src="/images/tw-logo.png" class="img-rounded"/></td>
+    </table>
 
-<p id="vacationDays" class="lead">Hey, your balance is 0.00</p>
-<p class="lead">Please select your <strong>start date.</strong></p>
+    <p id="vacationDays" class="lead">Hey, your balance is 0.00</p>
+
+    <p class="lead">Please select your <strong>start date.</strong> Or you can manually enter the date in the format
+        mm/dd/yyyy</p>
+
 
     <table colspan=2>
         <td>
-            <div class="btn-group">
-                <button id="date_selector" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                    Select Date <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <div id="datepicker">
-                    </div>
-                </ul>
-            </div>
+            <form action="" name="dateform" id="date_selector">
+                <select id="monthdropdown">
+                </select>
+                <select id="daydropdown">
+                </select>
+                <select id="yeardropdown">
+                </select>
+            </form>
         </td>
 
         <td>
             <form name="startDate" action="/vacationDays" method="POST">
-                Start Date: <input id="date_form" type="text" name="user">
+                <input id="date_form" type="text" name="user">
                 <input type="submit" value="Submit">
             </form>
         </td>
+
     </table>
 
 </div>
