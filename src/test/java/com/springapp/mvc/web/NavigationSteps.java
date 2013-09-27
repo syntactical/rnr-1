@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import static org.hamcrest.Matchers.containsString;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class NavigationSteps {
@@ -28,14 +30,32 @@ public class NavigationSteps {
 
     @When("I select a date")
     public void iSelectDate() {
-        WebElement dateButton = driver.findElement(By.id("date_selector"));
-        dateButton.click();
+//        WebElement dateButton = driver.findElement(By.id("date_selector"));
+//        dateButton.click();
         WebElement month = driver.findElement(By.id("monthdropdown"));
         WebElement day = driver.findElement(By.id("daydropdown"));
         WebElement year = driver.findElement(By.id("yeardropdown"));
         month.click();
         day.click();
         year.click();
+    }
+
+    @When("I enter my start date prior to the current calendar year")
+    public void iEnterStartDatePriorToCalendarYear() {
+        WebElement startDateField = driver.findElement(By.id("startdate_field"));
+        startDateField.sendKeys("01/01/1999");
+    }
+
+    @When("I enter my rollover days")
+    public void iEnterMyRolloverDays() {
+        WebElement rolloverDaysField = driver.findElement(By.id("rolloverdays_field"));
+        rolloverDaysField.sendKeys("1");
+    }
+
+    @When("I click submit")
+    public void iClickSubmit() {
+        WebElement submitButton = driver.findElement(By.id("submit_button"));
+        submitButton.click();
     }
 
     @Then("a banner should be visible")
@@ -46,7 +66,7 @@ public class NavigationSteps {
 
     @Then("the form box should contain a date")
     public void dateShouldBeInForm() {
-        WebElement form = driver.findElement(By.id("date_form"));
+        WebElement form = driver.findElement(By.id("startdate_field"));
         String date = form.getText();
         assertTrue(date != null);
     }
@@ -55,7 +75,7 @@ public class NavigationSteps {
     public void vacationDaysShouldBeInForm() {
         WebElement form = driver.findElement(By.id("vacationDays"));
         String vacationDays = form.getText();
-        assertTrue(vacationDays.equals("Hey, your balance is 0.00"));
+        assertThat(vacationDays, containsString("Hey, your balance is"));
     }
 
     @BeforeScenario

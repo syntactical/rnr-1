@@ -26,8 +26,8 @@
         mm/dd/yyyy</p>
 
 
-    <table colspan=2>
-        <td>
+    <table>
+        <tr>
             <form action="" name="dateform" id="date_selector">
                 <select id="monthdropdown">
                 </select>
@@ -36,15 +36,18 @@
                 <select id="yeardropdown">
                 </select>
             </form>
-        </td>
-
-        <td>
+        </tr>
+        <tr>
             <form name="startDate" action="/vacationDays" method="POST">
-                <input id="date_form" type="text" name="user">
-                <input type="submit" value="Submit">
-            </form>
-        </td>
+                <input id="startdate_field" type="text" name="user">
 
+                <p>
+                    Rollover Days (as of January 1st)
+                    <input id="rolloverdays_field" type="text" name="rolloverdays">
+                </p>
+                <input type="submit" value="Submit" id="submit_button">
+            </form>
+        </tr>
     </table>
 
 </div>

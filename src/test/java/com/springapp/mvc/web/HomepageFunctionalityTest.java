@@ -5,6 +5,7 @@ import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.junit.runner.RunWith;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class HomepageFunctionalityTest extends JUnitStories {
 
     @Override
     protected List<String> storyPaths() {
-        return Arrays.asList("Banner.story", "StartDate.story", "ShowVacationDays.story");
+        return Arrays.asList("Banner.story", "StartDate.story", "ShowVacationDays.story", "RolloverVacationDays.story");
     }
 
 
