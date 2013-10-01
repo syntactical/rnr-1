@@ -18,7 +18,7 @@
     <br>
     <%--<p>You started at ThoughtWorks on ${postedValues.date} so you have ${postedValues.months} vacation days based on a monthly accrual</p>--%>
     <%--<p>You started at ThoughtWorks on ${postedValues.date} so you have ${postedValues.days} vacation days based on a daily accrual</p>--%>
-    <p id="vacationDays">Hey, your balance is ${postedValues.days}</p>
+    <p id="vacationDays">Hey, your balance is ${postedValues.days} days</p>
 </div>
 </body>
 </html>

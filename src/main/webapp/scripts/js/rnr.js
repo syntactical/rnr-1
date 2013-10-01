@@ -5,7 +5,7 @@ $(function () {
         var year = ($('#yeardropdown').val());
         $('#startdate_field').val(month + "/" + day + "/" + year);
     })
-})
+});
 
 $(function loadDays() {
     var selection = document.getElementById('daydropdown');

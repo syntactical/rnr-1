@@ -20,31 +20,29 @@
         <td><img class="headerimg" src="/images/tw-logo.png" class="img-rounded"/></td>
     </table>
 
-    <p id="vacationDays" class="lead">Hey, your balance is 0.00</p>
+    <p id="vacationDays" class="lead">Hey, your balance is 0.00 enter any rollover days from the previous year.</p>
 
-    <p class="lead">Please select your <strong>start date.</strong> Or you can manually enter the date in the format
-        mm/dd/yyyy</p>
+    <%--<p class="lead">Please select your <strong>start date.</strong> Or you can manually enter the date in the format--%>
+        <%--mm/dd/yyyy</p>--%>
 
 
     <table>
-        <tr>
-            <form action="" name="dateform" id="date_selector">
-                <select id="monthdropdown">
-                </select>
-                <select id="daydropdown">
-                </select>
-                <select id="yeardropdown">
-                </select>
-            </form>
-        </tr>
+        <%--<tr>--%>
+            <%--<form action="" name="dateform" id="date_selector">--%>
+                <%--<select id="monthdropdown">--%>
+                <%--</select>--%>
+                <%--<select id="daydropdown">--%>
+                <%--</select>--%>
+                <%--<select id="yeardropdown">--%>
+                <%--</select>--%>
+            <%--</form>--%>
+        <%--</tr>--%>
         <tr>
             <form name="startDate" action="/vacationDays" method="POST">
-                <input id="startdate_field" type="text" name="user">
+                <input id="startdate_field" type="text" name="user"><br>
 
-                <p>
-                    Rollover Days (as of January 1st)
-                    <input id="rolloverdays_field" type="text" name="rolloverdays">
-                </p>
+                Rollover Days (as of January 1st)<input id="rolloverdays_field" type="text" name="rolloverdays"><br>
+
                 <input type="submit" value="Submit" id="submit_button">
             </form>
         </tr>

@@ -34,7 +34,7 @@ public class HomeControllerTest {
 
         homeController.postDate(mockHttpServletRequest);
 
-        verify(mockCalculatorService, times(1)).calculateVacationDays(anyDouble(), anyDouble());
+        verify(mockCalculatorService, times(1)).calculateVacationDays(anyDouble());
     }
 
 }
