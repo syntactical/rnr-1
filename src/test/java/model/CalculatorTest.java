@@ -66,4 +66,12 @@ public class CalculatorTest {
         assertThat(calculator.calculateVacationDays(startDate, currentDate),
                 is(roundedNumber((5 * 365 - 16) * 10 / 365d)));
     }
+
+    @Test
+    public void shouldConvertStringToDateTime() throws Exception {
+        DateTime expectedDate = new DateTime(2011, 11, 8, 0, 0);
+        String date = "11/8/2011";
+        assertThat(calculator.convertStringToDateTime(date), is(expectedDate));
+
+    }
 }

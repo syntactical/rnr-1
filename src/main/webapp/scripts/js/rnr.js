@@ -1,5 +1,6 @@
 $(function () {
-    $('#date_selector').click(function () {
+
+    $('.date').click(function () {
         var month = ($('#monthdropdown').val() < 10 ? '0' : '') + ($('#monthdropdown').val());
         var day = ($('#daydropdown').val() < 10 ? '0' : '') + $('#daydropdown').val();
         var year = ($('#yeardropdown').val());

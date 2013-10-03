@@ -18,8 +18,16 @@ public class CalculatorService {
         this.calculator = calculator;
     }
 
-    public double calculateVacationDays(double rolloverDays) {
-        double accruedDays = calculateAccruedDaysFromJanuaryFirstOfThisYear();
+    public double calculateVacationDays(double rolloverDays, String date) {
+        System.out.println(date);
+        DateTime startDate = calculator.convertStringToDateTime(date);
+        double accruedDays = 0d;
+
+        if(startDate.getYear()==DateTime.now().getYear()){
+            accruedDays = calculator.calculateVacationDays(startDate, DateTime.now());
+        }else{
+           accruedDays = calculateAccruedDaysFromJanuaryFirstOfThisYear();
+        }
         return this.rolloverCalculator.calculateVacationDays(rolloverDays, accruedDays);
     }
 

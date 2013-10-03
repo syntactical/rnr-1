@@ -27,19 +27,16 @@
 
 
     <table>
-        <%--<tr>--%>
-            <%--<form action="" name="dateform" id="date_selector">--%>
-                <%--<select id="monthdropdown">--%>
-                <%--</select>--%>
-                <%--<select id="daydropdown">--%>
-                <%--</select>--%>
-                <%--<select id="yeardropdown">--%>
-                <%--</select>--%>
-            <%--</form>--%>
-        <%--</tr>--%>
         <tr>
-            <form name="startDate" action="/vacationDays" method="POST">
-                <input id="startdate_field" type="text" name="user"><br>
+            <form name="startDate" action="/vacationDays" method="POST" id="date_selector">
+                <select id="monthdropdown" class="date">
+                </select>
+                <select id="daydropdown" class="date">
+                </select>
+                <select id="yeardropdown" class="date">
+                </select>
+
+                <input id="startdate_field" type="text" name="startdate"><br>
 
                 Rollover Days (as of January 1st)<input id="rolloverdays_field" type="text" name="rolloverdays"><br>
 

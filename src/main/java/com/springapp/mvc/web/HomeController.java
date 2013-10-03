@@ -34,9 +34,11 @@ public class HomeController {
 
     @RequestMapping(value = "/vacationDays", method = RequestMethod.POST)
     public ModelAndView postDate(HttpServletRequest request) throws IOException {
-        double rolloverDays = Double.parseDouble(request.getParameter("rolloverdays"));
-        String dateAsString = request.getParameter("user");
-        double vacationDays = calculatorService.calculateVacationDays(rolloverDays);
+        double rolloverDays = 0d;
+        String rollover = request.getParameter("rolloverdays") ;
+        if(!rollover.isEmpty()) rolloverDays = Double.parseDouble(rollover);
+        String dateAsString = request.getParameter("startdate");
+        double vacationDays = calculatorService.calculateVacationDays(rolloverDays, dateAsString);
         return showSuccess(vacationDays);
     }
 
