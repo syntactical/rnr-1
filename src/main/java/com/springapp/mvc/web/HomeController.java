@@ -1,9 +1,6 @@
 package com.springapp.mvc.web;
 
-import model.Calculator;
-import org.joda.time.DateTime;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,10 +36,10 @@ public class HomeController {
         if(!rollover.isEmpty()) rolloverDays = Double.parseDouble(rollover);
         String dateAsString = request.getParameter("startdate");
         double vacationDays = calculatorService.calculateVacationDays(rolloverDays, dateAsString);
-        return showSuccess(vacationDays);
+        return showVacationDays(vacationDays);
     }
 
-    private ModelAndView showSuccess(Double vacationDays) {
+    private ModelAndView showVacationDays(Double vacationDays) {
         ModelMap model = new ModelMap();
         model.put("days", vacationDays);
         return new ModelAndView("vacay", "postedValues", model);

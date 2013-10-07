@@ -19,7 +19,6 @@ public class CalculatorService {
     }
 
     public double calculateVacationDays(double rolloverDays, String date) {
-        System.out.println(date);
         DateTime startDate = calculator.convertStringToDateTime(date);
         double accruedDays = 0d;
 
@@ -28,7 +27,8 @@ public class CalculatorService {
         }else{
            accruedDays = calculator.calculateAccruedDaysFromJanuaryFirstOfThisYear(startDate, DateTime.now());
         }
-        return this.rolloverCalculator.calculateVacationDays(rolloverDays, accruedDays);
+        Double cap = rolloverCalculator.calculateCap(startDate, DateTime.now());
+        return Math.min(this.rolloverCalculator.calculateVacationDays(rolloverDays, accruedDays), cap);
     }
 
 }
