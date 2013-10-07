@@ -74,4 +74,34 @@ public class CalculatorTest {
         assertThat(calculator.convertStringToDateTime(date), is(expectedDate));
 
     }
+
+    @Test
+    public void shouldReturnAccrualOfTenDays() throws Exception {
+        DateTime startDate = new DateTime(2012, 11, 8, 0, 0);
+        Double rate = calculator.getDailyAccrualRate(startDate, currentDate);
+        assertThat(rate, is(10/365d));
+    }
+
+    @Test
+    public void shouldReturnAccrualOfFifteenDays() throws Exception {
+        DateTime startDate = new DateTime(2011, 11, 8, 0, 0);
+        Double rate = calculator.getDailyAccrualRate(startDate, currentDate);
+        assertThat(rate, is(15/365d));
+    }
+
+    @Test
+    public void shouldReturnAccrualOfTwentyDays() throws Exception {
+        DateTime startDate = new DateTime(2009, 11, 8, 0, 0);
+        Double rate = calculator.getDailyAccrualRate(startDate, currentDate);
+        assertThat(rate, is(20/365d));
+    }
+
+    @Test
+    public void shouldReturnAccrualOfTwentyFiveDays() throws Exception {
+        DateTime startDate = new DateTime(2006, 11, 8, 0, 0);
+        Double rate = calculator.getDailyAccrualRate(startDate, currentDate);
+        assertThat(rate, is(25/365d));
+    }
+
+
 }

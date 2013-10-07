@@ -26,14 +26,9 @@ public class CalculatorService {
         if(startDate.getYear()==DateTime.now().getYear()){
             accruedDays = calculator.calculateVacationDays(startDate, DateTime.now());
         }else{
-           accruedDays = calculateAccruedDaysFromJanuaryFirstOfThisYear();
+           accruedDays = calculator.calculateAccruedDaysFromJanuaryFirstOfThisYear(startDate, DateTime.now());
         }
         return this.rolloverCalculator.calculateVacationDays(rolloverDays, accruedDays);
     }
 
-    private double calculateAccruedDaysFromJanuaryFirstOfThisYear(){
-        DateTime current = DateTime.now();
-        DateTime firstOfYear = new DateTime(current.getYear(), 1, 1,0,0);
-        return calculator.calculateVacationDays(firstOfYear, current);
-    }
 }
