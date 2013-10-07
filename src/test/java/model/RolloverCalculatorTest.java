@@ -37,7 +37,7 @@ public class RolloverCalculatorTest {
 
     @Test
     public void shouldCapVacationAt22AndOneHalfDays() throws Exception {
-        DateTime startDate = new DateTime(2012, 9, 11, 0, 0);
+        DateTime startDate = new DateTime(2011, 9, 11, 0, 0);
         double totalVacationDays = rolloverCalculator.calculateCap(startDate, currentDate);
         assertThat(totalVacationDays, is(22.5d));
     }

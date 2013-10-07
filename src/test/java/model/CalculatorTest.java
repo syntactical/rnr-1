@@ -53,19 +53,7 @@ public class CalculatorTest {
         assertThat(calculator.calculateVacationDays(startDate, currentDate), is(roundedNumber(365 * 10 / 365d)));
     }
 
-    @Test
-    public void shouldCalculateVacationDaysForFiveYearDifference() throws Exception {
-        startDate = new DateTime(2008, 9, 17, 0, 0);
-        assertThat(calculator.calculateVacationDays(startDate, currentDate),
-                is(roundedNumber((5 * 365 + 1) * 10 / 365d)));
-    }
 
-    @Test
-    public void shouldCalculateVacationDaysOverlappingYearsWithDifferentMonths() throws Exception {
-        startDate = new DateTime(2008, 10, 4, 0, 0);
-        assertThat(calculator.calculateVacationDays(startDate, currentDate),
-                is(roundedNumber((5 * 365 - 16) * 10 / 365d)));
-    }
 
     @Test
     public void shouldConvertStringToDateTime() throws Exception {

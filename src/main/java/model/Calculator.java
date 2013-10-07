@@ -31,9 +31,9 @@ public class Calculator {
     public Double getDailyAccrualRate(DateTime startDate, DateTime currentDate) {
         int daysAtThoughtWorks = daysBetween(startDate.toLocalDate(), currentDate.toLocalDate()).getDays();
         double years = daysAtThoughtWorks / 365d;
-        if (years < 1) return DAILY_ACCRUAL_RATE_FOR_FIRST_YEAR;
-        if (years >= 1 && years < 3) return DAILY_ACCRUAL_RATE_FOR_LESS_THAN_THREE_YEARS;
-        if (years >= 3 && years < 6) return DAILY_ACCRUAL_RATE_FOR_LESS_THAN_SIX_YEARS;
+        if (years <= 1) return DAILY_ACCRUAL_RATE_FOR_FIRST_YEAR;
+        if (years > 1 && years <= 3) return DAILY_ACCRUAL_RATE_FOR_LESS_THAN_THREE_YEARS;
+        if (years > 3 && years <= 6) return DAILY_ACCRUAL_RATE_FOR_LESS_THAN_SIX_YEARS;
         return DAILY_ACCRUAL_RATE_FOR_SIX_YEARS_OR_MORE;
     }
 
