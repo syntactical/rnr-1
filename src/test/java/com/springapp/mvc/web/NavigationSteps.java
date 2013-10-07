@@ -30,8 +30,6 @@ public class NavigationSteps {
 
     @When("I select a date")
     public void iSelectDate() {
-//        WebElement dateButton = driver.findElement(By.id("date_selector"));
-//        dateButton.click();
         WebElement month = driver.findElement(By.id("monthdropdown"));
         WebElement day = driver.findElement(By.id("daydropdown"));
         WebElement year = driver.findElement(By.id("yeardropdown"));
@@ -39,6 +37,7 @@ public class NavigationSteps {
         day.click();
         year.click();
     }
+
 
     @When("I enter my start date prior to the current calendar year")
     public void iEnterStartDatePriorToCalendarYear() {
@@ -63,6 +62,8 @@ public class NavigationSteps {
         WebElement banner = driver.findElement(By.className("headerimg"));
         assertTrue(banner.isDisplayed());
     }
+
+
 
     @Then("the form box should contain a date")
     public void dateShouldBeInForm() {

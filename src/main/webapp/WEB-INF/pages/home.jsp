@@ -22,9 +22,6 @@
 
     <p id="vacationDays" class="lead">Hey, your balance is 0.00 enter any rollover days from the previous year.</p>
 
-    <%--<p class="lead">Please select your <strong>start date.</strong> Or you can manually enter the date in the format--%>
-        <%--mm/dd/yyyy</p>--%>
-
 
     <table>
         <tr>

@@ -13,6 +13,9 @@ Things you might want to install
 
 Getting stuff to work on Mac OS X (Lion)
 
+BEFORE OPENING PROJECT IN INTELLIJ
+Run Maven compiler: compile in the directory where your pom xml file is located. (mvn compiler:compile)
+
 To run the RnR on localhost:8080
 	open Run -> Edit Configurations -> Server tab
 		Plus sign (top left corner)
