@@ -3,19 +3,14 @@ package com.springapp.mvc.web.model;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Component;
 
+import static com.springapp.mvc.web.model.AccrualRate.*;
 import static org.joda.time.Days.daysBetween;
 
 @Component
 public class Calculator {
 
-    private static final Double DAILY_ACCRUAL_RATE_FOR_FIRST_YEAR = (10 / 365d);
-    private static final Double DAILY_ACCRUAL_RATE_FOR_LESS_THAN_THREE_YEARS = (15 / 365d);
-    private static final Double DAILY_ACCRUAL_RATE_FOR_LESS_THAN_SIX_YEARS = (20 / 365d);
-    private static final Double DAILY_ACCRUAL_RATE_FOR_SIX_YEARS_OR_MORE = (25 / 365d);
-
-
     public Double calculateVacationDays(DateTime startDate, DateTime currentDate) {
-        double accrualRate = getDailyAccrualRate(startDate,currentDate);
+        double accrualRate = getDailyAccrualRate(startDate, currentDate);
         return roundNumber(accrualRate *
                 daysBetween(startDate.toLocalDate(), currentDate.toLocalDate()).getDays());
     }
@@ -33,16 +28,16 @@ public class Calculator {
     public Double getDailyAccrualRate(DateTime startDate, DateTime currentDate) {
         int daysAtThoughtWorks = daysBetween(startDate.toLocalDate(), currentDate.toLocalDate()).getDays();
         double years = daysAtThoughtWorks / 365d;
-        if (years <= 1) return DAILY_ACCRUAL_RATE_FOR_FIRST_YEAR;
-        if (years > 1 && years <= 3) return DAILY_ACCRUAL_RATE_FOR_LESS_THAN_THREE_YEARS;
-        if (years > 3 && years <= 6) return DAILY_ACCRUAL_RATE_FOR_LESS_THAN_SIX_YEARS;
-        return DAILY_ACCRUAL_RATE_FOR_SIX_YEARS_OR_MORE;
+        if (years <= 1) return FIRST_YEAR.rate();
+        if (years > 1 && years <= 3) return LESS_THAN_THREE_YEARS.rate();
+        if (years > 3 && years <= 6) return LESS_THAN_SIX_YEARS.rate();
+        return SIX_YEARS_OR_MORE.rate();
     }
 
     public double calculateAccruedDaysFromJanuaryFirstOfThisYear(DateTime startDate, DateTime currentDate) {
         Double rate = getDailyAccrualRate(startDate, currentDate);
-        DateTime firstOfYear = new DateTime(currentDate.getYear(), 1, 1,0,0);
-        return roundNumber(rate*daysBetween(firstOfYear.toLocalDate(), currentDate.toLocalDate()).getDays());
+        DateTime firstOfYear = new DateTime(currentDate.getYear(), 1, 1, 0, 0);
+        return roundNumber(rate * daysBetween(firstOfYear.toLocalDate(), currentDate.toLocalDate()).getDays());
 
     }
 

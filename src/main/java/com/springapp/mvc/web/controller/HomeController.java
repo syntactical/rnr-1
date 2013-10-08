@@ -23,7 +23,7 @@ public class HomeController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getDate() {
+    public String get() {
         return "home";
     }
 

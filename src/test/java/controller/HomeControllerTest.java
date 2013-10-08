@@ -15,9 +15,9 @@ import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 public class HomeControllerTest {
     @Test
-    public void getDate_shouldReturnHomeView() {
+    public void get_shouldReturnHomeView() {
         HomeController homeController = new HomeController(mock(CalculatorService.class));
-        assertThat(homeController.getDate(), is("home"));
+        assertThat(homeController.get(), is("home"));
     }
 
     @Test
