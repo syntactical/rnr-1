@@ -1,13 +1,12 @@
 package integration;
 
-import model.Calculator;
-import model.RolloverCalculator;
+import com.springapp.mvc.web.model.Calculator;
+import com.springapp.mvc.web.model.RolloverCalculator;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mockito.Matchers;
-import service.CalculatorService;
+import com.springapp.mvc.web.service.CalculatorService;
 
-import static org.hamcrest.CoreMatchers.any;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyDouble;
 import static org.mockito.Matchers.anyString;

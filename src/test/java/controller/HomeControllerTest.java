@@ -1,27 +1,22 @@
 package controller;
 
-import com.springapp.mvc.web.HomeController;
+import com.springapp.mvc.web.controller.HomeController;
 import org.junit.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
-import service.CalculatorService;
+import com.springapp.mvc.web.service.CalculatorService;
 
 import javax.servlet.http.HttpServletRequest;
-
-import java.io.IOException;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyDouble;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 public class HomeControllerTest {
     @Test
     public void getDate_shouldReturnHomeView() {
-        HomeController homeController = new HomeController();
+        HomeController homeController = new HomeController(mock(CalculatorService.class));
         assertThat(homeController.getDate(), is("home"));
     }
 

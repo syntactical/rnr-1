@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CalculatorService {
+
     private RolloverCalculator rolloverCalculator;
     private Calculator calculator;
 
