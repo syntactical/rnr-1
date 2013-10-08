@@ -1,18 +1,17 @@
-package service;
+package com.springapp.mvc.web.service;
 
-import model.Calculator;
-import model.RolloverCalculator;
+import com.springapp.mvc.web.model.Calculator;
+import com.springapp.mvc.web.model.RolloverCalculator;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CalculatorService {
-    private final RolloverCalculator rolloverCalculator;
-    private final Calculator calculator;
+    private RolloverCalculator rolloverCalculator;
+    private Calculator calculator;
 
-    public CalculatorService() {
-        this.rolloverCalculator = new RolloverCalculator();
-        this.calculator = new Calculator();
-    }
-
+    @Autowired
     public CalculatorService(RolloverCalculator rolloverCalculator, Calculator calculator) {
         this.rolloverCalculator = rolloverCalculator;
         this.calculator = calculator;
@@ -20,7 +19,7 @@ public class CalculatorService {
 
     public double calculateVacationDays(double rolloverDays, String date) {
         DateTime startDate = calculator.convertStringToDateTime(date);
-        double accruedDays = 0d;
+        double accruedDays;
 
         if(startDate.getYear()==DateTime.now().getYear()){
             accruedDays = calculator.calculateVacationDays(startDate, DateTime.now());

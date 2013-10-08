@@ -1,18 +1,16 @@
-package model;
+package com.springapp.mvc.web.model;
 
 import org.hamcrest.Matchers;
 import org.hamcrest.core.Is;
-import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
 
 import static junit.framework.Assert.assertFalse;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created with IntelliJ IDEA.

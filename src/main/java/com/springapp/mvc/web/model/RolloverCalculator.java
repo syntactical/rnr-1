@@ -1,7 +1,9 @@
-package model;
+package com.springapp.mvc.web.model;
 
 import org.joda.time.DateTime;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RolloverCalculator {
 
     public static final double PERCENT_OF_ACCRUAL = 1.5;//150%

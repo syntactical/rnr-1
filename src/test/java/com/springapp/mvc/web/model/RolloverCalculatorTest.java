@@ -1,4 +1,4 @@
-package model;
+package com.springapp.mvc.web.model;
 
 import org.joda.time.DateTime;
 import org.junit.Before;

@@ -1,9 +1,11 @@
-package model;
+package com.springapp.mvc.web.model;
 
 import org.joda.time.DateTime;
+import org.springframework.stereotype.Component;
 
 import static org.joda.time.Days.daysBetween;
 
+@Component
 public class Calculator {
 
     private static final Double DAILY_ACCRUAL_RATE_FOR_FIRST_YEAR = (10 / 365d);
