@@ -1,4 +1,4 @@
-package com.springapp.mvc.web.model;
+package com.springapp.mvc.web.service;
 
 import java.util.HashMap;
 

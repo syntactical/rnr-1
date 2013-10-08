@@ -1,5 +1,6 @@
-package com.springapp.mvc.web.controller;
+package com.springapp.mvc.web.unit.controller;
 
+import com.springapp.mvc.web.controller.HomeController;
 import org.junit.Test;
 import com.springapp.mvc.web.service.CalculatorService;
 

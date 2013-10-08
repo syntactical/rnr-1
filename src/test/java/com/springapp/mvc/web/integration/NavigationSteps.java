@@ -1,4 +1,4 @@
-package com.springapp.mvc.web;
+package com.springapp.mvc.web.integration;
 
 import org.jbehave.core.annotations.*;
 import org.openqa.selenium.By;

@@ -1,5 +1,6 @@
-package com.springapp.mvc.web.model;
+package com.springapp.mvc.web.unit.service;
 
+import com.springapp.mvc.web.service.CalculatorValidation;
 import org.hamcrest.Matchers;
 import org.hamcrest.core.Is;
 import org.junit.Before;
