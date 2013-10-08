@@ -30,7 +30,7 @@ public class Calculator {
         double years = daysAtThoughtWorks / 365d;
         if (years <= 1) return FIRST_YEAR.rate();
         if (years > 1 && years <= 3) return LESS_THAN_THREE_YEARS.rate();
-        if (years > 3 && years <= 6) return LESS_THAN_SIX_YEARS.rate();
+        if (years > 3 && years < 6) return LESS_THAN_SIX_YEARS.rate();
         return SIX_YEARS_OR_MORE.rate();
     }
 

@@ -1,4 +1,4 @@
-package integration;
+package com.springapp.mvc.web.integration;
 
 import com.springapp.mvc.web.model.Calculator;
 import com.springapp.mvc.web.model.RolloverCalculator;
@@ -13,7 +13,6 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 public class CalculatorServiceTest {
     @Test
@@ -30,7 +29,7 @@ public class CalculatorServiceTest {
         String date = "08/08/2011";
         double vacationDayResult = calculatorService.calculateVacationDays(rolloverDays, date);
 
-        verify(rolloverCalculator, times(1)).calculateVacationDays(1, 1.1);
+        verify(rolloverCalculator).calculateVacationDays(1, 1.1);
         assertTrue(vacationDayResult == 2.1);
     }
 }
