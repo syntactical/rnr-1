@@ -1,6 +1,7 @@
 package com.springapp.mvc.web.unit.controller;
 
 import com.springapp.mvc.web.controller.HomeController;
+import org.junit.Before;
 import org.junit.Test;
 import com.springapp.mvc.web.service.CalculatorService;
 
@@ -14,6 +15,17 @@ import static org.mockito.Mockito.*;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 public class HomeControllerTest {
+    CalculatorService mockCalculatorService;
+    HttpServletRequest mockHttpServletRequest;
+
+
+    @Before
+    public void setUp() throws Exception {
+        mockHttpServletRequest = mock(HttpServletRequest.class);
+        mockCalculatorService = mock(CalculatorService.class);
+
+    }
+
     @Test
     public void get_shouldReturnHomeView() {
         HomeController homeController = new HomeController(mock(CalculatorService.class));
@@ -21,16 +33,15 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void postDate_shouldUseCalculatorService() throws Exception {
-        CalculatorService mockCalculatorService = mock(CalculatorService.class);
-        HttpServletRequest mockHttpServletRequest = mock(HttpServletRequest.class);
+    public void shouldCallCalculatorServiceWhenGivenRateAndRollover() throws Exception {
 
         HomeController homeController = new HomeController(mockCalculatorService);
         when(mockHttpServletRequest.getParameter("rolloverdays")).thenReturn("1");
+        when(mockHttpServletRequest.getParameter("accrualRate")).thenReturn("10");
 
         homeController.postDate(mockHttpServletRequest);
 
-        verify(mockCalculatorService, times(1)).calculateVacationDays(anyDouble(), anyString());
-    }
+        verify(mockCalculatorService, times(1)).calculateVacationDaysGivenRate(anyDouble(), anyString(), anyDouble());
 
+    }
 }

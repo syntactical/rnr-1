@@ -32,8 +32,13 @@ public class HomeController {
         double rolloverDays = 0d;
         String rollover = request.getParameter("rolloverdays") ;
         if(!rollover.isEmpty()) rolloverDays = Double.parseDouble(rollover);
+
+        String accrualRate = request.getParameter("accrualRate") ;
+        Double rate = 0d;
+        if(!accrualRate.isEmpty()) rate = Double.parseDouble(accrualRate);
+
         String dateAsString = request.getParameter("startdate");
-        double vacationDays = calculatorService.calculateVacationDays(rolloverDays, dateAsString);
+        double vacationDays = calculatorService.calculateVacationDaysGivenRate(rolloverDays, dateAsString, rate);
         return showVacationDays(vacationDays);
     }
 

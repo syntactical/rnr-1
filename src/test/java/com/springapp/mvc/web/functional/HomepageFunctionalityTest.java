@@ -1,6 +1,6 @@
 package com.springapp.mvc.web.functional;
 
-import com.springapp.mvc.web.NavigationSteps;
+import com.springapp.mvc.web.integration.NavigationSteps;
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.steps.InjectableStepsFactory;

@@ -31,4 +31,8 @@ public class CalculatorService {
         return Math.min(this.rolloverCalculator.calculateVacationDays(rolloverDays, accruedDays), cap);
     }
 
+    public double calculateVacationDaysGivenRate(double rolloverDays, String date, double rate) {
+        DateTime startDate = calculator.convertStringToDateTime(date);
+        return calculator.calculateVacationDaysGivenRate(startDate, DateTime.now(), rolloverDays, rate);
+    }
 }

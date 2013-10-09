@@ -55,7 +55,37 @@ public class CalculatorTest {
         assertThat(calculator.calculateVacationDays(startDate, exampleDate2013), is(roundedNumber(365 * 10 / 365d)));
     }
 
+    @Test
+    public void shouldCalculateVacationDaysForOneYearGivenAnAccrualRate() throws Exception {
+        startDate = new DateTime(2012, 9, 17, 0, 0);
+        double rate = 10;
+        double rolloverDays = 0;
+        assertThat(calculator.calculateVacationDaysGivenRate(startDate, exampleDate2013, rolloverDays, rate), is((double) rate));
+    }
 
+    @Test
+    public void shouldCalculateVacationDaysForOneYearGivenAnAccrualRateAndRolloverDays() throws Exception {
+        startDate = new DateTime(2012, 9, 17, 0, 0);
+        double rate = 10;
+        double rolloverDays = 10;
+        assertThat(calculator.calculateVacationDaysGivenRate(startDate, exampleDate2013, rolloverDays, rate), is(15.0));
+    }
+
+    @Test
+    public void shouldNotLetYouHaveMoreVacationDaysThanTheCapAllows() throws Exception {
+        startDate = new DateTime(2012, 9, 17, 0, 0);
+        double rate = 20;
+        double rolloverDays = 25;
+        assertThat(calculator.calculateVacationDaysGivenRate(startDate, exampleDate2013, rolloverDays, rate), is((double) 30));
+    }
+
+    @Test
+    public void shouldNotLetYouHaveMoreVacationDaysThan150PercentOfRate() throws Exception {
+        startDate = new DateTime(2012, 9, 17, 0, 0);
+        double rate = 10;
+        double rolloverDays = 25;
+        assertThat(calculator.calculateVacationDaysGivenRate(startDate, exampleDate2013, rolloverDays, rate), is((double) 15));
+    }
 
     @Test
     public void shouldConvertStringToDateTime() throws Exception {
