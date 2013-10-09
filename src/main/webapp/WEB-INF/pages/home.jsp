@@ -37,6 +37,8 @@
 
                 Rollover Days (as of January 1st)<input id="rolloverdays_field" type="text" name="rolloverdays"><br>
 
+                Accrual Rate ( in days per year ) <input id="accrual_rate" type="text" name="accrualRate"><br>
+
                 <input type="submit" value="Submit" id="submit_button">
             </form>
         </tr>

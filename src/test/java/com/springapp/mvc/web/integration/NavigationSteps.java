@@ -51,6 +51,12 @@ public class NavigationSteps {
         rolloverDaysField.sendKeys("1");
     }
 
+    @When("I enter my accrual rate")
+    public void iEnterMyAccrualRate() {
+        WebElement accrualRateField = driver.findElement(By.id("accrual_rate"));
+        accrualRateField.sendKeys("10");
+    }
+
     @When("I click submit")
     public void iClickSubmit() {
         WebElement submitButton = driver.findElement(By.id("submit_button"));
