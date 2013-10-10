@@ -7,3 +7,9 @@
     width: 8em;
     height: auto;
 }
+
+.bigTextInput{
+    width: 600px;
+    height: 400px;
+    background-color: blue;
+}

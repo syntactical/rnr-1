@@ -28,6 +28,7 @@ public class CalculatorService {
     public double calculateVacationDays(String rollover, String accrualRate, String salesForceText) {
         double usedDays = calculateUsedVacationDays(salesForceText);
         double vacationDays = calculateVacationDaysGivenRate(Double.parseDouble(rollover), Double.parseDouble(accrualRate));
-        return vacationDays - usedDays;
+        vacationDays = vacationDays - usedDays;
+        return Math.round(vacationDays*100)/100d;
     }
 }
