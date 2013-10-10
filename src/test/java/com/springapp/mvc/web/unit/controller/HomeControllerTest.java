@@ -41,7 +41,19 @@ public class HomeControllerTest {
 
         homeController.postDate(mockHttpServletRequest);
 
-        verify(mockCalculatorService, times(1)).calculateVacationDaysGivenRate(anyDouble(), anyString(), anyDouble());
+        verify(mockCalculatorService, times(1)).calculateVacationDaysGivenRate(anyDouble(), anyDouble());
+    }
 
+    @Test
+    public void shouldSubtractUsedVacationDaysFromTotalVacayDays() throws Exception {
+        HomeController homeController = new HomeController(mockCalculatorService);
+        when(mockHttpServletRequest.getParameter("rolloverdays")).thenReturn("1");
+        when(mockHttpServletRequest.getParameter("accrualRate")).thenReturn("10");
+
+        homeController.postDate(mockHttpServletRequest);
+
+        when(mockHttpServletRequest.getParameter("salesForceText")).thenReturn("Hi");
+
+        verify(mockCalculatorService, times(1)).calculateUsedVacationDays(anyString());
     }
 }

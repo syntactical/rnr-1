@@ -1,11 +1,23 @@
 package com.springapp.mvc.web.service;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Thoughtworker
- * Date: 10/9/13
- * Time: 2:44 PM
- * To change this template use File | Settings | File Templates.
- */
 public class SalesForceParserService {
+
+    public double parse(String salesForceText) {
+        String[] textLines = salesForceText.split("\n");
+        String vacationLine = "";
+
+        for (int i = 0; i < textLines.length; i ++) {
+            if (i != textLines.length - 1){
+                if (textLines[i].contains("vacation")) {
+                    vacationLine = textLines[i + 1];
+                    vacationLine = vacationLine.trim();
+                    return Double.parseDouble(vacationLine);
+                }
+            }
+        }
+
+        return 0d;
+
+    }
+
 }

@@ -26,18 +26,12 @@
     <table>
         <tr>
             <form name="startDate" action="/vacationDays" method="POST" id="date_selector">
-                <select id="monthdropdown" class="date">
-                </select>
-                <select id="daydropdown" class="date">
-                </select>
-                <select id="yeardropdown" class="date">
-                </select>
-
-                <input id="startdate_field" type="text" name="startdate"><br>
 
                 Rollover Days (as of January 1st)<input id="rolloverdays_field" type="text" name="rolloverdays"><br>
 
                 Accrual Rate ( in days per year ) <input id="accrual_rate" type="text" name="accrualRate"><br>
+
+                Text From Your SalesForce <input id="salesForceText" type="text" name="salesForceText"><br>
 
                 <input type="submit" value="Submit" id="submit_button">
             </form>

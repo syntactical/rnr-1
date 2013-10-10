@@ -15,8 +15,13 @@ public class CalculatorService {
         this.calculator = calculator;
     }
 
-    public double calculateVacationDaysGivenRate(double rolloverDays, String date, double rate) {
-        DateTime startDate = calculator.convertStringToDateTime(date);
-        return calculator.calculateVacationDaysGivenRate(startDate, DateTime.now(), rolloverDays, rate);
+    public double calculateVacationDaysGivenRate(double rolloverDays, double rate) {
+        DateTime currentDate = new DateTime();
+        return calculator.calculateVacationDaysGivenRate(currentDate, rolloverDays, rate);
+    }
+
+    public double calculateUsedVacationDays(String salesForceText) {
+        SalesForceParserService salesForceParser = new SalesForceParserService();
+        return salesForceParser.parse(salesForceText);
     }
 }

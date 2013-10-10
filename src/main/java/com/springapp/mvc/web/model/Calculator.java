@@ -3,7 +3,6 @@ package com.springapp.mvc.web.model;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Component;
 
-import static com.springapp.mvc.web.model.AccrualRate.*;
 import static java.lang.Math.min;
 import static org.joda.time.Days.daysBetween;
 
@@ -20,12 +19,10 @@ public class Calculator {
                 Integer.parseInt(dateFields[1]), 0, 0);
     }
 
-    public Double calculateVacationDaysGivenRate(DateTime startDate, DateTime currentDate, double rolloverDays, double rate) {
+    public Double calculateVacationDaysGivenRate(DateTime currentDate, double rolloverDays, double rate) {
         double cap = min(30.0, rate * 1.5);
-
-
-        Double accruedDays = rolloverDays + roundNumber(rate/365*daysBetween(startDate.toLocalDate(),currentDate.toLocalDate()).getDays());
-
+        double elapsedTime = roundNumber(rate/365*daysBetween((new DateTime(2013, 7, 1, 0, 0, 0)).toLocalDate(), currentDate.toLocalDate()).getDays());
+        Double accruedDays = rolloverDays + elapsedTime;
         return min(accruedDays, cap);
     }
 }
