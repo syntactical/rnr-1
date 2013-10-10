@@ -1,15 +1,14 @@
 package com.springapp.mvc.web.unit.controller;
 
 import com.springapp.mvc.web.controller.HomeController;
+import com.springapp.mvc.web.service.CalculatorService;
 import org.junit.Before;
 import org.junit.Test;
-import com.springapp.mvc.web.service.CalculatorService;
 
 import javax.servlet.http.HttpServletRequest;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.anyDouble;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
@@ -41,19 +40,7 @@ public class HomeControllerTest {
 
         homeController.postDate(mockHttpServletRequest);
 
-        verify(mockCalculatorService, times(1)).calculateVacationDaysGivenRate(anyDouble(), anyDouble());
+        verify(mockCalculatorService, times(1)).calculateVacationDays(anyString(), anyString(), anyString());
     }
 
-    @Test
-    public void shouldSubtractUsedVacationDaysFromTotalVacayDays() throws Exception {
-        HomeController homeController = new HomeController(mockCalculatorService);
-        when(mockHttpServletRequest.getParameter("rolloverdays")).thenReturn("1");
-        when(mockHttpServletRequest.getParameter("accrualRate")).thenReturn("10");
-
-        homeController.postDate(mockHttpServletRequest);
-
-        when(mockHttpServletRequest.getParameter("salesForceText")).thenReturn("Hi");
-
-        verify(mockCalculatorService, times(1)).calculateUsedVacationDays(anyString());
-    }
 }

@@ -24,4 +24,10 @@ public class CalculatorService {
         SalesForceParserService salesForceParser = new SalesForceParserService();
         return salesForceParser.parse(salesForceText);
     }
+
+    public double calculateVacationDays(String rollover, String accrualRate, String salesForceText) {
+        double usedDays = calculateUsedVacationDays(salesForceText);
+        double vacationDays = calculateVacationDaysGivenRate(Double.parseDouble(rollover), Double.parseDouble(accrualRate));
+        return vacationDays - usedDays;
+    }
 }

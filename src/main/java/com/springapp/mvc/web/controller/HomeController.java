@@ -30,19 +30,13 @@ public class HomeController {
     @RequestMapping(value = "/vacationDays", method = RequestMethod.POST)
     public ModelAndView postDate(HttpServletRequest request) throws IOException {
 
-        double rolloverDays = 0d;
-        String rollover = request.getParameter("rolloverdays") ;
-        if(!rollover.isEmpty()) rolloverDays = Double.parseDouble(rollover);
-
-        String accrualRate = request.getParameter("accrualRate") ;
-        Double rate = 0d;
-        if(!accrualRate.isEmpty()) rate = Double.parseDouble(accrualRate);
-
+        String rollover = request.getParameter("rolloverdays");
+        String accrualRate = request.getParameter("accrualRate");
         String salesForceText = request.getParameter("salesForceText");
-        double usedVacationDays = calculatorService.calculateUsedVacationDays(salesForceText);
 
-        double vacationDays = calculatorService.calculateVacationDaysGivenRate(rolloverDays, rate);
-        return showVacationDays(vacationDays - usedVacationDays);
+        Double vacationDays = calculatorService.calculateVacationDays(rollover, accrualRate, salesForceText);
+
+        return showVacationDays(vacationDays);
     }
 
     private ModelAndView showVacationDays(Double vacationDays) {

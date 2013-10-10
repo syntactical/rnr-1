@@ -34,7 +34,6 @@ public class CalculatorServiceTest {
         CalculatorService calculatorService1 = new CalculatorService(calculator);
         double vacationDayResult = calculatorService1.calculateVacationDaysGivenRate(rolloverDays, rate);
         assertThat(vacationDayResult , is(15.0));
-
-
     }
+
 }
