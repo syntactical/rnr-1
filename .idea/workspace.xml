@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="243b0d7e-cdab-4847-a7ea-c87e2be79d49" name="Default" comment="" />
+    <list default="true" id="243b0d7e-cdab-4847-a7ea-c87e2be79d49" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="RNR_project.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1381759377412" ignored="false" />
@@ -16,6 +18,8 @@
     <file path="/NavigationSteps.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1381354966260" ignored="false" />
     <file path="/home.jsp" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1381355238847" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jsp/lib/jsp-impl.jar!/standardSchemas/jspxml2.xsd" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1381355258451" ignored="false" />
+    <file path="/newInterface.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1381764708178" ignored="false" />
+    <file path="/fragment.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1381764716047" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +92,7 @@
       <file leaf-file-name="CalculatorValidationTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/service/CalculatorValidationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="51" selection-start="2212" selection-end="2212" vertical-scroll-proportion="1.0222842">
+            <state line="54" column="59" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.110119045">
               <folding />
             </state>
           </provider>
@@ -98,15 +102,6 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="2" column="12" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Calculator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="25" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -157,15 +152,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomepageFunctionalityTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="32" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -196,6 +182,8 @@
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/integration/CalculatorServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/CalculatorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/service/newInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/service/OtherInterface.java" />
       </list>
     </option>
   </component>
@@ -624,6 +612,11 @@
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.springapp.mvc.web.service" />
+    </key>
+  </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 7.01">
     <configuration default="false" name="CalculatorTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -1010,7 +1003,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="970" height="785" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1031,7 +1024,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.6701337" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24891774" sideWeight="0.6706767" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24891774" sideWeight="0.6706767" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32932332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1105,21 +1098,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/resources/ShowVacationDays.story">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1710" selection-end="1710" vertical-scroll-proportion="-12.541667" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/Banner.Story">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="14" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/AccrualRate.story">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="18" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
@@ -1204,9 +1182,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home/src.zip!/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="13" selection-start="925" selection-end="925" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/service/CalculatorValidationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="51" selection-start="2212" selection-end="2212" vertical-scroll-proportion="1.0222842">
+        <state line="54" column="59" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.110119045">
           <folding />
         </state>
       </provider>
