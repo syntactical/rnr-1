@@ -20,16 +20,23 @@
         <td><img class="headerimg" src="/images/tw-logo.png" class="img-rounded"/></td>
     </table>
 
-    <p id="vacationDays" class="lead">Hey, your balance is 0.00 enter any rollover days from the previous year.</p>
-
 
     <table>
         <tr>
             <form name="startDate" action="/vacationDays" method="POST" id="date_selector">
+                  Start Date:
+                <select id="monthdropdown" class="date">
+                </select>
+                <select id="daydropdown" class="date">
+                </select>
+                <select id="yeardropdown" class="date">
+                </select>
 
-                Rollover Days (as of 7/1/2013): <input id="rolloverdays_field" type="text" name="rolloverdays"><br>
+                <input id='startdate_field' type="text" name="startDate" size = "15.5" ><br>
 
-                Accrual Rate (days per year): <input id="accrual_rate" type="text" name="accrualRate"><br>
+                Rollover Days (as of 7/1/2013): <input id="rolloverdays_field" type="text" name="rolloverdays" size ='20'><br>
+
+                Accrual Rate (days per year): <input id="accrual_rate" type="text" name="accrualRate" size='22'><br>
 
                 Text From SalesForce Time-Off:  <textarea ROWS=30 COLS=100 id="salesForceText" type="text" name="salesForceText"></textarea><br>
 

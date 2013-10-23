@@ -19,10 +19,32 @@ public class Calculator {
                 Integer.parseInt(dateFields[1]), 0, 0);
     }
 
-    public Double calculateVacationDaysGivenRate(DateTime currentDate, double rolloverDays, double rate) {
+    public Double calculateVacationDaysGivenRate(DateTime startDate, double rolloverDays, double rate) {
         double cap = min(30.0, rate * 1.5);
-        double elapsedTime = roundNumber(rate/365*daysBetween((new DateTime(2013, 7, 1, 0, 0, 0)).toLocalDate(), currentDate.toLocalDate()).getDays());
-        Double accruedDays = rolloverDays + elapsedTime;
+        double accruedDays = roundNumber(rate / 365 * (double) getElapsedDaysToCurrentDate(startDate));
+        accruedDays += rolloverDays;
         return min(accruedDays, cap);
     }
+
+    public Double getAccrualRate(DateTime startDate) {
+        int elapsedTime = getElapsedDaysToCurrentDate(startDate);
+
+        final int ONEYEAR = 365;
+        final int THREEYEARS = 1095;
+
+
+        if (elapsedTime < ONEYEAR)
+            return  10.0;
+       else if (elapsedTime < THREEYEARS) {
+            return  15.0;
+        } else {
+            return  20.0;
+        }
+    }
+
+    private int getElapsedDaysToCurrentDate(DateTime startDate) {
+        return daysBetween(startDate.toLocalDate(), new DateTime().toLocalDate()).getDays();
+    }
+
+
 }

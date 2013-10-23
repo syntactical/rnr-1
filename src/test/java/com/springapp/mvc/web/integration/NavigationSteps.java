@@ -39,7 +39,7 @@ public class NavigationSteps {
     }
 
 
-    @When("I enter my start date prior to the current calendar year")
+    @When("I enter my start date")
     public void iEnterStartDatePriorToCalendarYear() {
         WebElement startDateField = driver.findElement(By.id("startdate_field"));
         startDateField.sendKeys("01/01/1999");

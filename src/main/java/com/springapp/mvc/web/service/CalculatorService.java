@@ -15,20 +15,30 @@ public class CalculatorService {
         this.calculator = calculator;
     }
 
-    public double calculateVacationDaysGivenRate(double rolloverDays, double rate) {
-        DateTime currentDate = new DateTime();
-        return calculator.calculateVacationDaysGivenRate(currentDate, rolloverDays, rate);
-    }
 
     public double calculateUsedVacationDays(String salesForceText) {
         SalesForceParserService salesForceParser = new SalesForceParserService();
         return salesForceParser.parse(salesForceText);
     }
 
-    public double calculateVacationDays(String rollover, String accrualRate, String salesForceText) {
+    public double calculateVacationDays(String startDate, String rollover, String accrualRate, String salesForceText) {
         double usedDays = calculateUsedVacationDays(salesForceText);
-        double vacationDays = calculateVacationDaysGivenRate(Double.parseDouble(rollover), Double.parseDouble(accrualRate));
-        vacationDays = vacationDays - usedDays;
+        DateTime convertedStartDate = calculator.convertStringToDateTime(startDate);
+        double rate;
+        rate = assignNullRate(startDate, accrualRate);
+        double vacationDays = calculator.calculateVacationDaysGivenRate(convertedStartDate,
+                Double.parseDouble(rollover), rate);
+
+           vacationDays -= usedDays;
+
         return Math.round(vacationDays*100)/100d;
+    }
+
+    private double assignNullRate(String startDate, String accrualRate) {
+        if(accrualRate == ""){
+          return calculator.getAccrualRate(calculator.convertStringToDateTime(startDate));
+        }
+        else
+        return Double.parseDouble(accrualRate);
     }
 }

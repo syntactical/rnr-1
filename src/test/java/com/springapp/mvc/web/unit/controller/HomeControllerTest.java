@@ -32,15 +32,17 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void shouldCallCalculatorServiceWhenGivenRateAndRollover() throws Exception {
+    public void shouldCallCalculatorServiceWhenGivenRateRolloverAndStartDate() throws Exception {
 
         HomeController homeController = new HomeController(mockCalculatorService);
         when(mockHttpServletRequest.getParameter("rolloverdays")).thenReturn("1");
         when(mockHttpServletRequest.getParameter("accrualRate")).thenReturn("10");
+        when(mockHttpServletRequest.getParameter("startDate")).thenReturn("10/22/2012");
+
 
         homeController.postDate(mockHttpServletRequest);
 
-        verify(mockCalculatorService, times(1)).calculateVacationDays(anyString(), anyString(), anyString());
+        verify(mockCalculatorService, times(1)).calculateVacationDays(anyString(), anyString(), anyString() , anyString());
     }
 
 }

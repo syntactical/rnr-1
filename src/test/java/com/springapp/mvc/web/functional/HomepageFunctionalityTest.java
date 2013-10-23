@@ -25,7 +25,7 @@ public class HomepageFunctionalityTest extends JUnitStories {
 
     @Override
     protected List<String> storyPaths() {
-        return Arrays.asList("Banner.story", "StartDate.story", "ShowVacationDays.story", "RolloverVacationDays.story", "AccrualRate.story");
+        return Arrays.asList("Banner.story", "StartDate.story", "AccrualRate.story", "ShowVacationDays.story");
     }
 
 

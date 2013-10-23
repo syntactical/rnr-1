@@ -13,13 +13,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Thoughtworker
- * Date: 9/27/13
- * Time: 1:50 PM
- * To change this template use File | Settings | File Templates.
- */
 public class CalculatorValidationTest {
 
     private CalculatorValidation validator;
@@ -27,8 +20,6 @@ public class CalculatorValidationTest {
     @Before
     public void setUp() throws Exception {
         validator = new CalculatorValidation();
-
-
     }
 
     @Test
