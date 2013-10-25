@@ -1,5 +1,6 @@
 package com.springapp.mvc.web.integration;
 
+import com.springapp.mvc.web.model.AccrualRate;
 import com.springapp.mvc.web.model.Calculator;
 import com.springapp.mvc.web.service.CalculatorService;
 import org.joda.time.DateTime;
@@ -13,15 +14,16 @@ import static org.mockito.Matchers.anyDouble;
 import static org.mockito.Mockito.*;
 
 public class CalculatorServiceTest {
-    Calculator calculator;
-    CalculatorService calculatorService;
+    private Calculator calculator;
+    private CalculatorService calculatorService;
+    private AccrualRate accrualRate;
 
 
     @Before
     public void setUp() throws Exception {
         calculator = mock(Calculator.class);
-        calculatorService = new CalculatorService(calculator);
-
+        accrualRate = mock(AccrualRate.class);
+        calculatorService = new CalculatorService(calculator, accrualRate);
     }
 
     @Test
@@ -30,10 +32,11 @@ public class CalculatorServiceTest {
         String rate = "10";
         String startDate = "10/23/2013";
 
+        when(calculator.convertStringToDateTime(anyString())).
+                thenReturn(new DateTime(new Calculator().convertStringToDateTime(startDate)));
         when(calculator.calculateVacationDaysGivenRate(any(DateTime.class), any(Double.class), any(Double.class)))
                 .thenReturn(05.0);
-        CalculatorService calculatorService1 = new CalculatorService(calculator);
-        double vacationDayResult = calculatorService1.calculateVacationDays(startDate, rolloverDays, rate , "");
+        double vacationDayResult = calculatorService.calculateVacationDays(startDate, rolloverDays, rate , "");
 
         assertThat(vacationDayResult , is(05.0));
     }
@@ -44,21 +47,29 @@ public class CalculatorServiceTest {
         String rolloverDays = "0";
         String startDate = "10/23/2013";
 
+        when(calculator.convertStringToDateTime(anyString())).
+                thenReturn(new DateTime(new Calculator().convertStringToDateTime(startDate)));
+
+
         calculatorService.calculateVacationDays(startDate,rolloverDays,givenRate,"");
 
         verify(calculator).calculateVacationDaysGivenRate(any(DateTime.class),anyDouble(),anyDouble());
     }
 
     @Test
-    public void shouldChangeAccrualRateNull() throws Exception {
+    public void shouldCalculateAccrualRateIfEmptyString() throws Exception {
         String givenRate  = "";
         String rolloverDays = "0";
-        String startDate = "10/23/2013";
+        String startDateString = "10/23/2013";
+        DateTime startDate = calculator.convertStringToDateTime(startDateString);
 
-        calculatorService.calculateVacationDays(startDate,rolloverDays,givenRate,"");
+        when(calculator.convertStringToDateTime(anyString())).
+                thenReturn(new DateTime(startDate));
+        when(accrualRate.calculate()).thenReturn(10.0/365);
 
-        verify(calculator).getAccrualRate(any(DateTime.class));
-        verify(calculator).calculateVacationDaysGivenRate(any(DateTime.class),anyDouble(),anyDouble());
+        calculatorService.calculateVacationDays(startDateString,rolloverDays,givenRate,"");
+
+        verify(calculator).calculateVacationDaysGivenRate( any(DateTime.class), anyDouble(), anyDouble());
     }
 
 

@@ -1,10 +1,14 @@
 package com.springapp.mvc.web.integration;
 
 import org.jbehave.core.annotations.*;
+import org.joda.time.DateTime;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
@@ -41,6 +45,16 @@ public class NavigationSteps {
 
     @When("I enter my start date")
     public void iEnterStartDatePriorToCalendarYear() {
+        WebElement startDateField = driver.findElement(By.id("startdate_field"));
+        startDateField.sendKeys("01/01/1999");
+    }
+
+    @When("I enter my start date exactly one year ago")
+    public void iEnterStartDateExactlyOneYearAgo(){
+        String today  = new DateTime().getMonthOfYear()+ "/" +
+                        new DateTime().getDayOfMonth()+"/"+
+                        new DateTime().getYear();
+
         WebElement startDateField = driver.findElement(By.id("startdate_field"));
         startDateField.sendKeys("01/01/1999");
     }

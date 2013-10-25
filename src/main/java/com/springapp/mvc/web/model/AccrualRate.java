@@ -1,18 +1,46 @@
 package com.springapp.mvc.web.model;
 
-public enum AccrualRate {
-    FIRST_YEAR(10 / 365d),
-    LESS_THAN_THREE_YEARS(15 / 365d),
-    LESS_THAN_SIX_YEARS(20 / 365d),
-    SIX_YEARS_OR_MORE(25 / 365d);
+import org.joda.time.DateTime;
+import org.springframework.stereotype.Component;
+import static org.joda.time.Days.daysBetween;
 
-    private final double rate;
+@Component
+public class AccrualRate {
+    private DateTime startDate;
+    private String accrualRate;
+    final int YEAR_IN_DAYS = 365;
 
-    AccrualRate(double rate){
-        this.rate = rate;
+    public AccrualRate() {
+        this("");
     }
 
-    public double rate(){
-        return rate;
+    public AccrualRate(String initialAccrualRate) {
+        this.accrualRate = initialAccrualRate;
     }
+    
+    public AccrualRate givenIStarted(DateTime startDate) {
+        this.startDate = startDate;
+        return this;
+    }
+
+    public double calculate() {
+        return accrualRate.isEmpty() ? calculateRate(startDate) : Math.max(Double.parseDouble(accrualRate), calculateRate(startDate));
+    }
+
+    public Double calculateRate(DateTime startDate) {
+        int elapsedTime = daysBetween(startDate.toLocalDate(), new DateTime().toLocalDate()).getDays();
+
+        if (elapsedTime < YEAR_IN_DAYS) {
+            return  10.0/365;
+        } else if (elapsedTime < 3 * YEAR_IN_DAYS) {
+            return  15.0/365;
+        } else if (elapsedTime < 6 * YEAR_IN_DAYS){
+            return  20.0/365;
+        } else {
+            return 25.0/365;
+        }
+    }
+
+
+
 }

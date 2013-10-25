@@ -5,6 +5,10 @@ import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -24,29 +28,33 @@ public class CalculatorTest {
 
     @Test
     public void shouldCalculateVacationDaysForOneYearGivenAnAccrualRate() throws Exception {
-        double rate = 10;
+        double rateInDays = 10;
+        double rate = rateInDays/365;
         double rolloverDays = 0;
-        assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is(rate));
+        assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is(rateInDays));
     }
 
     @Test
     public void shouldCalculateVacationDaysForOneYearGivenAnAccrualRateAndRolloverDays() throws Exception {
-        double rate = 10;
+        double rateInDays = 10;
         double rolloverDays = 5;
+        double rate = rateInDays/365;
         assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is(15.0));
     }
 
     @Test
     public void shouldNotAllowMoreVacationDaysThanTheCapAllows() throws Exception {
-        double rate = 20;
+        double rateInDays = 20;
+        double rate = rateInDays/365;
         double rolloverDays = 25;
         assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is((double) 30));
     }
 
     @Test
     public void shouldNotLetYouHaveMoreVacationDaysThan150PercentOfRate() throws Exception {
-        double rate = 10;
+        double rateInDays = 10;
         double rolloverDays = 25;
+        double rate = rateInDays/365;
         assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is((double) 15));
     }
 
@@ -60,31 +68,10 @@ public class CalculatorTest {
     @Test
     public void shouldCalculateVacationDaysBasedOnStartDate() throws Exception {
         double rolloverDays = 0;
-        double rate = 10;
+        double rateInDays = 10;
         int expectedVacationDays = 10;
+        double rate = rateInDays/365;
         assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is((double) expectedVacationDays));
     }
-
-    @Test
-    public void shouldGetAccrualRateOf10IfRateNullAndElapsedTimeIsLTOneYear() throws Exception {
-        double expectedRate = 10;
-        DateTime lessThanOneYearAgo = startDate.plusDays(1);
-        assertThat(calculator.getAccrualRate(lessThanOneYearAgo), is(expectedRate));
-    }
-
-    @Test
-    public void shouldGetAccrualRateOf15IfRateNullAndElapsedTimeGTOneYear() {
-        double expectedRate = 15;
-        DateTime twoYearsAgo = startDate.minusYears(1);
-        assertThat(calculator.getAccrualRate(twoYearsAgo), is(expectedRate));
-    }
-
-    @Test
-    public void shouldGetAccrualRateOf15IfRateNullAndElapsedTimeGT3Years() throws Exception {
-        double expectedRate = 20;
-        DateTime fourYearsAgo = startDate.minusYears(3);
-        assertThat(calculator.getAccrualRate(fourYearsAgo), is(expectedRate));
-    }
-
 
 }
