@@ -1,5 +1,6 @@
-package com.springapp.mvc.web.service;
+package com.springapp.mvc.web.unit.service;
 
+import com.springapp.mvc.web.service.SalesForceParserService;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

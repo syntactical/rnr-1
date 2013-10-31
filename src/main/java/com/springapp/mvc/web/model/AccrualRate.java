@@ -24,7 +24,7 @@ public class AccrualRate {
     }
 
     public double calculate() {
-        return accrualRate.isEmpty() ? calculateRate(startDate) : Math.max(Double.parseDouble(accrualRate), calculateRate(startDate));
+        return accrualRate.isEmpty() ? calculateRate(startDate) : Math.max(Double.parseDouble(accrualRate), calculateRate(startDate))/360d;
     }
 
     public Double calculateRate(DateTime startDate) {
