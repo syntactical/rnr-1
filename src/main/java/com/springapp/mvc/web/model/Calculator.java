@@ -35,23 +35,23 @@ public class Calculator {
     }
 
 
-    public Double getVacationBasedOnIntervals(DateTime startDate, HashMap<LocalDate,Double> daysOff, double rolloverDays, LocalDate accrualStartDate) {
-
-        for (LocalDate date = accrualStartDate; date.isBefore(new LocalDate()); date = date.plusWeeks(1))
-        {
-            double accrualRate = new AccrualRate().generateRate(date);
-            double cap = min(30, accrualRate * 365 * 1.5);
-
-            if (daysOff.get(date) != null){
-                rolloverDays -= daysOff.get(date) / 8;
-            }
-
-            rolloverDays = min(cap, rolloverDays + accrualRate * 7);
-        }
-       return rolloverDays;
-    }
-
-    public Double getVacationBasedOnIntervals(DateTime startDate, HashMap<LocalDate,Double> daysOff, double rolloverDays) {
-        return getVacationBasedOnIntervals(startDate, daysOff, rolloverDays, new LocalDate(2013,7,1));
-    }
+//    public Double getVacationBasedOnIntervals(DateTime startDate, HashMap<LocalDate,Double> daysOff, double rolloverDays, LocalDate accrualStartDate) {
+//
+//        for (DateTime date = accrualStartDate; date.isBefore(new LocalDate()); date = date.plusWeeks(1))
+//        {
+//            double accrualRate = new AccrualRate().generateRate(date);
+//            double cap = min(30, accrualRate * 365 * 1.5);
+//
+//            if (daysOff.get(date) != null){
+//                rolloverDays -= daysOff.get(date) / 8;
+//            }
+//
+//            rolloverDays = min(cap, rolloverDays + accrualRate * 7);
+//        }
+//       return rolloverDays;
+//    }
+//
+//    public Double getVacationBasedOnIntervals(DateTime startDate, HashMap<LocalDate,Double> daysOff, double rolloverDays) {
+//        return getVacationBasedOnIntervals(startDate, daysOff, rolloverDays, new LocalDate(2013,7,1));
+//    }
 }
