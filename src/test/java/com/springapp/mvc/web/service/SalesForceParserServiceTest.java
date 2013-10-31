@@ -1,12 +1,24 @@
 package com.springapp.mvc.web.service;
 
+import com.springapp.mvc.web.model.Calculator;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class SalesForceParserServiceTest {
+    HashMap<LocalDate, Double> emptyHashMap;
 
+    @Before
+    public void setUp() throws Exception {
+        emptyHashMap = new HashMap<LocalDate, Double>();
+
+    }
 
     @Test
     public void shouldParseSalesForceExampleTextAndReturnTheNumberOfVacationDays() throws Exception {
@@ -44,29 +56,57 @@ public class SalesForceParserServiceTest {
                 " \tGrand Totals (17 records)\n" +
                 " \t \t \t \t \t \t24.50";
 
-        double vacationDaysUsed = salesForceParserService.parse(salesForceText);
+        HashMap<LocalDate, Double> vacationDaysUsed = salesForceParserService.parse(salesForceText);
 
-        assertThat(vacationDaysUsed, is(11.5));
+        DateTime endDate = new DateTime(2013,7,29,0,0);
+        assertThat(vacationDaysUsed.get(endDate.toLocalDate()), is(28.00));
+
     }
 
     @Test
-    public void shouldReturnZeroIfNoLineContainsVacation() throws Exception {
+    public void shouldReturnEmptyHashMapIfNoLineContainsVacation() throws Exception {
         SalesForceParserService salesForceParserService = new SalesForceParserService();
         String salesForceText = "hi";
 
-        double vacationDaysUsed = salesForceParserService.parse(salesForceText);
+        HashMap<LocalDate, Double> actualHashMap = salesForceParserService.parse(salesForceText);
 
-        assertThat(vacationDaysUsed, is(0d));
+        assertThat(actualHashMap, is(emptyHashMap));
+
     }
 
     @Test
-    public void shouldReturnZeroIfLastLineContainsFirstInstanceOfWordVacation() throws Exception {
+    public void shouldReturnEmptyHashMapIfLastLineContainsFirstInstanceOfWordVacation() throws Exception {
         SalesForceParserService salesForceParserService = new SalesForceParserService();
         String salesForceText = "vacation";
 
-        double vacationDaysUsed = salesForceParserService.parse(salesForceText);
 
-        assertThat(vacationDaysUsed, is(0d));
+        HashMap<LocalDate,Double> vacationDayMap = salesForceParserService.parse(salesForceText);
+
+        assertThat(vacationDayMap, is(emptyHashMap));
     }
+
+    @Test
+    public void shouldReturnEmptyHashMapIfRandomStringDoesNotContainNonSickLeave() throws Exception {
+        SalesForceParserService salesForceParserService = new SalesForceParserService();
+        String salesForceText = "laksjdflkasdjf"+ "\nlaksjdflkasdjf"+"\nlaksjdflkasdjf"+"\nlaksjdflkasdjf"+
+                "vacation"+ "\nlaksjdflkasdjf"+ "\nlaksjdflkasdjf"+ "\nlaksjdflkasdjf";
+
+
+        HashMap<LocalDate,Double> vacationDayMap = salesForceParserService.parse(salesForceText);
+
+        assertThat(vacationDayMap, is(emptyHashMap));
+    }
+
+    @Test
+    public void shouldReturnEmptyHashMapIfEmptyString() throws Exception {
+        SalesForceParserService salesForceParserService = new SalesForceParserService();
+        String salesForceText = "";
+
+
+        HashMap<LocalDate,Double> vacationDayMap = salesForceParserService.parse(salesForceText);
+
+        assertThat(vacationDayMap, is(emptyHashMap));
+    }
+
 
 }

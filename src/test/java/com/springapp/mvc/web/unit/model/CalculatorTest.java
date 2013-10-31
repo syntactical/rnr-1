@@ -1,13 +1,13 @@
 package com.springapp.mvc.web.unit.model;
 
+import com.springapp.mvc.web.model.AccrualRate;
 import com.springapp.mvc.web.model.Calculator;
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,12 +15,12 @@ import static org.junit.Assert.assertThat;
 public class CalculatorTest {
 
     private Calculator calculator;
-    private DateTime startDate;
+    private DateTime oneYearAgo;
     String emptyAccrualRate;
 
     @Before
     public void setUp() throws Exception {
-        startDate = new DateTime().minusYears(1);
+        oneYearAgo = new DateTime().minusYears(1);
         calculator = new Calculator();
         emptyAccrualRate = "";
 
@@ -31,7 +31,7 @@ public class CalculatorTest {
         double rateInDays = 10;
         double rate = rateInDays/365;
         double rolloverDays = 0;
-        assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is(rateInDays));
+        assertThat(calculator.calculateVacationDaysGivenRate(oneYearAgo, rolloverDays, rate), is(rateInDays));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class CalculatorTest {
         double rateInDays = 10;
         double rolloverDays = 5;
         double rate = rateInDays/365;
-        assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is(15.0));
+        assertThat(calculator.calculateVacationDaysGivenRate(oneYearAgo, rolloverDays, rate), is(15.0));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class CalculatorTest {
         double rateInDays = 20;
         double rate = rateInDays/365;
         double rolloverDays = 25;
-        assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is((double) 30));
+        assertThat(calculator.calculateVacationDaysGivenRate(oneYearAgo, rolloverDays, rate), is((double) 30));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class CalculatorTest {
         double rateInDays = 10;
         double rolloverDays = 25;
         double rate = rateInDays/365;
-        assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is((double) 15));
+        assertThat(calculator.calculateVacationDaysGivenRate(oneYearAgo, rolloverDays, rate), is((double) 15));
     }
 
     @Test
@@ -71,7 +71,19 @@ public class CalculatorTest {
         double rateInDays = 10;
         int expectedVacationDays = 10;
         double rate = rateInDays/365;
-        assertThat(calculator.calculateVacationDaysGivenRate(startDate, rolloverDays, rate), is((double) expectedVacationDays));
+        assertThat(calculator.calculateVacationDaysGivenRate(oneYearAgo, rolloverDays, rate), is((double) expectedVacationDays));
     }
 
+    @Test
+    public void shouldIncrementVacationDays(){
+        double rolloverDays = 0;
+        DateTime startDate = new DateTime().minusYears(2);
+        HashMap<LocalDate, Double> daysOff = new HashMap<LocalDate, Double>();
+        DateTime accrualPeriodStartDate = new DateTime().minusWeeks(2);
+
+        expectedVacationDays = new AccrualRate().givenIStarted()
+
+        assertThat()
+
+    }
 }

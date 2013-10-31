@@ -14,6 +14,7 @@ public class AccrualRate {
         this("");
     }
 
+
     public AccrualRate(String initialAccrualRate) {
         this.accrualRate = initialAccrualRate;
     }
@@ -24,10 +25,10 @@ public class AccrualRate {
     }
 
     public double calculate() {
-        return accrualRate.isEmpty() ? calculateRate(startDate) : Math.max(Double.parseDouble(accrualRate), calculateRate(startDate));
+        return accrualRate.isEmpty() ? generateRate(startDate) : Math.max(Double.parseDouble(accrualRate), generateRate(startDate));
     }
 
-    public Double calculateRate(DateTime startDate) {
+    public Double generateRate(DateTime startDate) {
         int elapsedTime = daysBetween(startDate.toLocalDate(), new DateTime().toLocalDate()).getDays();
 
         if (elapsedTime < YEAR_IN_DAYS) {

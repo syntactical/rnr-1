@@ -51,7 +51,7 @@ public class CalculatorServiceTest {
                 thenReturn(new DateTime(new Calculator().convertStringToDateTime(startDate)));
 
 
-        calculatorService.calculateVacationDays(startDate,rolloverDays,givenRate,"");
+         calculatorService.calculateVacationDays(startDate,rolloverDays,givenRate,"");
 
         verify(calculator).calculateVacationDaysGivenRate(any(DateTime.class),anyDouble(),anyDouble());
     }
