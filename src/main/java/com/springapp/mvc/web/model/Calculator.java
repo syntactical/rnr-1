@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 
+import static java.lang.Math.exp;
 import static java.lang.Math.min;
 import static org.joda.time.Days.daysBetween;
 
@@ -51,13 +52,12 @@ public class Calculator {
         for (LocalDate date = accrualStartDate; date.isBefore(accrualEndDate); date = date.plusWeeks(1))
         {
             double accrualRate = employee.calculateDailyAccrualRate(date);
-            double cap = min(30, accrualRate * 1.5);
 
             if (employee.getDaysOff().get(date) != null){
                 vacationDays -= employee.getDaysOff().get(date) / 8;
             }
 
-            vacationDays = min(cap, vacationDays + (accrualRate / YEAR_IN_DAYS) * 7);
+            vacationDays = min(employee.calculateVacationDayCap(date), vacationDays + (accrualRate / YEAR_IN_DAYS) * 7);
         }
        return vacationDays;
     }

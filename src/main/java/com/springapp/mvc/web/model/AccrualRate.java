@@ -15,7 +15,7 @@ public class AccrualRate {
     private String accrualRate;
     private double initialAccrualRate;
     final double YEAR_IN_DAYS = 365.25;
-    final double MAX_VACATION_DAYS = 30;
+    final double MAX_VACATION_DAYS = 30d;
 
     public AccrualRate() {
         this("");

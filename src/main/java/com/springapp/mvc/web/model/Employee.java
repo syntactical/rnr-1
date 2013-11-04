@@ -39,4 +39,8 @@ public class Employee {
     public HashMap<LocalDate, Double> getDaysOff() {
         return daysOff;
     }
+
+    public double calculateVacationDayCap(LocalDate endDate) {
+        return accrualRate.calculateVacationDayCap(startDate, endDate, initialAccrualRate);
+    }
 }

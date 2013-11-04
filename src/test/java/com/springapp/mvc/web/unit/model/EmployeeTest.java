@@ -44,6 +44,14 @@ public class EmployeeTest {
     }
 
     @Test
+    public void shouldCallAccrualRateWhenAskedForCap(){
+        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRate);
+
+        employee.calculateVacationDayCap(TODAY);
+        verify(mockAccrualRate).calculateVacationDayCap(startDate, TODAY, DEFAULT_ACCRUAL_RATE);
+    }
+
+    @Test
     public void shouldCallAccrualRateWithCustomInitialAccrualRate() {
         Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRate, CUSTOM_ACCRUAL_RATE);
 

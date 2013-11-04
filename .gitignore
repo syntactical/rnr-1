@@ -39,3 +39,4 @@ Thumbs.db
 # IntelliJ #
 ############
 *.iml
+/**/.idea/*
