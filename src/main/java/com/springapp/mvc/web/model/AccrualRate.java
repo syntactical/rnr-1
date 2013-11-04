@@ -1,31 +1,40 @@
 package com.springapp.mvc.web.model;
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.springframework.stereotype.Component;
+
+import static com.google.common.primitives.Doubles.max;
 import static org.joda.time.Days.daysBetween;
 
 @Component
 public class AccrualRate {
-    private DateTime startDate;
+    private LocalDate startDate;
+    private DateTime startDateDateTime;
     private String accrualRate;
-    final int YEAR_IN_DAYS = 365;
+    private double initialAccrualRate;
+    final double YEAR_IN_DAYS = 365.25;
 
     public AccrualRate() {
         this("");
     }
 
+    public AccrualRate(LocalDate startDate, double initialAccrualRate){
+        this.startDate = startDate;
+        this.initialAccrualRate = initialAccrualRate;
+    }
 
     public AccrualRate(String initialAccrualRate) {
         this.accrualRate = initialAccrualRate;
     }
     
     public AccrualRate givenIStarted(DateTime startDate) {
-        this.startDate = startDate;
+        this.startDateDateTime = startDate;
         return this;
     }
 
     public double calculate() {
-        return accrualRate.isEmpty() ? generateRate(startDate) : Math.max(Double.parseDouble(accrualRate), generateRate(startDate));
+        return accrualRate.isEmpty() ? generateRate(startDateDateTime) : Math.max(Double.parseDouble(accrualRate), generateRate(startDateDateTime));
     }
 
     public Double generateRate(DateTime startDate) {
@@ -43,5 +52,17 @@ public class AccrualRate {
     }
 
 
+    public double calculateDailyAccrualRate(LocalDate startDate, LocalDate endDate, double initialAccrualRate) {
+        double tenure = daysBetween(startDate, endDate).getDays();
 
+        if (tenure < YEAR_IN_DAYS) {
+            return max(10.0, initialAccrualRate) / YEAR_IN_DAYS;
+        } else if (tenure < 3 * YEAR_IN_DAYS) {
+            return max(15.0, initialAccrualRate) / YEAR_IN_DAYS;
+        } else if (tenure < 6 * YEAR_IN_DAYS) {
+            return max(20.0, initialAccrualRate) / YEAR_IN_DAYS;
+        } else {
+            return max(25.0, initialAccrualRate) / YEAR_IN_DAYS;
+        }
+    }
 }

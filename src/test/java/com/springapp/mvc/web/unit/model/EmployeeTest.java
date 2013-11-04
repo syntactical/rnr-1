@@ -1,5 +1,6 @@
 package com.springapp.mvc.web.unit.model;
 
+import com.springapp.mvc.web.model.AccrualRate;
 import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
 import org.junit.Before;
@@ -7,20 +8,23 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
+import static org.mockito.Matchers.any;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Matchers.anyDouble;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class EmployeeTest {
 
-    private Employee employee;
     private LocalDate startDate;
     private double rolloverDays;
+    private AccrualRate mockAccrualRate;
     private HashMap<LocalDate, Double> daysOff;
 
-    private final LocalDate ONE_YEAR_FROM_NOW = new LocalDate().plusYears(1).plusDays(1);
-    private final LocalDate THREE_YEARS_FROM_NOW = new LocalDate().plusYears(3).plusDays(1);
-    private final LocalDate SIX_YEARS_FROM_NOW = new LocalDate().plusYears(6).plusDays(1);
     private final LocalDate TODAY = new LocalDate();
+    private final double DEFAULT_ACCRUAL_RATE = 10d;
+    private final double CUSTOM_ACCRUAL_RATE = 17d;
     private final double YEAR_IN_DAYS = 365.25;
 
     @Before
@@ -28,36 +32,28 @@ public class EmployeeTest {
         startDate = TODAY;
         rolloverDays = 0;
         daysOff = new HashMap<LocalDate, Double>();
-        employee = new Employee(startDate, rolloverDays, daysOff);
+        mockAccrualRate = mock(AccrualRate.class);
     }
 
     @Test
-    public void shouldHaveAccrualRateOfTenDaysBeforeOneYearElapses() {
-        assertThat(employee.calculateDailyAccrualRate(TODAY), is(10d / YEAR_IN_DAYS));
+    public void shouldCallAccrualRateWhenAskedForAccrualRate() {
+        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRate);
+
+        employee.calculateDailyAccrualRate(TODAY);
+        verify(mockAccrualRate).calculateDailyAccrualRate(startDate, TODAY, DEFAULT_ACCRUAL_RATE);
     }
 
     @Test
-    public void shouldHaveAccrualRateOfFifteenDaysAfterOneYear() {
-        assertThat(employee.calculateDailyAccrualRate(ONE_YEAR_FROM_NOW), is(15d / YEAR_IN_DAYS));
+    public void shouldCallAccrualRateWithCustomInitialAccrualRate() {
+        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRate, CUSTOM_ACCRUAL_RATE);
+
+        employee.calculateDailyAccrualRate(TODAY);
+        verify(mockAccrualRate).calculateDailyAccrualRate(startDate, TODAY, CUSTOM_ACCRUAL_RATE);
     }
 
     @Test
-    public void shouldHaveAccrualRateOfTwentyDaysAfterThreeYears() {
-        assertThat(employee.calculateDailyAccrualRate(THREE_YEARS_FROM_NOW), is(20d / YEAR_IN_DAYS));
+    public void shouldDefaultWithAccrualRateOfTenDaysIfAccrualRateNotSpecified() {
+        Employee employee = new Employee(startDate, rolloverDays, daysOff, new AccrualRate());
+        assertThat(employee.calculateDailyAccrualRate(TODAY), is(DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS));
     }
-
-    @Test
-    public void shouldHaveAccrualRateOfTwentyFiveDaysAfterSixYears() {
-        assertThat(employee.calculateDailyAccrualRate(SIX_YEARS_FROM_NOW), is(25d / YEAR_IN_DAYS));
-    }
-
-    @Test
-    public void shouldHaveCustomAccrualRateIfSpecified() {
-        Employee employeeWithCustomAccrualRate = new Employee(startDate, rolloverDays, daysOff, 17d);
-        assertThat(employeeWithCustomAccrualRate.calculateDailyAccrualRate(TODAY), is(17d / YEAR_IN_DAYS));
-        assertThat(employeeWithCustomAccrualRate.calculateDailyAccrualRate(ONE_YEAR_FROM_NOW), is(17d / YEAR_IN_DAYS));
-        assertThat(employeeWithCustomAccrualRate.calculateDailyAccrualRate(THREE_YEARS_FROM_NOW), is(20d / YEAR_IN_DAYS));
-    }
-
-
 }

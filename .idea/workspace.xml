@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="243b0d7e-cdab-4847-a7ea-c87e2be79d49" name="Default" comment="[greg 'n' jashaad] made employee class">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Employee.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/EmployeeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java" afterPath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/CalculatorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/CalculatorTest.java" />
+    <list default="true" id="243b0d7e-cdab-4847-a7ea-c87e2be79d49" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java" afterPath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/model/AccrualRateTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/model/AccrualRateTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Employee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/EmployeeTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/EmployeeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RNR_project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383258229314" ignored="false" />
+    <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383582788597" ignored="false" />
     <file path="/CalculatorTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383250672099" ignored="false" />
     <file path="/Calculator.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383252533922" ignored="false" />
     <file path="/CalculatorServiceTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382720999955" ignored="false" />
@@ -23,19 +24,21 @@
     <file path="/home.jsp" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382565180671" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jsp/lib/jsp-impl.jar!/standardSchemas/jspxml2.xsd" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1381355258451" ignored="false" />
     <file path="/newInterface.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1381764708178" ignored="false" />
-    <file path="/fragment.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382993836101" ignored="false" />
+    <file path="/fragment.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383581131197" ignored="false" />
     <file path="/SpecRunner.html" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382471830299" ignored="false" />
     <file path="/RolloverVacationDays.story" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382481595981" ignored="false" />
     <file path="/SalesForceParserService.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383171773319" ignored="false" />
-    <file path="/AccrualRate.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383250649144" ignored="false" />
-    <file path="/AccrualRateTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382651494619" ignored="false" />
+    <file path="/AccrualRate.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383581140724" ignored="false" />
+    <file path="/AccrualRateTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383581082374" ignored="false" />
     <file path="/AccurateVacationDays.story" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382645703223" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/VacationDays.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382711166392" ignored="false" />
     <file path="/SalesForceParserServiceTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383244809585" ignored="false" />
-    <file path="$USER_HOME$/Documents/References/Tutorials/groovykoans-master/src/test/groovy/org/groovykoans/koan01/Koan01.groovy" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383147820728" ignored="false" />
-    <file path="$USER_HOME$/Documents/References/Tutorials/groovykoans-master/src/test/groovy/org/groovykoans/koan11/Koan11.groovy" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383147820728" ignored="false" />
-    <file path="/EmployeeTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383256425417" ignored="false" />
-    <file path="/Employee.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383257965627" ignored="false" />
+    <file path="$PROJECT_DIR$/../../References/Tutorials/groovykoans-master/src/test/groovy/org/groovykoans/koan01/Koan01.groovy" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383147820728" ignored="false" />
+    <file path="$PROJECT_DIR$/../../References/Tutorials/groovykoans-master/src/test/groovy/org/groovykoans/koan11/Koan11.groovy" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383147820728" ignored="false" />
+    <file path="/EmployeeTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383582105757" ignored="false" />
+    <file path="/Employee.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383581945983" ignored="false" />
+    <file path="$USER_HOME$/Desktop/rover/.idea/workspace.xml" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383499348442" ignored="false" />
+    <file path="$USER_HOME$/Desktop/rover/.idea/misc.xml" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383339403380" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,20 +113,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Calculator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java">
+      <file leaf-file-name="AccrualRate.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="20" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="54" column="18" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1383581311000" expanded="true" signature="404:421" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccrualRate.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java">
+      <file leaf-file-name="AccrualRateTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/model/AccrualRateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="52" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="38" column="0" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employee.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="53" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,30 +149,10 @@
       <file leaf-file-name="EmployeeTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/EmployeeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1967" selection-end="1967" vertical-scroll-proportion="0.0">
+            <state line="39" column="26" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employee.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="27" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.8172691">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocalDate.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.2/joda-time-2.2-sources.jar!/org/joda/time/LocalDate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="11" selection-start="9915" selection-end="9915" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -171,16 +169,16 @@
       <file leaf-file-name="CalculatorService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/service/CalculatorService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="39" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0">
+            <state line="37" column="22" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/controller/HomeController.java">
+      <file leaf-file-name="Calculator.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="13" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
+            <state line="49" column="5" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.9303944">
               <folding />
             </state>
           </provider>
@@ -189,7 +187,16 @@
       <file leaf-file-name="CalculatorTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/CalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="47" selection-start="2755" selection-end="2755" vertical-scroll-proportion="0.0">
+            <state line="27" column="0" selection-start="677" selection-end="677" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalculatorServiceTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/integration/CalculatorServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="362" selection-end="401" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -221,7 +228,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/VacationDays.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/model/AccrualRateTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/controller/HomeControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/controller/HomeController.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -230,12 +236,13 @@
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/integration/NavigationSteps.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/service/SalesForceParserService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/service/SalesForceParserServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/CalculatorTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/service/CalculatorService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/EmployeeTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/model/AccrualRateTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Employee.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/EmployeeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java" />
       </list>
     </option>
   </component>
@@ -245,6 +252,13 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -275,10 +289,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
     <option name="y" value="22" />
-    <option name="width" value="1378" />
-    <option name="height" value="878" />
+    <option name="width" value="1440" />
+    <option name="height" value="803" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -372,9 +385,6 @@
       <pane id="Scope">
         <subPane subId="Project Files" />
       </pane>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -389,7 +399,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,7 +409,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -410,10 +420,6 @@
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -421,7 +427,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -455,7 +461,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -489,7 +495,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -523,7 +529,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -553,7 +559,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -583,7 +589,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -613,7 +619,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -643,25 +649,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="rnr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -672,10 +660,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -683,7 +667,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -713,7 +697,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -743,7 +727,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
+              <option name="myItemId" value="rnr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -767,39 +751,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rnr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rnr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RNR_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artifacts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -813,7 +768,7 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Errors" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/References/Tutorials/groovykoans-master" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/rover" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -821,25 +776,25 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.springapp.mvc.web.model" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.springapp.mvc.web.model" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.springapp.mvc.web.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EmployeeTest">
+  <component name="RunManager" selected="JUnit.All in rnr">
     <configuration default="false" name="All in rnr" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="rnr" />
@@ -849,62 +804,6 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="CalculatorTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.springapp.mvc.web.unit.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="rnr" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.springapp.mvc.web.unit.model" />
-      <option name="MAIN_CLASS_NAME" value="com.springapp.mvc.web.unit.model.CalculatorTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SalesForceParserServiceTest.shouldParseSalesForceExampleTextAndReturnTheNumberOfVacationDays" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.springapp.mvc.web.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="rnr" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.springapp.mvc.web.service" />
-      <option name="MAIN_CLASS_NAME" value="com.springapp.mvc.web.service.SalesForceParserServiceTest" />
-      <option name="METHOD_NAME" value="shouldParseSalesForceExampleTextAndReturnTheNumberOfVacationDays" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -981,6 +880,62 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="AccrualRateTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.springapp.mvc.web.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="rnr" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.springapp.mvc.web.model" />
+      <option name="MAIN_CLASS_NAME" value="com.springapp.mvc.web.model.AccrualRateTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CalculatorTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.springapp.mvc.web.unit.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="rnr" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.springapp.mvc.web.unit.model" />
+      <option name="MAIN_CLASS_NAME" value="com.springapp.mvc.web.unit.model.CalculatorTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -1017,6 +972,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1043,19 +1011,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1184,18 +1139,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7.01" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.All in rnr" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CalculatorTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.SalesForceParserServiceTest.shouldParseSalesForceExampleTextAndReturnTheNumberOfVacationDays" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.EmployeeTest.shouldHaveAccrualRateOfFifteenDaysAfterOneYear" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.EmployeeTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.EmployeeTest.shouldHaveAccrualRateOfFifteenDaysAfterOneYear" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.EmployeeTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AccrualRateTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CalculatorTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.EmployeeTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.EmployeeTest.shouldHaveAccrualRateOfFifteenDaysAfterOneYear" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.SalesForceParserServiceTest.shouldParseSalesForceExampleTextAndReturnTheNumberOfVacationDays" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.All in rnr" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CalculatorTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in rnr" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CalculatorTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.EmployeeTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AccrualRateTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.EmployeeTest.shouldHaveAccrualRateOfFifteenDaysAfterOneYear" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1240,35 +1195,35 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="22" width="1378" height="878" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="803" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.701995" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962293" sideWeight="0.71240103" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39973614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25884125" sideWeight="0.33905014" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796487" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.68865436" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882884" sideWeight="0.68865436" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2762763" sideWeight="0.7242744" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2757256" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2517934" sideWeight="0.7247438" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27525622" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295626" sideWeight="0.68469656" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1314,7 +1269,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="[greg 'n' jashaad] initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="[greg 'n' jashaad] added AccrualRate class, works with Employee class now" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1329,6 +1284,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="[greg 'n' jashaad] initial commit" />
+    <MESSAGE value="[greg 'n' jashaad] added AccrualRate class, works with Employee class now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1338,51 +1294,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/integration/CalculatorServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="1" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/Banner.Story">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="79" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.2/joda-time-2.2-sources.jar!/org/joda/time/DateTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="300" column="11" selection-start="11031" selection-end="11031" vertical-scroll-proportion="9.00655">
-          <folding />
-        </state>
+        <state line="4" column="79" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="13" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.2/joda-time-2.2-sources.jar!/org/joda/time/LocalDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="265" column="11" selection-start="9915" selection-end="9915" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.2/joda-time-2.2-sources.jar!/org/joda/time/base/AbstractPartial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="370" column="19" selection-start="13389" selection-end="13389" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1394,16 +1313,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/CalculatorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="47" selection-start="2755" selection-end="2755" vertical-scroll-proportion="0.0">
+        <state line="18" column="13" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-core/1.9.0/mockito-core-1.9.0.jar!/org/mockito/Mockito.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="20" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.0">
+        <state line="34" column="27" selection-start="1596" selection-end="1596" vertical-scroll-proportion="-4.52">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="32" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1422,23 +1348,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/service/CalculatorService.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/model/AccrualRateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="39" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="52" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/EmployeeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1967" selection-end="1967" vertical-scroll-proportion="0.0">
+        <state line="38" column="0" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1447,10 +1359,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="27" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.8172691">
+        <state line="23" column="53" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/EmployeeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="26" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="18" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1383581311000" expanded="true" signature="404:421" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/integration/CalculatorServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="362" selection-end="401" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/service/CalculatorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="22" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/CalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="677" selection-end="677" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="5" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.9303944">
+          <folding />
         </state>
       </provider>
     </entry>
