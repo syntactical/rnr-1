@@ -5,20 +5,27 @@ import org.joda.time.DateTime;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-public class NavigationSteps {
+public class NavigationSteps extends UserJourneyBase {
 
     private WebDriver driver;
+
+    @BeforeStories
+    public void setDriver(){
+        driver = getDriver();
+    }
 
     @Given("I am a Thoughtworker")
     public void iAmAUser() {
@@ -52,10 +59,10 @@ public class NavigationSteps {
     }
 
     @When("I enter my start date exactly one year ago")
-    public void iEnterStartDateExactlyOneYearAgo(){
-        String today  = new DateTime().getMonthOfYear()+ "/" +
-                        new DateTime().getDayOfMonth()+"/"+
-                        new DateTime().getYear();
+    public void iEnterStartDateExactlyOneYearAgo() {
+        String today = new DateTime().getMonthOfYear() + "/" +
+                new DateTime().getDayOfMonth() + "/" +
+                new DateTime().getYear();
 
         WebElement startDateField = driver.findElement(By.id("startdate_field"));
         startDateField.sendKeys("01/01/1999");
@@ -84,7 +91,6 @@ public class NavigationSteps {
         WebElement banner = driver.findElement(By.className("headerimg"));
         assertTrue(banner.isDisplayed());
     }
-
 
 
     @Then("the form box should contain a date")
