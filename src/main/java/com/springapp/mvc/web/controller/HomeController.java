@@ -1,7 +1,11 @@
 package com.springapp.mvc.web.controller;
 
+import com.springapp.mvc.web.model.Calculator;
+import com.springapp.mvc.web.model.Employee;
 import com.springapp.mvc.web.service.CalculatorService;
-import org.joda.time.DateTime;
+import com.springapp.mvc.web.service.EmployeeService;
+import com.springapp.mvc.web.service.SalesForceParserService;
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,17 +16,21 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.HashMap;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
-    private CalculatorService calculatorService;
+    private final EmployeeService employeeService;
+    private final SalesForceParserService salesForceParserService;
+    private Calculator calculator;
 
     @Autowired
-    public HomeController(CalculatorService calculatorService) {
-        this.calculatorService = calculatorService;
+    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, Calculator calculator) {
+        this.employeeService = employeeService;
+        this.salesForceParserService = salesForceParserService;
+        this.calculator = calculator;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -38,7 +46,11 @@ public class HomeController {
         String salesForceText = request.getParameter("salesForceText");
         String startDate = request.getParameter("startDate");
 
-        Double vacationDays = calculatorService.calculateVacationDays(startDate, rollover, accrualRate, salesForceText);
+        HashMap<LocalDate, Double> parsedSalesForceData = salesForceParserService.parse(salesForceText);
+
+        Employee employee = employeeService.createEmployee(startDate, rollover, parsedSalesForceData, accrualRate);
+
+        double vacationDays = calculator.getVacationBasedOnIntervals(employee, new LocalDate());
 
         return showVacationDays(vacationDays);
     }

@@ -3,9 +3,6 @@ package com.springapp.mvc.web.model;
 import org.joda.time.*;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-
-import static java.lang.Math.exp;
 import static java.lang.Math.min;
 import static org.joda.time.Days.daysBetween;
 
