@@ -1,4 +1,4 @@
-package com.springapp.mvc.web.integration;
+package com.springapp.mvc.web.functional;
 
 import org.jbehave.core.annotations.*;
 import org.joda.time.DateTime;

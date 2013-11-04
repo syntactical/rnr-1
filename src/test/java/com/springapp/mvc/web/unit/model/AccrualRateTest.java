@@ -1,5 +1,6 @@
-package com.springapp.mvc.web.model;
+package com.springapp.mvc.web.unit.model;
 
+import com.springapp.mvc.web.model.AccrualRate;
 import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
