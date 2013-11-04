@@ -43,4 +43,32 @@ public class Employee {
     public double calculateVacationDayCap(LocalDate endDate) {
         return accrualRate.calculateVacationDayCap(startDate, endDate, initialAccrualRate);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+
+        Employee employee = (Employee) o;
+
+        if (Double.compare(employee.initialAccrualRate, initialAccrualRate) != 0) return false;
+        if (Double.compare(employee.rolloverDays, rolloverDays) != 0) return false;
+        if (daysOff != null ? !daysOff.equals(employee.daysOff) : employee.daysOff != null) return false;
+        if (startDate != null ? !startDate.equals(employee.startDate) : employee.startDate != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = startDate != null ? startDate.hashCode() : 0;
+        temp = Double.doubleToLongBits(rolloverDays);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (daysOff != null ? daysOff.hashCode() : 0);
+        temp = Double.doubleToLongBits(initialAccrualRate);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }

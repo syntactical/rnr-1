@@ -63,52 +63,11 @@ public class AccrualRateTest {
     }
 
     @Test
-    public void shouldReturnVacationDayCap(){
+    public void shouldReturnVacationDayCap() {
         assertThat(accrualRate.calculateVacationDayCap(TODAY, TOMORROW, DEFAULT_ACCRUAL_RATE), is(DEFAULT_ACCRUAL_RATE * 1.5));
         assertThat(accrualRate.calculateVacationDayCap(TODAY, ONE_YEAR_FROM_NOW, DEFAULT_ACCRUAL_RATE), is(ACCRUAL_RATE_AFTER_ONE_YEAR * 1.5));
         assertThat(accrualRate.calculateVacationDayCap(TODAY, SIX_YEARS_FROM_NOW, DEFAULT_ACCRUAL_RATE), is(MAXNIMUM_VACATION_DAYS));
     }
-
-
-
-
-
-
-
-
-
-
-
-//
-//        @Test
-//    public void shouldGetAccrualRateDaysOf10IfRateNullAndElapsedTimeIsLTOneYear() throws Exception {
-//        double expectedRate = 10. / 365;
-//        DateTime lessThanOneYearAgo = TODAY.plusDays(1);
-//        assertThat(new AccrualRate().givenIStarted(lessThanOneYearAgo).calculate() , is(expectedRate));
-//    }
-//
-//    @Test
-//    public void shouldGetAccrualRateDaysOf15IfRateNullAndElapsedTimeGTOneYear() {
-//        double expectedRate = 15. / 365;
-//        DateTime twoYearsAgo = TODAY.minusYears(1);
-//        assertThat(new AccrualRate().givenIStarted(twoYearsAgo).calculate() , is(expectedRate));
-//    }
-//
-//    @Test
-//    public void shouldGetAccrualRateDaysOf20IfRateNullAndElapsedTimeGT3Years() throws Exception {
-//        double expectedRate = 20. / 365;
-//        DateTime fourYearsAgo = TODAY.minusYears(3);
-//        assertThat(new AccrualRate().givenIStarted(fourYearsAgo).calculate(), is(expectedRate));
-//    }
-//
-//    @Test
-//    public void shouldGetAccrualRateDaysOf25IfRateNullAndElapsedTimeGT6Years() throws Exception {
-//        double expectedRate = 25. / 365;
-//        DateTime sevenYearsAgo = TODAY.minusYears(6);
-//        assertThat(new AccrualRate().givenIStarted(sevenYearsAgo).calculate() , is(expectedRate));
-//    }
-
-
 
 
 }
