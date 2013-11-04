@@ -1,7 +1,6 @@
 package com.springapp.mvc.web.model;
 
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
+import org.joda.time.*;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -11,6 +10,10 @@ import static org.joda.time.Days.daysBetween;
 
 @Component
 public class Calculator {
+
+    public static final LocalDate SALESFORCE_START_DATE = new LocalDate(2013, 7, 1);
+    public static final double YEAR_IN_DAYS = 365.25;
+    public static final LocalDate TODAY = new LocalDate();
 
     private Double roundNumber(Double unrounded) {
         return ((double) (Math.round(unrounded * 100))) / 100;
@@ -35,23 +38,27 @@ public class Calculator {
     }
 
 
-//    public Double getVacationBasedOnIntervals(DateTime startDate, HashMap<LocalDate,Double> daysOff, double rolloverDays, LocalDate accrualStartDate) {
-//
-//        for (DateTime date = accrualStartDate; date.isBefore(new LocalDate()); date = date.plusWeeks(1))
-//        {
-//            double accrualRate = new AccrualRate().generateRate(date);
-//            double cap = min(30, accrualRate * 365 * 1.5);
-//
-//            if (daysOff.get(date) != null){
-//                rolloverDays -= daysOff.get(date) / 8;
-//            }
-//
-//            rolloverDays = min(cap, rolloverDays + accrualRate * 7);
-//        }
-//       return rolloverDays;
-//    }
-//
-//    public Double getVacationBasedOnIntervals(DateTime startDate, HashMap<LocalDate,Double> daysOff, double rolloverDays) {
-//        return getVacationBasedOnIntervals(startDate, daysOff, rolloverDays, new LocalDate(2013,7,1));
-//    }
+    public Double getVacationBasedOnIntervals(Employee employee, LocalDate accrualEndDate) {
+
+        LocalDate accrualStartDate = (employee.getStartDate().isAfter(SALESFORCE_START_DATE)) ? employee.getStartDate() : SALESFORCE_START_DATE;
+
+        if (employee.getStartDate().isBefore(SALESFORCE_START_DATE)){
+            accrualStartDate = SALESFORCE_START_DATE;
+        }
+
+        double vacationDays = employee.getRolloverDays();
+
+        for (LocalDate date = accrualStartDate; date.isBefore(accrualEndDate); date = date.plusWeeks(1))
+        {
+            double accrualRate = employee.calculateDailyAccrualRate(date);
+            double cap = min(30, accrualRate * 1.5);
+
+            if (employee.getDaysOff().get(date) != null){
+                vacationDays -= employee.getDaysOff().get(date) / 8;
+            }
+
+            vacationDays = min(cap, vacationDays + (accrualRate / YEAR_IN_DAYS) * 7);
+        }
+       return vacationDays;
+    }
 }

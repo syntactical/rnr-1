@@ -11,6 +11,7 @@ import static org.mockito.Mockito.mock;
 
 public class AccrualRateTest {
 
+    public static final double MAXNIMUM_VACATION_DAYS = 30d;
     private final LocalDate TODAY = new LocalDate();
     private final LocalDate TOMORROW = new LocalDate().plusDays(1);
     private final LocalDate ONE_YEAR_FROM_NOW = new LocalDate().plusYears(1).plusDays(1);
@@ -59,6 +60,13 @@ public class AccrualRateTest {
         assertThat(accrualRate.calculateDailyAccrualRate(TODAY, ONE_YEAR_FROM_NOW, CUSTOM_INITIAL_ACCRUAL_RATE), is(CUSTOM_INITIAL_ACCRUAL_RATE / YEAR_IN_DAYS));
         assertThat(accrualRate.calculateDailyAccrualRate(TODAY, THREE_YEARS_FROM_NOW, CUSTOM_INITIAL_ACCRUAL_RATE), is(ACCRUAL_RATE_AFTER_THREE_YEARS / YEAR_IN_DAYS));
 
+    }
+
+    @Test
+    public void shouldReturnVacationDayCap(){
+        assertThat(accrualRate.calculateVacationDayCap(TODAY, TOMORROW, DEFAULT_ACCRUAL_RATE), is(DEFAULT_ACCRUAL_RATE * 1.5));
+        assertThat(accrualRate.calculateVacationDayCap(TODAY, ONE_YEAR_FROM_NOW, DEFAULT_ACCRUAL_RATE), is(ACCRUAL_RATE_AFTER_ONE_YEAR * 1.5));
+        assertThat(accrualRate.calculateVacationDayCap(TODAY, SIX_YEARS_FROM_NOW, DEFAULT_ACCRUAL_RATE), is(MAXNIMUM_VACATION_DAYS));
     }
 
 
