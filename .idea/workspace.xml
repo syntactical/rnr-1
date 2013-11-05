@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="243b0d7e-cdab-4847-a7ea-c87e2be79d49" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/UserJourneyBase.java" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/UserJourneyBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RNR_project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383667500225" ignored="false" />
+    <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383668736785" ignored="false" />
     <file path="/CalculatorTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383250672099" ignored="false" />
     <file path="/Calculator.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383252533922" ignored="false" />
     <file path="/CalculatorServiceTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382720999955" ignored="false" />
@@ -143,10 +143,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomepageFunctionalityTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HomepageFunctionalityTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="25" selection-start="959" selection-end="959" vertical-scroll-proportion="0.8333333">
+            <state line="30" column="25" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -181,10 +181,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserJourneyBase.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="UserJourneyBase.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/UserJourneyBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="28" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0">
+            <state line="24" column="59" selection-start="672" selection-end="672" vertical-scroll-proportion="0.5493827">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -227,12 +227,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/Calculator.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/SalesForceParserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/service/SalesForceParserServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/UserJourneyBase.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/NavigationSteps.java" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/UserJourneyBase.java" />
       </list>
     </option>
   </component>
@@ -1032,12 +1032,16 @@
       <created>1383667504128</created>
       <updated>1383667504128</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="LM - used StoryFinder">
+      <created>1383668741890</created>
+      <updated>1383668741890</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="22" width="1201" height="860" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.701995" order="3" side_tool="false" content_ui="tabs" />
@@ -1058,7 +1062,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33333334" sideWeight="0.7256757" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25541127" sideWeight="0.7256757" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25541127" sideWeight="0.7256757" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27432433" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295626" sideWeight="0.68469656" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1110,7 +1114,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="LM - included story files" />
+    <option name="LAST_COMMIT_MESSAGE" value="LM - used StoryFinder" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1137,6 +1141,7 @@
     <MESSAGE value="LM - got rid of exclusion" />
     <MESSAGE value="LM - added test scope to pom" />
     <MESSAGE value="LM - included story files" />
+    <MESSAGE value="LM - used StoryFinder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1229,15 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/UserJourneyBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="28" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/NavigationSteps.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="39" selection-start="1099" selection-end="1099" vertical-scroll-proportion="0.0">
@@ -1254,7 +1250,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="25" selection-start="959" selection-end="959" vertical-scroll-proportion="0.8333333">
+        <state line="30" column="25" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/UserJourneyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="59" selection-start="672" selection-end="672" vertical-scroll-proportion="0.5493827">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
