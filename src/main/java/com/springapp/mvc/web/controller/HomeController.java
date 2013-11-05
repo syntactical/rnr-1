@@ -25,7 +25,6 @@ public class HomeController {
     private final SalesForceParserService salesForceParserService;
     private final VacationCalculator vacationCalculator;
 
-
     @Autowired
     public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, VacationCalculator vacationCalculator) {
         this.employeeService = employeeService;
@@ -45,6 +44,7 @@ public class HomeController {
         String accrualRate = request.getParameter("accrualRate");
         String salesForceText = request.getParameter("salesForceText");
         String startDate = request.getParameter("startDate");
+
 
         HashMap<LocalDate, Double> parsedSalesForceData = salesForceParserService.parse(salesForceText);
 

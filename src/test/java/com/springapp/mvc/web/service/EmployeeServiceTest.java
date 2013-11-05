@@ -5,12 +5,17 @@ import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class EmployeeServiceTest {
 
@@ -21,25 +26,39 @@ public class EmployeeServiceTest {
     public static final HashMap<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
     public static final AccrualRateCalculator DEFAULT_ACCRUAL_RATE = new AccrualRateCalculator();
 
+    EmployeeService employeeService;
+    DateParserService dateParser;
+
+
+    @Before
+    public void setUp() {
+        dateParser = mock(DateParserService.class);
+        employeeService = new EmployeeService(dateParser);
+
+    }
+
     @Test
     public void shouldCreateNewEmployeeWithGivenFields() throws Exception {
-        Employee actualEmployee = new EmployeeService().createEmployee(TODAY, ROLLOVER_DAYS, NO_DAYS_OFF, "");
 
         double rolloverDaysDouble = Double.parseDouble(ROLLOVER_DAYS);
 
-        DateTimeFormatter formatter = DateTimeFormat.forPattern("mm/dd/yyyy");
-        LocalDate date = formatter.parseLocalDate(TODAY);
+        LocalDate date = new DateParserService().parse(TODAY);
+        when(dateParser.parse(anyString())).thenReturn(date);
+
+        Employee actualEmployee = employeeService.createEmployee(TODAY, ROLLOVER_DAYS, NO_DAYS_OFF, "");
+
 
         Employee expectedEmployee = new Employee(date, rolloverDaysDouble, NO_DAYS_OFF, DEFAULT_ACCRUAL_RATE);
         assertThat(actualEmployee, is(expectedEmployee));
+        verify(dateParser).parse(anyString());
     }
 
     @Test
     public void shouldCreateNewEmployeeWithNoRolloverDaysIfNoRolloverDaysGiven() {
-        Employee actualEmployee = new EmployeeService().createEmployee(TODAY, NO_ROLLOVER_DAYS, NO_DAYS_OFF, "");
+        LocalDate date = new DateParserService().parse(TODAY);
+        when(dateParser.parse(anyString())).thenReturn(date);
 
-        DateTimeFormatter formatter = DateTimeFormat.forPattern("mm/dd/yyyy");
-        LocalDate date = formatter.parseLocalDate(TODAY);
+        Employee actualEmployee = employeeService.createEmployee(TODAY, NO_ROLLOVER_DAYS, NO_DAYS_OFF, "");
 
         Employee expectedEmployee = new Employee(date, 0d, NO_DAYS_OFF, DEFAULT_ACCRUAL_RATE);
         assertThat(actualEmployee, is(expectedEmployee));
@@ -47,10 +66,10 @@ public class EmployeeServiceTest {
 
     @Test
     public void shouldCreateEmployeeWithCustomAccrualRateIfGiven() {
-        Employee actualEmployee = new EmployeeService().createEmployee(TODAY, NO_ROLLOVER_DAYS, NO_DAYS_OFF, CUSTOM_ACCRUAL_RATE);
+        LocalDate date = new DateParserService().parse(TODAY);
+        when(dateParser.parse(anyString())).thenReturn(date);
 
-        DateTimeFormatter formatter = DateTimeFormat.forPattern("mm/dd/yyyy");
-        LocalDate date = formatter.parseLocalDate(TODAY);
+        Employee actualEmployee = employeeService.createEmployee(TODAY, NO_ROLLOVER_DAYS, NO_DAYS_OFF, CUSTOM_ACCRUAL_RATE);
 
         Employee expectedEmployee = new Employee(date, 0d, NO_DAYS_OFF, DEFAULT_ACCRUAL_RATE, 17d);
         assertThat(actualEmployee, is(expectedEmployee));

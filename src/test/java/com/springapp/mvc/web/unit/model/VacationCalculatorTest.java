@@ -48,7 +48,7 @@ public class VacationCalculatorTest {
     @Test
     public void shouldCalculateVacationDaysAfterIntervalOfTime() {
         double expectedVacationDays = DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS * 7;
-        when(mockAccrualRateCalculator.calculateDailyAccrualRate(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(DEFAULT_ACCRUAL_RATE);
+        when(mockAccrualRateCalculator.calculateDailyAccrualRate(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(DEFAULT_ACCRUAL_RATE/ YEAR_IN_DAYS);
         when(mockAccrualRateCalculator.calculateVacationDayCap(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(15d);
 
         assertThat(vacationCalculator.getVacationDays(employee, TODAY), is(expectedVacationDays));
@@ -70,7 +70,7 @@ public class VacationCalculatorTest {
     @Test
     public void shouldStartAccrualAtSalesforceStartDateIfEmployeeStartDateIsEarlierThanSalesforceStartDate() {
         Employee veteranEmployee = new Employee(SIX_MONTHS_BEFORE_SALESFORCE_START_DATE, 0, NO_TIME_OFF, mockAccrualRateCalculator);
-        when(mockAccrualRateCalculator.calculateDailyAccrualRate(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(DEFAULT_ACCRUAL_RATE);
+        when(mockAccrualRateCalculator.calculateDailyAccrualRate(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(DEFAULT_ACCRUAL_RATE/YEAR_IN_DAYS);
         when(mockAccrualRateCalculator.calculateVacationDayCap(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(15d);
 
         double expectedVacationDays = (DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS) * 7 * 2;
@@ -86,7 +86,7 @@ public class VacationCalculatorTest {
 
         double expectedVacationDays = DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS * 7 * 2;
 
-        when(mockAccrualRateCalculator.calculateDailyAccrualRate(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(DEFAULT_ACCRUAL_RATE);
+        when(mockAccrualRateCalculator.calculateDailyAccrualRate(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(DEFAULT_ACCRUAL_RATE/YEAR_IN_DAYS);
         when(mockAccrualRateCalculator.calculateVacationDayCap(any(LocalDate.class), any(LocalDate.class), anyDouble())).thenReturn(15d);
 
         assertThat(vacationCalculator.getVacationDays(employeeWithVacation, TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));

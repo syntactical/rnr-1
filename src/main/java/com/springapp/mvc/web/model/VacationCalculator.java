@@ -10,16 +10,13 @@ import static org.joda.time.Days.daysBetween;
 public class VacationCalculator {
 
     public static final LocalDate SALESFORCE_START_DATE = new LocalDate(2013, 7, 1);
-    public static final double YEAR_IN_DAYS = 365.25;
 
     public Double getVacationDays(Employee employee, LocalDate accrualEndDate) {
 
         LocalDate accrualStartDate = (employee.getStartDate().isAfter(SALESFORCE_START_DATE)) ? employee.getStartDate() : SALESFORCE_START_DATE;
-
         if (employee.getStartDate().isBefore(SALESFORCE_START_DATE)){
             accrualStartDate = SALESFORCE_START_DATE;
         }
-
         double vacationDays = employee.getRolloverDays();
 
         for (LocalDate date = accrualStartDate; date.isBefore(accrualEndDate); date = date.plusWeeks(1))
@@ -30,8 +27,11 @@ public class VacationCalculator {
                 vacationDays -= employee.getDaysOff().get(date) / 8;
             }
 
-            vacationDays = min(employee.calculateVacationDayCap(date), vacationDays + (accrualRate / YEAR_IN_DAYS) * 7);
+            double accruedDaysPerWeekThisYear = (accrualRate) * 7;
+
+            vacationDays = min(employee.calculateVacationDayCap(date), vacationDays + accruedDaysPerWeekThisYear);
         }
+
        return vacationDays;
     }
 }

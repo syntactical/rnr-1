@@ -1,12 +1,20 @@
 package com.springapp.mvc.web.service;
 
 import org.joda.time.LocalDate;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 public class SalesForceParserService {
+
+    private final DateParserService dateParser;
+
+    @Autowired
+    public SalesForceParserService(DateParserService dateParser) {
+        this.dateParser = dateParser;
+    }
 
     private int findLine(String stringToFind, List<String> listOfStrings) {
         for (String line : listOfStrings) {
@@ -36,14 +44,12 @@ public class SalesForceParserService {
         return vacationDaysAndHours;
     }
 
-    private void extractDateAndHours(HashMap<LocalDate, Double> vacationDaysAndHours, List<String> textLines, int vacationInformation) {
+    private void extractDateAndHours(HashMap<LocalDate, Double> vacationDaysAndHours, List<String> textLines,
+                                     int vacationInformation) {
         List<String> parsedVacationInformation = Arrays.asList(textLines.get(vacationInformation).split("\t"));
 
         double hours = Double.parseDouble(parsedVacationInformation.get(5));
-
-        String[] dateFields = parsedVacationInformation.get(3).split("/");
-        LocalDate date = new LocalDate(Integer.parseInt(dateFields[2]), Integer.parseInt(dateFields[0]),
-                Integer.parseInt(dateFields[1]));
+        LocalDate date  = dateParser.parse(parsedVacationInformation.get(3));
 
         vacationDaysAndHours.put(date, hours);
     }
