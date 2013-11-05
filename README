@@ -10,7 +10,13 @@ Things you might want to install
             Tomcat
 
 ~~~
+Linking your github account to the CI pipeline
 
+Before committing go to snap-ci.com and click on get started.  Allow snap privileges to your github account.
+Set up the rnr repo on snap. If the repo is not viewable on snap, talk to the github account manager, currently
+Landon(lmedlock@thoughtworks.com). If you break the build FIX IT.
+
+~~~
 Getting stuff to work on Mac OS X (Lion)
 
 BEFORE OPENING PROJECT IN INTELLIJ
