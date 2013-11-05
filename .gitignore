@@ -38,5 +38,6 @@ Thumbs.db
 
 # IntelliJ #
 ############
-*.iml
-/**/.idea/*
+*.iws
+/**/workspace.xml
+/**/tasks.xml
