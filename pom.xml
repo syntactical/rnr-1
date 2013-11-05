@@ -120,6 +120,7 @@
                     <!--</excludes>-->
                     <includes>
                         <include>**/*Test.java</include>
+                        <include>**/*.story</include>
                     </includes>
                 </configuration>
             </plugin>
