@@ -17,8 +17,8 @@ public class CalculatorValidation {
 
 
     public HashMap verifyDate(String dateAsString) {
-       parseDate(dateAsString);
-       HashMap errors = new HashMap();
+        parseDate(dateAsString);
+        HashMap errors = new HashMap();
 
         if (month < 1 || month > 12) {
             errors.put("month", "Please enter a valid month.");
@@ -37,10 +37,10 @@ public class CalculatorValidation {
         parseDate(dateAsString);
         Integer startYear = Integer.parseInt(this.year);
 
-        return startYear==currentYear;
+        return startYear == currentYear;
     }
 
-    private void parseDate(String dateAsString){
+    private void parseDate(String dateAsString) {
         String[] dateFields = dateAsString.split("/");
         month = Integer.parseInt(dateFields[0]);
         day = Integer.parseInt(dateFields[1]);

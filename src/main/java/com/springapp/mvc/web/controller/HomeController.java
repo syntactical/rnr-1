@@ -24,7 +24,8 @@ public class HomeController {
 
     private final EmployeeService employeeService;
     private final SalesForceParserService salesForceParserService;
-    private Calculator calculator;
+    private final Calculator calculator;
+
 
     @Autowired
     public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, Calculator calculator) {

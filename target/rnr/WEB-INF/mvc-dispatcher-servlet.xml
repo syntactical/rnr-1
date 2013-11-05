@@ -16,4 +16,9 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="employeeService" class="com.springapp.mvc.web.service.EmployeeService" />
+    <bean id="calculator" class="com.springapp.mvc.web.model.Calculator" />
+    <bean id="salesForceParserService" class="com.springapp.mvc.web.service.SalesForceParserService" />
+
+
 </beans>
