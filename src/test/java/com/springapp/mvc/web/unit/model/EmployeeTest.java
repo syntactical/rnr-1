@@ -1,6 +1,6 @@
 package com.springapp.mvc.web.unit.model;
 
-import com.springapp.mvc.web.model.AccrualRate;
+import com.springapp.mvc.web.model.AccrualRateCalculator;
 import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
 import org.junit.Before;
@@ -11,7 +11,6 @@ import java.util.HashMap;
 import static org.mockito.Matchers.any;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Matchers.anyDouble;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -19,7 +18,7 @@ public class EmployeeTest {
 
     private LocalDate startDate;
     private double rolloverDays;
-    private AccrualRate mockAccrualRate;
+    private AccrualRateCalculator mockAccrualRateCalculator;
     private HashMap<LocalDate, Double> daysOff;
 
     private final LocalDate TODAY = new LocalDate();
@@ -32,36 +31,36 @@ public class EmployeeTest {
         startDate = TODAY;
         rolloverDays = 0;
         daysOff = new HashMap<LocalDate, Double>();
-        mockAccrualRate = mock(AccrualRate.class);
+        mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
     }
 
     @Test
     public void shouldCallAccrualRateWhenAskedForAccrualRate() {
-        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRate);
+        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator);
 
         employee.calculateDailyAccrualRate(TODAY);
-        verify(mockAccrualRate).calculateDailyAccrualRate(startDate, TODAY, DEFAULT_ACCRUAL_RATE);
+        verify(mockAccrualRateCalculator).calculateDailyAccrualRate(startDate, TODAY, DEFAULT_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldCallAccrualRateWhenAskedForCap(){
-        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRate);
+        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator);
 
         employee.calculateVacationDayCap(TODAY);
-        verify(mockAccrualRate).calculateVacationDayCap(startDate, TODAY, DEFAULT_ACCRUAL_RATE);
+        verify(mockAccrualRateCalculator).calculateVacationDayCap(startDate, TODAY, DEFAULT_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldCallAccrualRateWithCustomInitialAccrualRate() {
-        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRate, CUSTOM_ACCRUAL_RATE);
+        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator, CUSTOM_ACCRUAL_RATE);
 
         employee.calculateDailyAccrualRate(TODAY);
-        verify(mockAccrualRate).calculateDailyAccrualRate(startDate, TODAY, CUSTOM_ACCRUAL_RATE);
+        verify(mockAccrualRateCalculator).calculateDailyAccrualRate(startDate, TODAY, CUSTOM_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldDefaultWithAccrualRateOfTenDaysIfAccrualRateNotSpecified() {
-        Employee employee = new Employee(startDate, rolloverDays, daysOff, new AccrualRate());
+        Employee employee = new Employee(startDate, rolloverDays, daysOff, new AccrualRateCalculator());
         assertThat(employee.calculateDailyAccrualRate(TODAY), is(DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS));
     }
 }

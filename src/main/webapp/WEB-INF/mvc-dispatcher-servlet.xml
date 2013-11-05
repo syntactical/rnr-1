@@ -17,7 +17,7 @@
     </bean>
 
     <bean id="employeeService" class="com.springapp.mvc.web.service.EmployeeService" />
-    <bean id="calculator" class="com.springapp.mvc.web.model.Calculator" />
+    <bean id="calculator" class="com.springapp.mvc.web.model.VacationCalculator" />
     <bean id="salesForceParserService" class="com.springapp.mvc.web.service.SalesForceParserService" />
 
 

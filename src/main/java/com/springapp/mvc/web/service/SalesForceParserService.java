@@ -1,12 +1,7 @@
 package com.springapp.mvc.web.service;
 
-import com.springapp.mvc.web.model.Calculator;
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -37,8 +32,6 @@ public class SalesForceParserService {
                 vacationInformation++;
             }
         }
-
-        System.out.println(vacationDaysAndHours);
 
         return vacationDaysAndHours;
     }

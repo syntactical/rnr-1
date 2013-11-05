@@ -7,25 +7,25 @@ public class Employee {
     private final LocalDate startDate;
     private final double rolloverDays;
     private final HashMap<LocalDate, Double> daysOff;
-    private AccrualRate accrualRate;
+    private AccrualRateCalculator accrualRateCalculator;
     private double initialAccrualRate;
 
     private static final double DEFAULT_ACCRUAL_RATE = 10;
 
-    public Employee(LocalDate startDate, double rolloverDays, HashMap<LocalDate, Double> daysOff, AccrualRate accrualRate) {
-        this(startDate, rolloverDays, daysOff, accrualRate, DEFAULT_ACCRUAL_RATE);
+    public Employee(LocalDate startDate, double rolloverDays, HashMap<LocalDate, Double> daysOff, AccrualRateCalculator accrualRateCalculator) {
+        this(startDate, rolloverDays, daysOff, accrualRateCalculator, DEFAULT_ACCRUAL_RATE);
     }
 
-    public Employee(LocalDate startDate, double rolloverDays, HashMap<LocalDate, Double> daysOff, AccrualRate accrualRate, double initialAccrualRate) {
+    public Employee(LocalDate startDate, double rolloverDays, HashMap<LocalDate, Double> daysOff, AccrualRateCalculator accrualRateCalculator, double initialAccrualRate) {
         this.startDate = startDate;
         this.rolloverDays = rolloverDays;
         this.daysOff = daysOff;
-        this.accrualRate = accrualRate;
+        this.accrualRateCalculator = accrualRateCalculator;
         this.initialAccrualRate = initialAccrualRate;
     }
 
     public double calculateDailyAccrualRate(LocalDate endDate) {
-        return accrualRate.calculateDailyAccrualRate(startDate, endDate, initialAccrualRate);
+        return accrualRateCalculator.calculateDailyAccrualRate(startDate, endDate, initialAccrualRate);
     }
 
     public LocalDate getStartDate() {
@@ -41,7 +41,7 @@ public class Employee {
     }
 
     public double calculateVacationDayCap(LocalDate endDate) {
-        return accrualRate.calculateVacationDayCap(startDate, endDate, initialAccrualRate);
+        return accrualRateCalculator.calculateVacationDayCap(startDate, endDate, initialAccrualRate);
     }
 
     @Override

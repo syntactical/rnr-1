@@ -8,7 +8,7 @@ import static java.lang.Math.min;
 import static org.joda.time.Days.daysBetween;
 
 @Component
-public class AccrualRate {
+public class AccrualRateCalculator {
     final double YEAR_IN_DAYS = 365.25;
     final double MAX_VACATION_DAYS = 30d;
 

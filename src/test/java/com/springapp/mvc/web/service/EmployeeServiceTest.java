@@ -1,6 +1,6 @@
 package com.springapp.mvc.web.service;
 
-import com.springapp.mvc.web.model.AccrualRate;
+import com.springapp.mvc.web.model.AccrualRateCalculator;
 import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
@@ -19,7 +19,7 @@ public class EmployeeServiceTest {
     public static final String NO_ROLLOVER_DAYS = "";
     public static final String CUSTOM_ACCRUAL_RATE = "17";
     public static final HashMap<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
-    public static final AccrualRate DEFAULT_ACCRUAL_RATE = new AccrualRate();
+    public static final AccrualRateCalculator DEFAULT_ACCRUAL_RATE = new AccrualRateCalculator();
 
     @Test
     public void shouldCreateNewEmployeeWithGivenFields() throws Exception {

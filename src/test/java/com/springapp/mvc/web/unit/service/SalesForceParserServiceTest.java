@@ -1,6 +1,5 @@
 package com.springapp.mvc.web.unit.service;
 
-import com.springapp.mvc.web.model.Calculator;
 import com.springapp.mvc.web.service.SalesForceParserService;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;

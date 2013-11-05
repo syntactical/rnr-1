@@ -1,6 +1,6 @@
 package com.springapp.mvc.web.controller;
 
-import com.springapp.mvc.web.model.Calculator;
+import com.springapp.mvc.web.model.VacationCalculator;
 import com.springapp.mvc.web.model.Employee;
 import com.springapp.mvc.web.service.EmployeeService;
 import com.springapp.mvc.web.service.SalesForceParserService;
@@ -23,14 +23,14 @@ public class HomeController {
 
     private final EmployeeService employeeService;
     private final SalesForceParserService salesForceParserService;
-    private final Calculator calculator;
+    private final VacationCalculator vacationCalculator;
 
 
     @Autowired
-    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, Calculator calculator) {
+    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, VacationCalculator vacationCalculator) {
         this.employeeService = employeeService;
         this.salesForceParserService = salesForceParserService;
-        this.calculator = calculator;
+        this.vacationCalculator = vacationCalculator;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -50,7 +50,7 @@ public class HomeController {
 
         Employee employee = employeeService.createEmployee(startDate, rollover, parsedSalesForceData, accrualRate);
 
-        double vacationDays = calculator.getVacationDays(employee, new LocalDate());
+        double vacationDays = vacationCalculator.getVacationDays(employee, new LocalDate());
 
         return showVacationDays(vacationDays);
     }

@@ -1,6 +1,6 @@
 package com.springapp.mvc.web.service;
 
-import com.springapp.mvc.web.model.AccrualRate;
+import com.springapp.mvc.web.model.AccrualRateCalculator;
 import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
@@ -14,8 +14,8 @@ public class EmployeeService {
         LocalDate date = formatter.parseLocalDate(startDate);
 
         double rollover = rolloverDays.equals("") ? 0 : Double.parseDouble(rolloverDays);
-        Employee employee = initialAccrualRate.equals("") ? new Employee(date, rollover, daysOff, new AccrualRate())
-                : new Employee(date, rollover, daysOff, new AccrualRate(), Double.parseDouble(initialAccrualRate));
+        Employee employee = initialAccrualRate.equals("") ? new Employee(date, rollover, daysOff, new AccrualRateCalculator())
+                : new Employee(date, rollover, daysOff, new AccrualRateCalculator(), Double.parseDouble(initialAccrualRate));
         return employee;
     }
 }

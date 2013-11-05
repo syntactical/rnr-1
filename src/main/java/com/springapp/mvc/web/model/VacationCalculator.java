@@ -7,7 +7,7 @@ import static java.lang.Math.min;
 import static org.joda.time.Days.daysBetween;
 
 @Component
-public class Calculator {
+public class VacationCalculator {
 
     public static final LocalDate SALESFORCE_START_DATE = new LocalDate(2013, 7, 1);
     public static final double YEAR_IN_DAYS = 365.25;
