@@ -2,7 +2,6 @@ package com.springapp.mvc.web.controller;
 
 import com.springapp.mvc.web.model.Calculator;
 import com.springapp.mvc.web.model.Employee;
-import com.springapp.mvc.web.service.CalculatorService;
 import com.springapp.mvc.web.service.EmployeeService;
 import com.springapp.mvc.web.service.SalesForceParserService;
 import org.joda.time.LocalDate;
@@ -51,7 +50,7 @@ public class HomeController {
 
         Employee employee = employeeService.createEmployee(startDate, rollover, parsedSalesForceData, accrualRate);
 
-        double vacationDays = calculator.getVacationBasedOnIntervals(employee, new LocalDate());
+        double vacationDays = calculator.getVacationDays(employee, new LocalDate());
 
         return showVacationDays(vacationDays);
     }

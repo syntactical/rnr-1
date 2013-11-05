@@ -3,7 +3,6 @@ package com.springapp.mvc.web.unit.controller;
 import com.springapp.mvc.web.controller.HomeController;
 import com.springapp.mvc.web.model.Calculator;
 import com.springapp.mvc.web.model.Employee;
-import com.springapp.mvc.web.service.CalculatorService;
 import com.springapp.mvc.web.service.EmployeeService;
 import com.springapp.mvc.web.service.SalesForceParserService;
 import org.joda.time.LocalDate;
@@ -50,7 +49,7 @@ public class HomeControllerTest {
         when(mockHttpServletRequest.getParameter("salesForceText")).thenReturn("Test");
         when(mockHttpServletRequest.getParameter("startDate")).thenReturn("10/22/2012");
 
-        when(mockCalculator.getVacationBasedOnIntervals(any(Employee.class), any(LocalDate.class))).thenReturn(20d);
+        when(mockCalculator.getVacationDays(any(Employee.class), any(LocalDate.class))).thenReturn(20d);
 
         homeController.postDate(mockHttpServletRequest);
 

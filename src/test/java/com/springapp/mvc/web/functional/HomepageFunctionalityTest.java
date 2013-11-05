@@ -28,7 +28,6 @@ public class HomepageFunctionalityTest extends JUnitStories {
     @Override
     protected List<String> storyPaths() {
         return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/*.story", "");
-//        return Arrays.asList("Banner.story" , "StartDate.story", "AccrualRate.story");
     }
 
 

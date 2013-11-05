@@ -14,15 +14,12 @@ import static org.hamcrest.core.Is.is;
 
 public class EmployeeServiceTest {
 
-
     public static final String TODAY = "10/20/2013";
     public static final String ROLLOVER_DAYS = "6";
     public static final String NO_ROLLOVER_DAYS = "";
     public static final String CUSTOM_ACCRUAL_RATE = "17";
     public static final HashMap<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
     public static final AccrualRate DEFAULT_ACCRUAL_RATE = new AccrualRate();
-
-
 
     @Test
     public void shouldCreateNewEmployeeWithGivenFields() throws Exception {
@@ -59,5 +56,4 @@ public class EmployeeServiceTest {
         assertThat(actualEmployee, is(expectedEmployee));
 
     }
-
 }

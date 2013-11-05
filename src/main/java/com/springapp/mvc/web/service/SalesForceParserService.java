@@ -1,7 +1,10 @@
 package com.springapp.mvc.web.service;
 
 import com.springapp.mvc.web.model.Calculator;
+import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +38,8 @@ public class SalesForceParserService {
             }
         }
 
+        System.out.println(vacationDaysAndHours);
+
         return vacationDaysAndHours;
     }
 
@@ -42,7 +47,11 @@ public class SalesForceParserService {
         List<String> parsedVacationInformation = Arrays.asList(textLines.get(vacationInformation).split("\t"));
 
         double hours = Double.parseDouble(parsedVacationInformation.get(5));
-        LocalDate date = new LocalDate(new Calculator().convertStringToDateTime(parsedVacationInformation.get(3)).toLocalDate());
+
+        String[] dateFields = parsedVacationInformation.get(3).split("/");
+        LocalDate date = new LocalDate(Integer.parseInt(dateFields[2]), Integer.parseInt(dateFields[0]),
+                Integer.parseInt(dateFields[1]));
+
         vacationDaysAndHours.put(date, hours);
     }
 }

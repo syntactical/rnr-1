@@ -9,8 +9,6 @@ import org.joda.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 public class EmployeeService {
-
-
     public Employee createEmployee(String startDate, String rolloverDays, HashMap<LocalDate, Double> daysOff, String initialAccrualRate) {
         DateTimeFormatter formatter = DateTimeFormat.forPattern("mm/dd/yyyy");
         LocalDate date = formatter.parseLocalDate(startDate);

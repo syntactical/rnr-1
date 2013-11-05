@@ -11,32 +11,8 @@ public class Calculator {
 
     public static final LocalDate SALESFORCE_START_DATE = new LocalDate(2013, 7, 1);
     public static final double YEAR_IN_DAYS = 365.25;
-    public static final LocalDate TODAY = new LocalDate();
 
-    private Double roundNumber(Double unrounded) {
-        return ((double) (Math.round(unrounded * 100))) / 100;
-    }
-
-    public DateTime convertStringToDateTime(String dateAsString) {
-        String[] dateFields = dateAsString.split("/");
-        DateTime newDate = new DateTime(Integer.parseInt(dateFields[2]), Integer.parseInt(dateFields[0]),
-                Integer.parseInt(dateFields[1]), 0, 0);
-        return newDate;
-    }
-
-    public Double calculateVacationDaysGivenRate(DateTime startDate, double rolloverDays, double rate) {
-        double cap = min(30.0, rate * 365 * 1.5);
-        double accruedDays = roundNumber(rate * (double) getElapsedDaysToCurrentDate(startDate));
-        accruedDays = Math.round(accruedDays + rolloverDays);
-        return min(accruedDays, cap);
-    }
-
-    public int getElapsedDaysToCurrentDate(DateTime startDate) {
-        return daysBetween(startDate.toLocalDate(), new DateTime().toLocalDate()).getDays();
-    }
-
-
-    public Double getVacationBasedOnIntervals(Employee employee, LocalDate accrualEndDate) {
+    public Double getVacationDays(Employee employee, LocalDate accrualEndDate) {
 
         LocalDate accrualStartDate = (employee.getStartDate().isAfter(SALESFORCE_START_DATE)) ? employee.getStartDate() : SALESFORCE_START_DATE;
 
