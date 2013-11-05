@@ -3,11 +3,6 @@
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="rnr.war">
       <element id="artifact" artifact-name="rnr:war exploded" />
-      <element id="directory" name="WEB-INF">
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="org.powermock:powermock-api-mockito:1.5" />
-        </element>
-      </element>
     </root>
   </artifact>
 </component>
