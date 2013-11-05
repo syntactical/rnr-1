@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="243b0d7e-cdab-4847-a7ea-c87e2be79d49" name="Default" comment="LM - added test scope to pom">
+    <list default="true" id="243b0d7e-cdab-4847-a7ea-c87e2be79d49" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RNR_project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383667242943" ignored="false" />
+    <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383667343269" ignored="false" />
     <file path="/CalculatorTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383250672099" ignored="false" />
     <file path="/Calculator.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383252533922" ignored="false" />
     <file path="/CalculatorServiceTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382720999955" ignored="false" />
@@ -133,19 +134,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="43" selection-start="4172" selection-end="4172" vertical-scroll-proportion="0.8271605">
+            <state line="113" column="21" selection-start="3740" selection-end="3740" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomepageFunctionalityTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HomepageFunctionalityTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0">
+            <state line="26" column="75" selection-start="795" selection-end="795" vertical-scroll-proportion="0.7345679">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -216,7 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/integration/NavigationSteps.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/service/SalesForceParserService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/service/SalesForceParserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/unit/model/CalculatorTest.java" />
@@ -232,6 +232,7 @@
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/web/model/AccrualRate.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java" />
       </list>
     </option>
   </component>
@@ -1023,7 +1024,11 @@
       <created>1383666668772</created>
       <updated>1383666668772</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="LM - included story files">
+      <created>1383667346375</created>
+      <updated>1383667346375</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1101,7 +1106,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="LM - added test scope to pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="LM - included story files" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1127,6 +1132,7 @@
     <MESSAGE value="LM - changed README to include CI pipeline instructions" />
     <MESSAGE value="LM - got rid of exclusion" />
     <MESSAGE value="LM - added test scope to pom" />
+    <MESSAGE value="LM - included story files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1235,19 +1241,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="113" column="21" selection-start="3740" selection-end="3740" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/web/functional/HomepageFunctionalityTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="43" selection-start="4172" selection-end="4172" vertical-scroll-proportion="0.8271605">
-          <folding />
+        <state line="26" column="75" selection-start="795" selection-end="795" vertical-scroll-proportion="0.7345679">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
