@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="243b0d7e-cdab-4847-a7ea-c87e2be79d49" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/rnr_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/rnr_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RNR_project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383662909604" ignored="false" />
+    <file path="/Dummy.txt" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383665994646" ignored="false" />
     <file path="/CalculatorTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383250672099" ignored="false" />
     <file path="/Calculator.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1383252533922" ignored="false" />
     <file path="/CalculatorServiceTest.java" changelist="243b0d7e-cdab-4847-a7ea-c87e2be79d49" time="1382720999955" ignored="false" />
@@ -136,7 +137,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="60" selection-start="3911" selection-end="3911" vertical-scroll-proportion="0.86625516">
+            <state line="101" column="31" selection-start="3360" selection-end="3360" vertical-scroll-proportion="0.9382716">
               <folding />
             </state>
           </provider>
@@ -538,7 +539,7 @@
       <recent name="com.springapp.mvc.web.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AccrualRateTest">
+  <component name="RunManager" selected="JUnit.com.springapp.mvc.web.functional in rnr">
     <configuration default="false" name="All in rnr" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="rnr" />
@@ -559,40 +560,6 @@
       <envs />
       <patterns />
       <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.springapp.mvc.web.unit.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="rnr" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.springapp.mvc.web.unit.model" />
-      <option name="MAIN_CLASS_NAME" value="com.springapp.mvc.web.unit.model.EmployeeTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -666,6 +633,34 @@
       <option name="MAIN_CLASS_NAME" value="com.springapp.mvc.web.functional.HomepageFunctionalityTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="com.springapp.mvc.web.functional in rnr" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.springapp.mvc.web.functional.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="rnr" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.springapp.mvc.web.functional" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -883,18 +878,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7.01" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.All in rnr" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.EmployeeTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AccrualRateTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CalculatorTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.HomepageFunctionalityTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AccrualRateTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CalculatorTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.HomepageFunctionalityTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.com.springapp.mvc.web.functional in rnr" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AccrualRateTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.com.springapp.mvc.web.functional in rnr" />
         <item index="1" class="java.lang.String" itemvalue="JUnit.HomepageFunctionalityTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.All in rnr" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CalculatorTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.EmployeeTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AccrualRateTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.All in rnr" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CalculatorTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -967,7 +962,11 @@
       <created>1383662923077</created>
       <updated>1383662923077</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="LM - got rid of exclusion">
+      <created>1383665997798</created>
+      <updated>1383665997798</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1045,7 +1044,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="LM - changed README to include CI pipeline instructions" />
+    <option name="LAST_COMMIT_MESSAGE" value="LM - got rid of exclusion" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1069,6 +1068,7 @@
     <MESSAGE value="LM - commented out exclusion to test pipeline" />
     <MESSAGE value="LM - fixed exclusiion TODO:figure out functional tests on SNAP" />
     <MESSAGE value="LM - changed README to include CI pipeline instructions" />
+    <MESSAGE value="LM - got rid of exclusion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1186,7 +1186,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="60" selection-start="3911" selection-end="3911" vertical-scroll-proportion="0.86625516">
+        <state line="101" column="31" selection-start="3360" selection-end="3360" vertical-scroll-proportion="0.9382716">
           <folding />
         </state>
       </provider>
