@@ -16,6 +16,7 @@ import static org.mockito.Mockito.verify;
 
 public class EmployeeTest {
 
+    private Employee employeeWithDefaultInitialAccrualRate;
     private LocalDate startDate;
     private double rolloverDays;
     private AccrualRateCalculator mockAccrualRateCalculator;
@@ -32,35 +33,32 @@ public class EmployeeTest {
         rolloverDays = 0;
         daysOff = new HashMap<LocalDate, Double>();
         mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
+        employeeWithDefaultInitialAccrualRate = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator);
     }
 
     @Test
     public void shouldCallAccrualRateWhenAskedForAccrualRate() {
-        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator);
-
-        employee.calculateDailyAccrualRate(TODAY);
+        employeeWithDefaultInitialAccrualRate.calculateDailyAccrualRate(TODAY);
         verify(mockAccrualRateCalculator).calculateDailyAccrualRate(startDate, TODAY, DEFAULT_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldCallAccrualRateWhenAskedForCap(){
-        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator);
-
-        employee.calculateVacationDayCap(TODAY);
+        employeeWithDefaultInitialAccrualRate.calculateVacationDayCap(TODAY);
         verify(mockAccrualRateCalculator).calculateVacationDayCap(startDate, TODAY, DEFAULT_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldCallAccrualRateWithCustomInitialAccrualRate() {
-        Employee employee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator, CUSTOM_ACCRUAL_RATE);
+        Employee employeeWithCustomAccrualRate = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator, CUSTOM_ACCRUAL_RATE);
 
-        employee.calculateDailyAccrualRate(TODAY);
+        employeeWithCustomAccrualRate.calculateDailyAccrualRate(TODAY);
         verify(mockAccrualRateCalculator).calculateDailyAccrualRate(startDate, TODAY, CUSTOM_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldDefaultWithAccrualRateOfTenDaysIfAccrualRateNotSpecified() {
-        Employee employee = new Employee(startDate, rolloverDays, daysOff, new AccrualRateCalculator());
-        assertThat(employee.calculateDailyAccrualRate(TODAY), is(DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS));
+        Employee expectedEmployee = new Employee(startDate, rolloverDays, daysOff, mockAccrualRateCalculator, DEFAULT_ACCRUAL_RATE);
+        assertThat(expectedEmployee, is(employeeWithDefaultInitialAccrualRate));
     }
 }

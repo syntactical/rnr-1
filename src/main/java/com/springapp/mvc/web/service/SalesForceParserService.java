@@ -26,31 +26,38 @@ public class SalesForceParserService {
     }
 
     public HashMap<LocalDate, Double> parse(String salesForceText) {
-        HashMap<LocalDate, Double> vacationDaysAndHours = new HashMap<LocalDate, Double>();
+        HashMap<String, Double> vacationDaysAndHours = new HashMap<String, Double>();
 
         List<String> textLines = Arrays.asList(salesForceText.split("\n"));
         int indexOfVacationLine = findLine("vacation", textLines);
-        boolean moreLinesToRead =  textLines.size() - findLine("vacation", textLines)> 1 ;
+        boolean moreLinesToRead = (textLines.size() - findLine("vacation", textLines)) > 1;
 
-        if (salesForceText.contains("vacation") && moreLinesToRead ) {
+        if (salesForceText.contains("vacation") && moreLinesToRead) {
             int vacationInformation = indexOfVacationLine + 2;
 
             while (textLines.get(vacationInformation).contains("Non-sick leave")) {
-                extractDateAndHours(vacationDaysAndHours, textLines, vacationInformation);
+                List<String> parsedVacationInformation = Arrays.asList(textLines.get(vacationInformation).split("\t"));
+
+                String date = parsedVacationInformation.get(3);
+                double hours = Double.parseDouble(parsedVacationInformation.get(5));
+
+                vacationDaysAndHours.put(date, hours);
+
                 vacationInformation++;
             }
         }
 
-        return vacationDaysAndHours;
+        return convertStringsToLocalDates(vacationDaysAndHours);
     }
 
-    private void extractDateAndHours(HashMap<LocalDate, Double> vacationDaysAndHours, List<String> textLines,
-                                     int vacationInformation) {
-        List<String> parsedVacationInformation = Arrays.asList(textLines.get(vacationInformation).split("\t"));
+    private HashMap<LocalDate, Double> convertStringsToLocalDates(HashMap<String, Double> mapWithStringDates) {
+        HashMap<LocalDate, Double> localDatesAndDoubles = new HashMap<LocalDate, Double>();
 
-        double hours = Double.parseDouble(parsedVacationInformation.get(5));
-        LocalDate date  = dateParser.parse(parsedVacationInformation.get(3));
+        for (String date : mapWithStringDates.keySet()) {
+            LocalDate parsedDate = dateParser.parse(date);
+            localDatesAndDoubles.put(parsedDate, mapWithStringDates.get(date));
+        }
 
-        vacationDaysAndHours.put(date, hours);
+        return localDatesAndDoubles;
     }
 }

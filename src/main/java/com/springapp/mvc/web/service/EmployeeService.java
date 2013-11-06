@@ -11,17 +11,14 @@ import java.util.HashMap;
 
 public class EmployeeService {
 
-
     private final DateParserService dateParser;
 
     @Autowired
     public EmployeeService(DateParserService dateParser) {
-
         this.dateParser = dateParser;
     }
 
     public Employee createEmployee(String startDate, String rolloverDays, HashMap<LocalDate, Double> daysOff, String initialAccrualRate) {
-
         LocalDate date = dateParser.parse(startDate);
 
         double rollover = rolloverDays.equals("") ? 0 : Double.parseDouble(rolloverDays);
