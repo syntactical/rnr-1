@@ -10,6 +10,10 @@ Things you might want to install
             Tomcat
 
 ~~~
+
+Jenkins has been installed on the server on port 7100. To access the Jenkins Configuration Interface, go to http://chilbdvm01.thoughtworks.com:7100/
+
+~~~
 Linking your github account to the CI pipeline
 
 Before committing go to snap-ci.com and click on get started.  Allow snap privileges to your github account.
