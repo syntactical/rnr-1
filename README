@@ -60,3 +60,19 @@ If Intellij is throwing errors after these steps:
 If you seem to be missing an inordinate number of libraries and the artifact cannot be deployed
     Check your version of Java.
     Less than 1.7 will cause really funky errors
+
+If you would like to deploy through the command line:
+	go to the tomcat directory in config usually located in /usr/local/Cellar/tomcat/7.0.47/libexec/conf/
+	edit the tomcat-users.xml to have the following:
+  <role rolename="tomcat"/>
+  <role rolename="role1"/>
+  <role rolename="manager-script"/>
+  <user username="tomcat" password="tomcat" roles="tomcat"/>
+  <user username="both" password="tomcat" roles="tomcat,role1"/>
+  <user username="role1" password="tomcat" roles="role1"/>
+  <user username="admin" password="s3cret" roles="manager-script"/>
+	for this you have to remove the <!-- --> comments from around these users		
+	once you have done this, run 'catalina start' then run 'mvn tomcat:deploy'
+	you can then go to 'localhost:8080/rnr' in your browser and all should be well!
+	
+	
