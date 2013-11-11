@@ -9,17 +9,14 @@ Things you might want to install
             Maven
             Tomcat
 
-~~~
-Linking your github account to the CI pipeline
-
-Before committing go to snap-ci.com and click on get started.  Allow snap privileges to your github account.
-Set up the rnr repo on snap. If the repo is not viewable on snap, talk to the github account manager, currently
-Landon(lmedlock@thoughtworks.com). If you break the build FIX IT.
-
-~~~
 Getting stuff to work on Mac OS X (Lion)
 
-BEFORE OPENING PROJECT IN INTELLIJ
+
+************************************
+BEFORE OPENING PROJECT IN INTELLIJ *
+************************************
+
+
 Run Maven compiler: compile in the directory where your pom xml file is located. (mvn compiler:compile)
 
 To run the RnR on localhost:8080
@@ -61,18 +58,12 @@ If you seem to be missing an inordinate number of libraries and the artifact can
     Check your version of Java.
     Less than 1.7 will cause really funky errors
 
-If you would like to deploy through the command line:
-	go to the tomcat directory in config usually located in /usr/local/Cellar/tomcat/7.0.47/libexec/conf/
-	edit the tomcat-users.xml to have the following:
-  <role rolename="tomcat"/>
-  <role rolename="role1"/>
-  <role rolename="manager-script"/>
-  <user username="tomcat" password="tomcat" roles="tomcat"/>
-  <user username="both" password="tomcat" roles="tomcat,role1"/>
-  <user username="role1" password="tomcat" roles="role1"/>
-  <user username="admin" password="s3cret" roles="manager-script"/>
-	for this you have to remove the <!-- --> comments from around these users		
-	once you have done this, run 'catalina start' then run 'mvn tomcat:deploy'
-	you can then go to 'localhost:8080/rnr' in your browser and all should be well!
-	
-	
+
+~~~
+Linking your github account to the CI pipeline
+
+Before committing go to snap-ci.com and click on get started.  Allow snap privileges to your github account.
+Set up the rnr repo on snap. If the repo is not viewable on snap, talk to the github account manager, currently
+Landon(lmedlock@thoughtworks.com). If you break the build FIX IT.
+
+~~~

@@ -14,12 +14,10 @@ public class VacationCalculator {
     public Double getVacationDays(Employee employee, LocalDate accrualEndDate) {
 
         LocalDate accrualStartDate = (employee.getStartDate().isAfter(SALESFORCE_START_DATE)) ? employee.getStartDate() : SALESFORCE_START_DATE;
-        if (employee.getStartDate().isBefore(SALESFORCE_START_DATE)){
-            accrualStartDate = SALESFORCE_START_DATE;
-        }
+
         double vacationDays = employee.getRolloverDays();
 
-        for (LocalDate date = accrualStartDate; date.isBefore(accrualEndDate); date = date.plusWeeks(1))
+        for (LocalDate date = accrualStartDate; date.isBefore(accrualEndDate); date = date.plusDays(1))
         {
             double accrualRate = employee.calculateDailyAccrualRate(date);
 
@@ -27,9 +25,7 @@ public class VacationCalculator {
                 vacationDays -= employee.getDaysOff().get(date) / 8;
             }
 
-            double accruedDaysPerWeekThisYear = (accrualRate) * 7;
-
-            vacationDays = min(employee.calculateVacationDayCap(date), vacationDays + accruedDaysPerWeekThisYear);
+            vacationDays = min(employee.calculateVacationDayCap(date), vacationDays + accrualRate);
         }
 
        return vacationDays;
