@@ -44,3 +44,4 @@ Thumbs.db
 /**/tasks.xml
 .idea/
 *.iml
+target*
