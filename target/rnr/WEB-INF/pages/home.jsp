@@ -34,11 +34,11 @@
 
                 <input id='startdate_field' type="text" name="startDate" size = "15.5" ><br>
 
-                Initial Accrual Rate (days per year): <input id="accrual_rate" type="text" name="accrualRate" size='22'><br>
+                Initial Accrual Rate in days per year (If different than 10 days): <input id="accrual_rate" type="text" name="accrualRate" size='22'><br>
 
-                Vacation Days Accrued (as of 7/1/2013): <input id="rolloverdays_field" type="text" name="rolloverdays" size ='20'><br>
+                Vacation Balance as of 7/1/2013: <input id="rolloverdays_field" type="text" name="rolloverdays" size ='20'><br>
 
-                Text From SalesForce Time-Off:  <textarea ROWS=30 COLS=100 id="salesForceText" type="text" name="salesForceText"></textarea><br>
+                Text From SalesForce Time Off:  <textarea ROWS=30 COLS=100 id="salesForceText" type="text" name="salesForceText"></textarea><br>
 
                 <input type="submit" value="Submit" id="submit_button">   Calculate My Vacation Days!  </input>
             </form>

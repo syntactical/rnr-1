@@ -8,13 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Thoughtworker
- * Date: 11/4/13
- * Time: 2:45 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class UserJourneyBase {
 
     private static WebDriver driver;

@@ -41,3 +41,6 @@ Thumbs.db
 *.iws
 /**/workspace.xml
 /**/tasks.xml
+.idea/
+*.iml
+target*
