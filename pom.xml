@@ -142,7 +142,7 @@
                                 <include>**/*Test.java</include>
                             </includes>
                             <excludes>
-                                <exclude>**/HomepageFunctionalityTest.java</exclude>
+                                <exclude>${functional}</exclude>
                             </excludes>
                         </configuration>
                     </execution>
@@ -155,7 +155,7 @@
                         <configuration>
                             <skip>false</skip>
                             <includes>
-                                <include>**/HomepageFunctionalityTest.java</include>
+                                <include>${functional}</include>
                             </includes>
                         </configuration>
                     </execution>
