@@ -127,7 +127,6 @@
                 <version>2.12.4</version>
                 <configuration>
                     <skip>true</skip>
-
                 </configuration>
                 <executions>
                     <execution>
@@ -175,7 +174,7 @@
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>9999</port>
-                            <maxidletime>60000</maxidletime>
+                            <maxIdleTime>60000</maxIdleTime>
                         </connector>
                     </connectors>
                 </configuration>
