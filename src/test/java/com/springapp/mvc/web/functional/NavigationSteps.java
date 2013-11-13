@@ -27,89 +27,39 @@ public class NavigationSteps extends UserJourneyBase {
         driver = getDriver();
     }
 
-    @Given("I am a Thoughtworker")
-    public void iAmAUser() {
-    }
+    @Given("I started two weeks ago")
+    public void iEnterStartDateTwoWeeksAgo(){
+        DateTime twoWeeksAgo = new DateTime().minusWeeks(2);
 
-    @Given("I am a user going to rnr.thoughtworks.com")
-    public void iAmAUserGoingToRnR() {
-        driver.get("http://localhost:8080/");
-    }
-
-    @When("I go to rnr.thoughtworks.com")
-    public void iGoToRnR() {
-        driver.get("http://localhost:8080/");
-    }
-
-    @When("I select a date")
-    public void iSelectDate() {
-        WebElement month = driver.findElement(By.id("monthdropdown"));
-        WebElement day = driver.findElement(By.id("daydropdown"));
-        WebElement year = driver.findElement(By.id("yeardropdown"));
-        month.click();
-        day.click();
-        year.click();
-    }
-
-
-    @When("I enter my start date")
-    public void iEnterStartDatePriorToCalendarYear() {
-        WebElement startDateField = driver.findElement(By.id("startdate_field"));
-        startDateField.sendKeys("01/01/1999");
-    }
-
-    @When("I enter my start date exactly one year ago")
-    public void iEnterStartDateExactlyOneYearAgo() {
-        String today = new DateTime().getMonthOfYear() + "/" +
-                new DateTime().getDayOfMonth() + "/" +
-                new DateTime().getYear();
+        String date = twoWeeksAgo.getMonthOfYear() + "/" +
+                twoWeeksAgo.getDayOfMonth() + "/" +
+                twoWeeksAgo.getYear();
 
         WebElement startDateField = driver.findElement(By.id("startdate_field"));
-        startDateField.sendKeys("01/01/1999");
+        startDateField.sendKeys(date);
     }
 
-    @When("I enter my rollover days")
-    public void iEnterMyRolloverDays() {
-        WebElement rolloverDaysField = driver.findElement(By.id("rolloverdays_field"));
-        rolloverDaysField.sendKeys("1");
-    }
-
-    @When("I enter my accrual rate")
-    public void iEnterMyAccrualRate() {
-        WebElement accrualRateField = driver.findElement(By.id("accrual_rate"));
-        accrualRateField.sendKeys("10");
-    }
-
-    @When("I click submit")
+    @When("I request my number of vacation days")
     public void iClickSubmit() {
         WebElement submitButton = driver.findElement(By.id("submit_button"));
         submitButton.click();
     }
 
-    @Then("a banner should be visible")
-    public void bannerShouldBeVisible() {
-        WebElement banner = driver.findElement(By.className("headerimg"));
-        assertTrue(banner.isDisplayed());
-    }
-
-
-    @Then("the form box should contain a date")
-    public void dateShouldBeInForm() {
-        WebElement form = driver.findElement(By.id("startdate_field"));
-        String date = form.getText();
-        assertTrue(date != null);
-    }
-
-    @Then("my vacation days are displayed")
-    public void vacationDaysShouldBeInForm() {
+    @Then("the number of vacation days I have is my daily accrual rate times 14")
+    public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual(){
         WebElement form = driver.findElement(By.id("vacationDays"));
         String vacationDays = form.getText();
-        assertThat(vacationDays, containsString("Hey, your balance is"));
+
+        String twoWeeksAccrued = String.valueOf((10 / 365.25) * 7 * 2);
+
+
+        assertThat(vacationDays, containsString(twoWeeksAccrued));
     }
 
     @BeforeScenario
     public void openBrowser() {
         driver = new FirefoxDriver();
+        driver.get("http://localhost:8080/");
     }
 
     @AfterScenario
