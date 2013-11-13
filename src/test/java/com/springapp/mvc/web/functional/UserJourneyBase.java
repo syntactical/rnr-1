@@ -16,7 +16,7 @@ public class UserJourneyBase {
     @BeforeClass
     public void setUp() {
         FirefoxBinary firefoxBinary = new FirefoxBinary();
-        firefoxBinary.setEnvironmentProperty("DISPLAY", ":1");
+        firefoxBinary.setEnvironmentProperty("DISPLAY", ":99");
         driver = new FirefoxDriver(firefoxBinary, null);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
