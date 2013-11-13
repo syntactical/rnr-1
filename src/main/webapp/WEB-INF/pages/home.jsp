@@ -23,7 +23,7 @@
 
     <table>
         <tr>
-            <form name="startDate" action="/vacationDays" method="POST" id="date_selector">
+            <form name="startDate" action="/rnr/vacationDays" method="POST" id="date_selector">
                   Start Date:
                 <select id="monthdropdown" class="date">
                 </select>
