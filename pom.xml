@@ -169,7 +169,7 @@
                     <stopKey>foo</stopKey>
                     <stopPort>9998</stopPort>
                     <contextPath>/rnr</contextPath>
-                    <useTestClasspath>true</useTestClasspath>
+                    <webAppSourceDirectory>${basedir}/src/webapp</webAppSourceDirectory>
                     <webXml>${basedir}/src/webapp/WEB-INF/web.xml</webXml>
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
