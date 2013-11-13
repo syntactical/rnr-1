@@ -18,7 +18,7 @@ import java.text.ParseException;
 import java.util.HashMap;
 
 @Controller
-@RequestMapping("/rnr")
+@RequestMapping("/")
 public class HomeController {
 
     private final EmployeeService employeeService;
