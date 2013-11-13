@@ -59,7 +59,7 @@ public class NavigationSteps extends UserJourneyBase {
     @BeforeScenario
     public void openBrowser() {
         driver = new FirefoxDriver();
-        driver.get("http://localhost:8080/");
+        driver.get("http://localhost:8080/rnr");
     }
 
     @AfterScenario
