@@ -37,7 +37,7 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping(value = "/vacationDays", method = RequestMethod.POST)
+    @RequestMapping(value = "rnr/vacationDays", method = RequestMethod.POST)
     public ModelAndView postDate(HttpServletRequest request) throws IOException, ParseException {
 
         String rollover = request.getParameter("rolloverdays");
