@@ -127,6 +127,7 @@
                 <version>2.12.4</version>
                 <executions>
                     <execution>
+                        <id>regular</id>
                         <configuration>
                             <excludes>
                                 <exclude>${functional}</exclude>
@@ -137,14 +138,13 @@
                         </configuration>
                     </execution>
                     <execution>
+                        <id>functional</id>
                         <configuration>
                             <includes>
                                 <include>${functional}</include>
                             </includes>
                         </configuration>
-                        <goals>
-                            <goal>functional-tests</goal>
-                        </goals>
+                        <goal>functional-tests</goal>
                     </execution>
                 </executions>
             </plugin>
