@@ -18,7 +18,7 @@ import java.text.ParseException;
 import java.util.HashMap;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/rnr")
 public class HomeController {
 
     private final EmployeeService employeeService;
@@ -37,7 +37,7 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping(value = "rnr/vacationDays", method = RequestMethod.POST)
+    @RequestMapping(value = "/rnr/vacationDays", method = RequestMethod.POST)
     public ModelAndView postDate(HttpServletRequest request) throws IOException, ParseException {
 
         String rollover = request.getParameter("rolloverdays");
