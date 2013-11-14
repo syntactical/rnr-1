@@ -119,7 +119,7 @@
                 <configuration>
                     <url>http://localhost:8080/manager/text</url>
                     <server>TomcatServer</server>
-                    <path>/rnr</path>
+                    <path>/</path>
                 </configuration>
             </plugin>
             <plugin>
@@ -168,7 +168,7 @@
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9998</stopPort>
-                    <contextPath>/rnr</contextPath>
+                    <contextPath>/</contextPath>
                     <webAppSourceDirectory>${basedir}/src/main/webapp</webAppSourceDirectory>
                     <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
                     <connectors>
