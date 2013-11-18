@@ -36,15 +36,17 @@ public class VacationCalculatorTest {
     private VacationCalculator vacationCalculator;
 
     private Employee mockEmployee;
+    private AccrualRateCalculator mockAccrualRateCalculator;
 
     @Before
     public void setUp() throws Exception {
         vacationCalculator = new VacationCalculator();
         mockEmployee = mock(Employee.class);
+        mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
         NO_TIME_OFF = new HashMap<LocalDate, Double>();
 
-        when(mockEmployee.calculateDailyAccrualRate(any(LocalDate.class))).thenReturn(DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS);
-        when(mockEmployee.calculateVacationDayCap(any(LocalDate.class))).thenReturn(CAP_FOR_DEFAULT_ACCRUAL_RATE);
+        when(mockAccrualRateCalculator.calculateDailyAccrualRate(any(Employee.class), any(LocalDate.class))).thenReturn(DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS);
+        when(mockAccrualRateCalculator.calculateVacationDayCap(any(Employee.class), any(LocalDate.class))).thenReturn(CAP_FOR_DEFAULT_ACCRUAL_RATE);
     }
 
     @Test
@@ -55,7 +57,7 @@ public class VacationCalculatorTest {
 
         double expectedVacationDays = DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS * 7;
 
-        assertThat(vacationCalculator.getVacationDays(mockEmployee, TODAY), is(expectedVacationDays));
+        assertThat(vacationCalculator.getVacationDays(mockEmployee, mockAccrualRateCalculator, TODAY), is(expectedVacationDays));
     }
 
     @Test
@@ -66,7 +68,7 @@ public class VacationCalculatorTest {
         when(mockEmployee.getRolloverDays()).thenReturn(CAP_FOR_DEFAULT_ACCRUAL_RATE - expectedAccrualForThreeWeeks);
         when(mockEmployee.getDaysOff()).thenReturn(NO_TIME_OFF);
 
-        assertThat(vacationCalculator.getVacationDays(mockEmployee, TODAY), is(CAP_FOR_DEFAULT_ACCRUAL_RATE));
+        assertThat(vacationCalculator.getVacationDays(mockEmployee, mockAccrualRateCalculator, TODAY), is(CAP_FOR_DEFAULT_ACCRUAL_RATE));
     }
 
     @Test
@@ -77,7 +79,7 @@ public class VacationCalculatorTest {
 
         double expectedVacationDays = (DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS) * 7 * 2;
 
-        assertThat(vacationCalculator.getVacationDays(mockEmployee, TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
+        assertThat(vacationCalculator.getVacationDays(mockEmployee, mockAccrualRateCalculator,TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
     }
 
     @Test
@@ -91,7 +93,7 @@ public class VacationCalculatorTest {
 
         double expectedVacationDays = DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS * 7 * 2;
 
-        assertThat(vacationCalculator.getVacationDays(mockEmployee, TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
+        assertThat(vacationCalculator.getVacationDays(mockEmployee, mockAccrualRateCalculator, TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
     }
 
 

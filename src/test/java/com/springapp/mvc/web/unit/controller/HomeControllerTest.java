@@ -1,6 +1,7 @@
 package com.springapp.mvc.web.unit.controller;
 
 import com.springapp.mvc.web.controller.HomeController;
+import com.springapp.mvc.web.model.AccrualRateCalculator;
 import com.springapp.mvc.web.model.VacationCalculator;
 import com.springapp.mvc.web.model.Employee;
 import com.springapp.mvc.web.service.EmployeeService;
@@ -24,6 +25,7 @@ public class HomeControllerTest {
     SalesForceParserService mockSalesForceParserService;
     EmployeeService mockEmployeeService;
     VacationCalculator mockVacationCalculator;
+    AccrualRateCalculator mockAccrualRateCalculator;
 
     @Before
     public void setUp() throws Exception {
@@ -31,25 +33,26 @@ public class HomeControllerTest {
         mockSalesForceParserService = mock(SalesForceParserService.class);
         mockEmployeeService = mock(EmployeeService.class);
         mockVacationCalculator = mock(VacationCalculator.class);
+        mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
     }
 
     @Test
     public void get_shouldReturnHomeView() {
-        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator);
+        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator);
         assertThat(homeController.get(), is("home"));
     }
 
     @Test
     public void shouldInteractWithSalesForceParserServiceAndEmployeeService() throws Exception {
 
-        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator);
+        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator);
 
         when(mockHttpServletRequest.getParameter("rolloverdays")).thenReturn("1");
         when(mockHttpServletRequest.getParameter("accrualRate")).thenReturn("10");
         when(mockHttpServletRequest.getParameter("salesForceText")).thenReturn("Test");
         when(mockHttpServletRequest.getParameter("startDate")).thenReturn("10/22/2012");
 
-        when(mockVacationCalculator.getVacationDays(any(Employee.class), any(LocalDate.class))).thenReturn(20d);
+        when(mockVacationCalculator.getVacationDays(any(Employee.class), any(AccrualRateCalculator.class), any(LocalDate.class))).thenReturn(20d);
 
         homeController.postDate(mockHttpServletRequest);
 

@@ -1,5 +1,6 @@
 package com.springapp.mvc.web.controller;
 
+import com.springapp.mvc.web.model.AccrualRateCalculator;
 import com.springapp.mvc.web.model.VacationCalculator;
 import com.springapp.mvc.web.model.Employee;
 import com.springapp.mvc.web.service.EmployeeService;
@@ -24,12 +25,14 @@ public class HomeController {
     private final EmployeeService employeeService;
     private final SalesForceParserService salesForceParserService;
     private final VacationCalculator vacationCalculator;
+    private final AccrualRateCalculator accrualRateCalculator;
 
     @Autowired
-    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, VacationCalculator vacationCalculator) {
+    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, VacationCalculator vacationCalculator, AccrualRateCalculator accrualRateCalculator) {
         this.employeeService = employeeService;
         this.salesForceParserService = salesForceParserService;
         this.vacationCalculator = vacationCalculator;
+        this.accrualRateCalculator = accrualRateCalculator;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -45,12 +48,13 @@ public class HomeController {
         String salesForceText = request.getParameter("salesForceText");
         String startDate = request.getParameter("startDate");
 
-
         HashMap<LocalDate, Double> parsedSalesForceData = salesForceParserService.parse(salesForceText);
 
         Employee employee = employeeService.createEmployee(startDate, rollover, parsedSalesForceData, accrualRate);
 
-        double vacationDays = vacationCalculator.getVacationDays(employee, new LocalDate());
+        LocalDate today = new LocalDate();
+
+        double vacationDays = vacationCalculator.getVacationDays(employee, accrualRateCalculator, today);
 
         return showVacationDays(vacationDays);
     }

@@ -12,9 +12,9 @@ public class AccrualRateCalculator {
     final double YEAR_IN_DAYS = 365.25;
     final double MAX_VACATION_DAYS = 30d;
 
-    public double calculateDailyAccrualRate(LocalDate startDate, LocalDate endDate, double initialAccrualRate) {
-        double tenure = daysBetween(startDate, endDate).getDays();
-
+    public double calculateDailyAccrualRate(Employee employee, LocalDate endDate) {
+        double tenure = daysBetween(employee.getStartDate(), endDate).getDays();
+        double initialAccrualRate = employee.getInitialAccrualRate();
         if (tenure < YEAR_IN_DAYS) {
             return max(10.0, initialAccrualRate) / YEAR_IN_DAYS;
         } else if (tenure < 3 * YEAR_IN_DAYS) {
@@ -26,9 +26,11 @@ public class AccrualRateCalculator {
         }
     }
 
-    public double calculateVacationDayCap(LocalDate startDate, LocalDate endDate, double initialAccrualRate){
-        double currentAccrualRate = calculateDailyAccrualRate(startDate, endDate, initialAccrualRate);
+    public double calculateVacationDayCap(Employee employee, LocalDate endDate){
+        double currentAccrualRate = calculateDailyAccrualRate(employee, endDate);
         return min(currentAccrualRate * 1.5 * YEAR_IN_DAYS, MAX_VACATION_DAYS);
     }
+
+
 
 }

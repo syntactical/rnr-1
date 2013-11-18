@@ -38,7 +38,7 @@
 
                 Vacation Balance as of 7/1/2013: <input id="rolloverdays_field" type="text" name="rolloverdays" size ='20'><br>
 
-                Text From SalesForce Time Off:  <textarea ROWS=30 COLS=100 id="salesForceText" type="text" name="salesForceText"></textarea><br>
+                Text From SalesForce Time Off:  <textarea ROWS=15 COLS=80 id="salesForceText" type="text" name="salesForceText"></textarea><br>
 
                 <input type="submit" value="Submit" id="submit_button">   Calculate My Vacation Days!  </input>
             </form>

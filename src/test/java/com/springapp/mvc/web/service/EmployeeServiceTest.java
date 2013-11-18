@@ -23,8 +23,8 @@ public class EmployeeServiceTest {
     public static final String NO_INITIAL_ACCRUAL_RATE = "";
     public static final String CUSTOM_ACCRUAL_RATE = "17";
     public static final HashMap<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
-    public static final AccrualRateCalculator ACCRUAL_RATE_CALCULATOR = new AccrualRateCalculator();
     public static final LocalDate DATE_AS_LOCALDATE = new DateParserService().parse(DATE);
+    public static final double DEFAULT_ACCRUAL_RATE = 10d;
 
     EmployeeService employeeService;
     DateParserService mockDateParser;
@@ -67,12 +67,12 @@ public class EmployeeServiceTest {
         Employee actualEmployee = employeeService.createEmployee(date, rolloverDays, daysOff, accrualRate);
 
         double convertedRolloverDays = rolloverDays.equals("") ? 0 : Double.parseDouble(rolloverDays);
-        double convertedAccrualRate = accrualRate.equals("") ? 0 : Double.parseDouble(accrualRate);
+        double convertedAccrualRate = accrualRate.equals("") ? DEFAULT_ACCRUAL_RATE : Double.parseDouble(accrualRate);
+        LocalDate convertedDate = new DateParserService().parse(date);
 
-        Employee expectedEmployee = convertedAccrualRate == 0 ? new Employee(DATE_AS_LOCALDATE, convertedRolloverDays, daysOff, ACCRUAL_RATE_CALCULATOR) :
-                new Employee(DATE_AS_LOCALDATE, convertedRolloverDays, daysOff, ACCRUAL_RATE_CALCULATOR, convertedAccrualRate);
-
-        assertThat(actualEmployee, is(expectedEmployee));
+        assertThat(actualEmployee.getDaysOff(), is(daysOff));
+        assertThat(actualEmployee.getRolloverDays(), is(convertedRolloverDays));
+        assertThat(actualEmployee.getInitialAccrualRate(), is(convertedAccrualRate));
+        assertThat(actualEmployee.getStartDate(), is(convertedDate));
     }
-
 }
