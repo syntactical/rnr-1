@@ -4,7 +4,6 @@ import org.joda.time.*;
 import org.springframework.stereotype.Component;
 
 import static java.lang.Math.min;
-import static org.joda.time.Days.daysBetween;
 
 @Component
 public class VacationCalculator {
@@ -30,4 +29,6 @@ public class VacationCalculator {
 
        return vacationDays;
     }
+
+
 }

@@ -57,7 +57,11 @@ public class HomeController {
 
     private ModelAndView showVacationDays(Double vacationDays) {
         ModelMap model = new ModelMap();
-        model.put("days", vacationDays);
+        model.put("days", roundToNearestHundredth(vacationDays));
         return new ModelAndView("vacay", "postedValues", model);
+    }
+
+    private Double roundToNearestHundredth(Double number){
+        return (double) Math.round(number*100)/100;
     }
 }

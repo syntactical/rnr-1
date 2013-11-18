@@ -50,7 +50,7 @@ public class NavigationSteps extends UserJourneyBase {
         WebElement form = driver.findElement(By.id("vacationDays"));
         String vacationDays = form.getText();
 
-        String twoWeeksAccrued = String.valueOf((10 / 365.25) * 7 * 2);
+        String twoWeeksAccrued = String.valueOf(Math.round((10 / 365.25) * 7 * 2*100)/100);
 
 
         assertThat(vacationDays, containsString(twoWeeksAccrued));
@@ -59,7 +59,7 @@ public class NavigationSteps extends UserJourneyBase {
     @BeforeScenario
     public void openBrowser() {
         driver = new FirefoxDriver();
-        driver.get("http://localhost:9999/");
+        driver.get("http://localhost:8080/");
     }
 
     @AfterScenario

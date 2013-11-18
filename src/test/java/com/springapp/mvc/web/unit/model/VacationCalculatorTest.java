@@ -94,4 +94,5 @@ public class VacationCalculatorTest {
         assertThat(vacationCalculator.getVacationDays(mockEmployee, TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
     }
 
+
 }
