@@ -18,12 +18,23 @@ public class EmployeeService {
     }
 
     public Employee createEmployee(String startDate, String rolloverDays, Map<LocalDate, Double> daysOff, String initialAccrualRate) {
-        LocalDate date = dateParser.parse(startDate);
+        LocalDate convertedStartDate = dateParser.parse(startDate);
 
-        double rollover = rolloverDays.equals("") ? 0 : Double.parseDouble(rolloverDays);
-        Employee employee = initialAccrualRate.equals("") ? new Employee(date, rollover, daysOff, DEFAULT_ACCRUAL_RATE)
-                : new Employee(date, rollover, daysOff, Double.parseDouble(initialAccrualRate));
-        return employee;
+        double convertedRolloverDays = parseStringWithDefaultValue(rolloverDays, 0d);
+        double convertedInitialAccrualRate = parseStringWithDefaultValue(initialAccrualRate, DEFAULT_ACCRUAL_RATE);
+
+        return new Employee(convertedStartDate, convertedRolloverDays, daysOff, convertedInitialAccrualRate);
+    }
+
+    private double parseStringWithDefaultValue(String userEntry, double defaultValue){
+        double convertedValue = defaultValue;
+
+        boolean userEnteredAValue = !userEntry.equals("");
+
+        if(userEnteredAValue) {
+            convertedValue = Double.parseDouble(userEntry);
+        }
+
+        return convertedValue;
     }
 }
-

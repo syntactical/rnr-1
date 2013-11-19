@@ -64,8 +64,17 @@ public class EmployeeServiceTest {
     private void assertEmployeeEquality(String date, String rolloverDays, Map<LocalDate, Double> daysOff, String accrualRate) {
         Employee actualEmployee = employeeService.createEmployee(date, rolloverDays, daysOff, accrualRate);
 
-        double convertedRolloverDays = rolloverDays.equals("") ? 0 : Double.parseDouble(rolloverDays);
-        double convertedAccrualRate = accrualRate.equals("") ? DEFAULT_ACCRUAL_RATE : Double.parseDouble(accrualRate);
+        double convertedRolloverDays = 0;
+        double convertedAccrualRate = DEFAULT_ACCRUAL_RATE;
+
+        if(!rolloverDays.equals("")){
+            convertedRolloverDays = Double.parseDouble(rolloverDays);
+        }
+
+        if(!accrualRate.equals("")){
+            convertedAccrualRate = Double.parseDouble(accrualRate);
+        }
+
         LocalDate convertedDate = new DateParserService().parse(date);
 
         assertThat(actualEmployee.getDaysOff(), is(daysOff));

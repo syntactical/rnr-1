@@ -12,7 +12,7 @@ public class VacationCalculator {
 
     public Double getVacationDays(Employee employee, AccrualRateCalculator accrualRateCalculator, LocalDate accrualEndDate) {
 
-        LocalDate accrualStartDate = (employee.getStartDate().isAfter(SALESFORCE_START_DATE)) ? employee.getStartDate() : SALESFORCE_START_DATE;
+        LocalDate accrualStartDate = getAccrualStartDate(employee);
 
         double vacationDays = employee.getRolloverDays();
 
@@ -30,5 +30,13 @@ public class VacationCalculator {
        return vacationDays;
     }
 
+    private LocalDate getAccrualStartDate(Employee employee) {
+        LocalDate accrualStartDate = SALESFORCE_START_DATE;
 
+        if(employee.getStartDate().isAfter(SALESFORCE_START_DATE)){
+            accrualStartDate = employee.getStartDate();
+        }
+
+        return accrualStartDate;
+    }
 }
