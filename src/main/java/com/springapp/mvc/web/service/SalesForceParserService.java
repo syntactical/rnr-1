@@ -17,34 +17,23 @@ public class SalesForceParserService {
         this.dateParser = dateParser;
     }
 
-    private int findLine(String stringToFind, List<String> listOfStrings) {
-        for (String line : listOfStrings) {
-            if (line.contains(stringToFind)) {
-                return listOfStrings.indexOf(line);
-            }
-        }
-        return -1;
-    }
-
     public Map<LocalDate, Double> parse(String salesForceText) {
         Map<String, Double> vacationDaysAndHours = new HashMap<String, Double>();
 
-        List<String> textLines = Arrays.asList(salesForceText.split("\n"));
-        int indexOfVacationLine = findLine("vacation", textLines);
-        boolean moreLinesToRead = (textLines.size() - findLine("vacation", textLines)) > 1;
+        List<String> subProjects = Arrays.asList(salesForceText.split("Sub-Project Name"));
 
-        if (salesForceText.contains("vacation") && moreLinesToRead) {
-            int vacationInformation = indexOfVacationLine + 2;
+        for (String subProject : subProjects) {
+            List<String> subProjectLines = Arrays.asList(subProject.split("\n"));
 
-            while (textLines.get(vacationInformation).contains("Non-sick leave")) {
-                List<String> parsedVacationInformation = Arrays.asList(textLines.get(vacationInformation).split("\t"));
+            if (subProjectLines.get(0).contains("vacation") && subProjectLines.size() > 2) {
+                for (int line = 2; line < subProjectLines.size() - 1; line++) {
+                    List<String> parsedVacationInformation = Arrays.asList(subProjectLines.get(line).split("\t"));
 
-                String date = parsedVacationInformation.get(3);
-                double hours = Double.parseDouble(parsedVacationInformation.get(5));
+                    String date = parsedVacationInformation.get(3);
+                    double hours = Double.parseDouble(parsedVacationInformation.get(5));
 
-                vacationDaysAndHours.put(date, hours);
-
-                vacationInformation++;
+                    vacationDaysAndHours.put(date, hours);
+                }
             }
         }
 
