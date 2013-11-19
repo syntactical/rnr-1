@@ -25,7 +25,7 @@ public class VacationCalculatorTest {
     private static final LocalDate SIX_MONTHS_BEFORE_SALESFORCE_START_DATE = SALESFORCE_START_DATE.minusMonths(6).minusDays(1);
     private static final LocalDate TODAY = new LocalDate();
 
-    private Map<LocalDate, Double> NO_TIME_OFF;
+    private HashMap<LocalDate, Double> NO_TIME_OFF;
 
     private static final double DEFAULT_ACCRUAL_RATE = 10d;
     private static final double CAP_FOR_DEFAULT_ACCRUAL_RATE = DEFAULT_ACCRUAL_RATE * 1.5;
