@@ -1,5 +1,6 @@
 package com.springapp.mvc.web.service;
 
+import com.springapp.mvc.web.model.Constants;
 import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,6 @@ public class EmployeeService {
 
     private final DateParserService dateParser;
 
-    private static final double DEFAULT_ACCRUAL_RATE = 10;
-
     @Autowired
     public EmployeeService(DateParserService dateParser) {
         this.dateParser = dateParser;
@@ -21,7 +20,7 @@ public class EmployeeService {
         LocalDate convertedStartDate = dateParser.parse(startDate);
 
         double convertedRolloverDays = parseStringWithDefaultValue(rolloverDays, 0d);
-        double convertedInitialAccrualRate = parseStringWithDefaultValue(initialAccrualRate, DEFAULT_ACCRUAL_RATE);
+        double convertedInitialAccrualRate = parseStringWithDefaultValue(initialAccrualRate, Constants.DEFAULT_ACCRUAL_RATE);
 
         return new Employee(convertedStartDate, convertedRolloverDays, daysOff, convertedInitialAccrualRate);
     }

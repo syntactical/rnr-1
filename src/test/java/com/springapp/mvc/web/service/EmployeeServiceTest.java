@@ -1,5 +1,6 @@
 package com.springapp.mvc.web.service;
 
+import com.springapp.mvc.web.model.Constants;
 import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
 import org.junit.Before;
@@ -22,7 +23,6 @@ public class EmployeeServiceTest {
     public static final String CUSTOM_ACCRUAL_RATE = "17";
     public static final Map<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
     public static final LocalDate DATE_AS_LOCALDATE = new DateParserService().parse(DATE);
-    public static final double DEFAULT_ACCRUAL_RATE = 10d;
 
     EmployeeService employeeService;
     DateParserService mockDateParser;
@@ -65,7 +65,7 @@ public class EmployeeServiceTest {
         Employee actualEmployee = employeeService.createEmployee(date, rolloverDays, daysOff, accrualRate);
 
         double convertedRolloverDays = 0;
-        double convertedAccrualRate = DEFAULT_ACCRUAL_RATE;
+        double convertedAccrualRate = Constants.DEFAULT_ACCRUAL_RATE;
 
         if(!rolloverDays.equals("")){
             convertedRolloverDays = Double.parseDouble(rolloverDays);
