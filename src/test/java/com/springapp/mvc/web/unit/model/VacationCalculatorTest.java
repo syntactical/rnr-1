@@ -33,14 +33,11 @@ public class VacationCalculatorTest {
     private static final double NO_ROLLOVER_DAYS = 0d;
 
     private VacationCalculator vacationCalculator;
-
-    private Employee mockEmployee;
     private AccrualRateCalculator mockAccrualRateCalculator;
 
     @Before
     public void setUp() throws Exception {
         vacationCalculator = new VacationCalculator();
-        mockEmployee = mock(Employee.class);
         mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
         NO_TIME_OFF = new HashMap<LocalDate, Double>();
 
@@ -50,49 +47,43 @@ public class VacationCalculatorTest {
 
     @Test
     public void shouldCalculateVacationDaysAfterIntervalOfTime() {
-        when(mockEmployee.getStartDate()).thenReturn(ONE_WEEK_AGO);
-        when(mockEmployee.getRolloverDays()).thenReturn(NO_ROLLOVER_DAYS);
-        when(mockEmployee.getDaysOff()).thenReturn(NO_TIME_OFF);
+        Employee employee = new Employee(ONE_WEEK_AGO, NO_ROLLOVER_DAYS, NO_TIME_OFF, DEFAULT_ACCRUAL_RATE);
 
         double expectedVacationDays = DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS * 7;
 
-        assertThat(vacationCalculator.getVacationDays(mockEmployee, mockAccrualRateCalculator, TODAY), is(expectedVacationDays));
+        assertThat(vacationCalculator.getVacationDays(employee, mockAccrualRateCalculator, TODAY), is(expectedVacationDays));
     }
 
     @Test
     public void shouldNotAccrueDaysPastVacationCap() {
         double expectedAccrualForThreeWeeks = (DEFAULT_ACCRUAL_RATE) / YEAR_IN_DAYS * 3 * 7;
+        double rolloverDays = CAP_FOR_DEFAULT_ACCRUAL_RATE - expectedAccrualForThreeWeeks;
 
-        when(mockEmployee.getStartDate()).thenReturn(FOUR_WEEKS_AGO);
-        when(mockEmployee.getRolloverDays()).thenReturn(CAP_FOR_DEFAULT_ACCRUAL_RATE - expectedAccrualForThreeWeeks);
-        when(mockEmployee.getDaysOff()).thenReturn(NO_TIME_OFF);
+        Employee employee = new Employee(FOUR_WEEKS_AGO, rolloverDays, NO_TIME_OFF, DEFAULT_ACCRUAL_RATE);
 
-        assertThat(vacationCalculator.getVacationDays(mockEmployee, mockAccrualRateCalculator, TODAY), is(CAP_FOR_DEFAULT_ACCRUAL_RATE));
+        assertThat(vacationCalculator.getVacationDays(employee, mockAccrualRateCalculator, TODAY), is(CAP_FOR_DEFAULT_ACCRUAL_RATE));
     }
 
     @Test
     public void shouldStartAccrualAtSalesforceStartDateIfEmployeeStartDateIsEarlierThanSalesforceStartDate() {
-        when(mockEmployee.getStartDate()).thenReturn(SIX_MONTHS_BEFORE_SALESFORCE_START_DATE);
-        when(mockEmployee.getRolloverDays()).thenReturn(NO_ROLLOVER_DAYS);
-        when(mockEmployee.getDaysOff()).thenReturn(NO_TIME_OFF);
+        Employee employee = new Employee(SIX_MONTHS_BEFORE_SALESFORCE_START_DATE, NO_ROLLOVER_DAYS, NO_TIME_OFF,DEFAULT_ACCRUAL_RATE);
 
         double expectedVacationDays = (DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS) * 7 * 2;
 
-        assertThat(vacationCalculator.getVacationDays(mockEmployee, mockAccrualRateCalculator,TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
+        assertThat(vacationCalculator.getVacationDays(employee, mockAccrualRateCalculator,TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
     }
 
     @Test
     public void shouldDecrementVacationDaysFromTotal() {
         Map<LocalDate, Double> timeOff = new HashMap<LocalDate, Double>();
         timeOff.put(SALESFORCE_START_DATE, 40.0);
+        double rolloverDays = 5d;
 
-        when(mockEmployee.getStartDate()).thenReturn(SIX_MONTHS_BEFORE_SALESFORCE_START_DATE);
-        when(mockEmployee.getRolloverDays()).thenReturn(5d);
-        when(mockEmployee.getDaysOff()).thenReturn(timeOff);
+        Employee employee = new Employee(SIX_MONTHS_BEFORE_SALESFORCE_START_DATE, rolloverDays, timeOff, DEFAULT_ACCRUAL_RATE);
 
         double expectedVacationDays = DEFAULT_ACCRUAL_RATE / YEAR_IN_DAYS * 7 * 2;
 
-        assertThat(vacationCalculator.getVacationDays(mockEmployee, mockAccrualRateCalculator, TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
+        assertThat(vacationCalculator.getVacationDays(employee, mockAccrualRateCalculator, TWO_WEEKS_AFTER_SALESFORCE_START_DATE), is(expectedVacationDays));
     }
 
 
