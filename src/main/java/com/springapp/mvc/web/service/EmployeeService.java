@@ -1,13 +1,10 @@
 package com.springapp.mvc.web.service;
 
-import com.springapp.mvc.web.model.AccrualRateCalculator;
 import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class EmployeeService {
 
@@ -20,7 +17,7 @@ public class EmployeeService {
         this.dateParser = dateParser;
     }
 
-    public Employee createEmployee(String startDate, String rolloverDays, HashMap<LocalDate, Double> daysOff, String initialAccrualRate) {
+    public Employee createEmployee(String startDate, String rolloverDays, Map<LocalDate, Double> daysOff, String initialAccrualRate) {
         LocalDate date = dateParser.parse(startDate);
 
         double rollover = rolloverDays.equals("") ? 0 : Double.parseDouble(rolloverDays);

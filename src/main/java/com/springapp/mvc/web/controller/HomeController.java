@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/")
@@ -48,7 +48,7 @@ public class HomeController {
         String salesForceText = request.getParameter("salesForceText");
         String startDate = request.getParameter("startDate");
 
-        HashMap<LocalDate, Double> parsedSalesForceData = salesForceParserService.parse(salesForceText);
+        Map<LocalDate, Double> parsedSalesForceData = salesForceParserService.parse(salesForceText);
 
         Employee employee = employeeService.createEmployee(startDate, rollover, parsedSalesForceData, accrualRate);
 

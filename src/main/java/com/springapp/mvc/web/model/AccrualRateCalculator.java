@@ -30,7 +30,4 @@ public class AccrualRateCalculator {
         double currentAccrualRate = calculateDailyAccrualRate(employee, endDate);
         return min(currentAccrualRate * 1.5 * YEAR_IN_DAYS, MAX_VACATION_DAYS);
     }
-
-
-
 }

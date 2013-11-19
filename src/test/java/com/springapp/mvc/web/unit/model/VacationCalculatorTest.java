@@ -8,12 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyDouble;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -26,7 +25,7 @@ public class VacationCalculatorTest {
     private static final LocalDate SIX_MONTHS_BEFORE_SALESFORCE_START_DATE = SALESFORCE_START_DATE.minusMonths(6).minusDays(1);
     private static final LocalDate TODAY = new LocalDate();
 
-    private HashMap<LocalDate, Double> NO_TIME_OFF;
+    private Map<LocalDate, Double> NO_TIME_OFF;
 
     private static final double DEFAULT_ACCRUAL_RATE = 10d;
     private static final double CAP_FOR_DEFAULT_ACCRUAL_RATE = DEFAULT_ACCRUAL_RATE * 1.5;
@@ -84,7 +83,7 @@ public class VacationCalculatorTest {
 
     @Test
     public void shouldDecrementVacationDaysFromTotal() {
-        HashMap<LocalDate, Double> timeOff = new HashMap<LocalDate, Double>();
+        Map<LocalDate, Double> timeOff = new HashMap<LocalDate, Double>();
         timeOff.put(SALESFORCE_START_DATE, 40.0);
 
         when(mockEmployee.getStartDate()).thenReturn(SIX_MONTHS_BEFORE_SALESFORCE_START_DATE);

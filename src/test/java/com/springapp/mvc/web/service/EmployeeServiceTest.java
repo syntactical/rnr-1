@@ -1,19 +1,17 @@
 package com.springapp.mvc.web.service;
 
-import com.springapp.mvc.web.model.AccrualRateCalculator;
 import com.springapp.mvc.web.model.Employee;
 import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class EmployeeServiceTest {
 
@@ -22,7 +20,7 @@ public class EmployeeServiceTest {
     public static final String NO_ROLLOVER_DAYS = "";
     public static final String NO_INITIAL_ACCRUAL_RATE = "";
     public static final String CUSTOM_ACCRUAL_RATE = "17";
-    public static final HashMap<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
+    public static final Map<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
     public static final LocalDate DATE_AS_LOCALDATE = new DateParserService().parse(DATE);
     public static final double DEFAULT_ACCRUAL_RATE = 10d;
 
@@ -63,7 +61,7 @@ public class EmployeeServiceTest {
         verify(mockDateParser).parse(anyString());
     }
 
-    private void assertEmployeeEquality(String date, String rolloverDays, HashMap<LocalDate, Double> daysOff, String accrualRate) {
+    private void assertEmployeeEquality(String date, String rolloverDays, Map<LocalDate, Double> daysOff, String accrualRate) {
         Employee actualEmployee = employeeService.createEmployee(date, rolloverDays, daysOff, accrualRate);
 
         double convertedRolloverDays = rolloverDays.equals("") ? 0 : Double.parseDouble(rolloverDays);

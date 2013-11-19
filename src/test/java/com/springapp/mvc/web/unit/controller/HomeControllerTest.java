@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import javax.servlet.http.HttpServletRequest;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -57,7 +57,7 @@ public class HomeControllerTest {
         homeController.postDate(mockHttpServletRequest);
 
         verify(mockSalesForceParserService, times(1)).parse(anyString());
-        verify(mockEmployeeService, times(1)).createEmployee(anyString(), anyString(), any(HashMap.class), anyString());
+        verify(mockEmployeeService, times(1)).createEmployee(anyString(), anyString(), any(Map.class), anyString());
     }
 
 }

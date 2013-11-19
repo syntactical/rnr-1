@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SalesForceParserService {
 
@@ -25,8 +26,8 @@ public class SalesForceParserService {
         return -1;
     }
 
-    public HashMap<LocalDate, Double> parse(String salesForceText) {
-        HashMap<String, Double> vacationDaysAndHours = new HashMap<String, Double>();
+    public Map<LocalDate, Double> parse(String salesForceText) {
+        Map<String, Double> vacationDaysAndHours = new HashMap<String, Double>();
 
         List<String> textLines = Arrays.asList(salesForceText.split("\n"));
         int indexOfVacationLine = findLine("vacation", textLines);
@@ -50,8 +51,8 @@ public class SalesForceParserService {
         return convertStringsToLocalDates(vacationDaysAndHours);
     }
 
-    private HashMap<LocalDate, Double> convertStringsToLocalDates(HashMap<String, Double> mapWithStringDates) {
-        HashMap<LocalDate, Double> localDatesAndDoubles = new HashMap<LocalDate, Double>();
+    private Map<LocalDate, Double> convertStringsToLocalDates(Map<String, Double> mapWithStringDates) {
+        Map<LocalDate, Double> localDatesAndDoubles = new HashMap<LocalDate, Double>();
 
         for (String date : mapWithStringDates.keySet()) {
             LocalDate parsedDate = dateParser.parse(date);
