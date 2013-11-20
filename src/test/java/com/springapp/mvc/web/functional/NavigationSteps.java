@@ -30,7 +30,7 @@ public class NavigationSteps extends UserJourneyBase {
                 twoWeeksAgo.getDayOfMonth() + "/" +
                 twoWeeksAgo.getYear();
 
-        WebElement startDateField = driver.findElement(By.id("rolloverdays_field"));
+        WebElement startDateField = driver.findElement(By.name("startDate"));
         startDateField.sendKeys(date);
     }
 
