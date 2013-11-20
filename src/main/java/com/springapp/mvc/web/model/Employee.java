@@ -31,4 +31,12 @@ public class Employee {
     public double getInitialAccrualRate() {
         return initialAccrualRate;
     }
+
+    public void caffinate() {
+	System.out.println("The employee sadly pours self a cheap and bitter cup of coffee from the breakroom.");
+    }
+
+    public void askBarbieForVacationDays() {
+	System.out.println("I don't know how to get in touch with her.");
+    }
 }
