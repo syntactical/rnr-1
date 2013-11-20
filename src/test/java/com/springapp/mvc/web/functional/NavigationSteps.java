@@ -35,12 +35,21 @@ public class NavigationSteps extends UserJourneyBase {
                 twoWeeksAgo.getDayOfMonth() + "/" +
                 twoWeeksAgo.getYear();
 
-        WebElement startDateField = driver.findElement(By.id("startdate_field"));
+        WebElement startDateField = driver.findElement(By.id("start-date-picker"));
         startDateField.sendKeys(date);
     }
 
-    @When("I request my number of vacation days")
+    @When("I request my number of vacation days as of today")
     public void iClickSubmit() {
+        DateTime twoWeeksAgo = new DateTime();
+
+        String date = twoWeeksAgo.getMonthOfYear() + "/" +
+                twoWeeksAgo.getDayOfMonth() + "/" +
+                twoWeeksAgo.getYear();
+
+        WebElement endDateField = driver.findElement(By.id("end-date-picker"));
+        endDateField.sendKeys(date);
+
         WebElement submitButton = driver.findElement(By.id("submit_button"));
         submitButton.click();
     }

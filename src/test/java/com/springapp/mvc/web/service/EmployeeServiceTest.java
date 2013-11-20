@@ -16,23 +16,18 @@ import static org.mockito.Mockito.*;
 
 public class EmployeeServiceTest {
 
-    public static final String DATE = "10/20/2013";
+    public static final LocalDate DATE = new LocalDate(2013, 10, 20);
     public static final String SOME_ROLLOVER_DAYS = "6";
     public static final String NO_ROLLOVER_DAYS = "";
     public static final String NO_INITIAL_ACCRUAL_RATE = "";
     public static final String CUSTOM_ACCRUAL_RATE = "17";
     public static final Map<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
-    public static final LocalDate DATE_AS_LOCALDATE = new DateParserService().parse(DATE);
 
     EmployeeService employeeService;
-    DateParserService mockDateParser;
 
     @Before
     public void setUp() {
-        mockDateParser = mock(DateParserService.class);
-        when(mockDateParser.parse(DATE)).thenReturn(DATE_AS_LOCALDATE);
-
-        employeeService = new EmployeeService(mockDateParser);
+        employeeService = new EmployeeService();
     }
 
     @Test
@@ -55,13 +50,7 @@ public class EmployeeServiceTest {
         assertEmployeeEquality(DATE, NO_ROLLOVER_DAYS, NO_DAYS_OFF, NO_INITIAL_ACCRUAL_RATE);
     }
 
-    @Test
-    public void shouldInteractWithDateParser() throws Exception {
-        employeeService.createEmployee(DATE, SOME_ROLLOVER_DAYS, NO_DAYS_OFF, NO_INITIAL_ACCRUAL_RATE);
-        verify(mockDateParser).parse(anyString());
-    }
-
-    private void assertEmployeeEquality(String date, String rolloverDays, Map<LocalDate, Double> daysOff, String accrualRate) {
+    private void assertEmployeeEquality(LocalDate date, String rolloverDays, Map<LocalDate, Double> daysOff, String accrualRate) {
         Employee actualEmployee = employeeService.createEmployee(date, rolloverDays, daysOff, accrualRate);
 
         double convertedRolloverDays = 0;
@@ -75,11 +64,7 @@ public class EmployeeServiceTest {
             convertedAccrualRate = Double.parseDouble(accrualRate);
         }
 
-        LocalDate convertedDate = new DateParserService().parse(date);
-
-        assertThat(actualEmployee.getDaysOff(), is(daysOff));
         assertThat(actualEmployee.getRolloverDays(), is(convertedRolloverDays));
         assertThat(actualEmployee.getInitialAccrualRate(), is(convertedAccrualRate));
-        assertThat(actualEmployee.getStartDate(), is(convertedDate));
     }
 }

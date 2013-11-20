@@ -3,6 +3,7 @@ package com.springapp.mvc.web.controller;
 import com.springapp.mvc.web.model.AccrualRateCalculator;
 import com.springapp.mvc.web.model.VacationCalculator;
 import com.springapp.mvc.web.model.Employee;
+import com.springapp.mvc.web.service.DateParserService;
 import com.springapp.mvc.web.service.EmployeeService;
 import com.springapp.mvc.web.service.SalesForceParserService;
 import org.joda.time.LocalDate;
@@ -26,13 +27,15 @@ public class HomeController {
     private final SalesForceParserService salesForceParserService;
     private final VacationCalculator vacationCalculator;
     private final AccrualRateCalculator accrualRateCalculator;
+    private final DateParserService dateParserService;
 
     @Autowired
-    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, VacationCalculator vacationCalculator, AccrualRateCalculator accrualRateCalculator) {
+    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, VacationCalculator vacationCalculator, AccrualRateCalculator accrualRateCalculator, DateParserService dateParserService) {
         this.employeeService = employeeService;
         this.salesForceParserService = salesForceParserService;
         this.vacationCalculator = vacationCalculator;
         this.accrualRateCalculator = accrualRateCalculator;
+        this.dateParserService = dateParserService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -47,14 +50,15 @@ public class HomeController {
         String accrualRate = request.getParameter("accrualRate");
         String salesForceText = request.getParameter("salesForceText");
         String startDate = request.getParameter("startDate");
+        String endDate = request.getParameter("endDate");
 
         Map<LocalDate, Double> parsedSalesForceData = salesForceParserService.parse(salesForceText);
+        LocalDate convertedStartDate = dateParserService.parse(startDate);
+        LocalDate convertedEndDate = dateParserService.parse(endDate);
 
-        Employee employee = employeeService.createEmployee(startDate, rollover, parsedSalesForceData, accrualRate);
+        Employee employee = employeeService.createEmployee(convertedStartDate, rollover, parsedSalesForceData, accrualRate);
 
-        LocalDate today = new LocalDate();
-
-        double vacationDays = vacationCalculator.getVacationDays(employee, accrualRateCalculator, today);
+        double vacationDays = vacationCalculator.getVacationDays(employee, accrualRateCalculator, convertedEndDate);
 
         return showVacationDays(vacationDays);
     }
