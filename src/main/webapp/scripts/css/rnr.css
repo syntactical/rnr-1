@@ -3,12 +3,13 @@
     margin: 0 auto;
 }
 
-.headerimg{
-    width: 8em;
-    height: auto;
+.header-img {
+    position: relative;
+    width: 610px;
+    margin: 10px auto;
 }
 
-.bigTextInput{
+.big-text-input {
     width: 600px;
     height: 400px;
     background-color: blue;

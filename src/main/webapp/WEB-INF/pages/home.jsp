@@ -21,12 +21,9 @@
 <div id="wrap">
     <script src="../../scripts/js/bootstrap.js"></script>
 
-    <table colspan=3 id="banner">
-        <td><p class="text-info"><strong>R<br>n<br>R</strong></p></td>
-        <td><p class="text-warning">@</p></td>
-        <td><img class="headerimg" src="/images/tw-logo.png" class="img-rounded"/></td>
-    </table>
-
+    <div class="banner">
+        <img class="header-img" src="/images/logo.png" />
+    </div>
 
     <table>
         <tr>
