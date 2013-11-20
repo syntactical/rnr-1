@@ -27,6 +27,7 @@ public class UserJourneyBase {
     }
 
     public WebDriver getDriver() {
+        if (driver==null) setUp();
         return driver;
     }
 }

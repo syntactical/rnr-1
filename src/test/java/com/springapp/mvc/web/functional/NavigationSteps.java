@@ -20,12 +20,7 @@ import static org.junit.Assert.assertTrue;
 
 public class NavigationSteps extends UserJourneyBase {
 
-    private WebDriver driver;
-
-    @BeforeStories
-    public void setDriver(){
-        driver = getDriver();
-    }
+    WebDriver driver;
 
     @Given("I started two weeks ago")
     public void iEnterStartDateTwoWeeksAgo(){
@@ -67,7 +62,7 @@ public class NavigationSteps extends UserJourneyBase {
 
     @BeforeScenario
     public void openBrowser() {
-        driver = new FirefoxDriver();
+        driver = super.getDriver();
         driver.get("http://localhost:8080/");
     }
 
