@@ -1,16 +1,60 @@
-#wrap {
-    width: 50%;
-    margin: 0 auto;
+* {
+    font-family: 'Average Sans', sans-serif;
 }
 
 .header-img {
-    position: relative;
+    display: block;
     width: 610px;
     margin: 10px auto;
 }
 
-.big-text-input {
-    width: 600px;
-    height: 400px;
-    background-color: blue;
+#page {
+    display: block;
+    width: 1000px;
+    margin: auto;
+}
+
+#right-bar, #main-section {
+    display: inline-block;
+    position: relative;
+}
+
+#right-bar {
+    width: 220px;
+    height: 80px;
+    float: left;
+    padding: 40px;
+    background: #DFE9FF;
+    border: 1px solid;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#main-section {
+    width: 580px;
+    float: left;
+    padding-top: 6px;
+}
+
+input, label {
+    display: inline-block;
+}
+
+#main-section label {
+    text-align: right;
+    width: 250px;
+}
+
+#main-section input, #main-section textarea, #right-bar input {
+    width: 180px;
+    margin: 5px 0px 5px 4px;
+}
+
+.annotation {
+    color: #808080;
+}
+
+textarea#sales-force-text {
+    width: 184.5px;
+    height: 40px;
 }

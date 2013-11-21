@@ -2,53 +2,51 @@
 <html>
 <head>
     <title>RnR at ThoughtWorks</title>
-
-    <link href="../../scripts/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="../../scripts/css/datepicker.css" rel="stylesheet" type="text/css"/>
     <link href="../../scripts/css/rnr.css" rel="stylesheet" type="text/css"/>
-
-    <%--<script type="text/javascript" src="../../scripts/js/jquery-1.7.1.min.js"></script>--%>
-
-    <script type="text/javascript" src="../../scripts/js/jquery-1.7.2.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script type="text/javascript" src="../../scripts/js/jquery-ui-1.8.18.custom.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../../scripts/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../../scripts/js/jquery-ui-1.8.18.custom.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript" src="../../scripts/js/rnr.js"></script>
-
-
 </head>
 <body>
-<div id="wrap">
-    <script src="../../scripts/js/bootstrap.js"></script>
-
-    <div class="banner">
-        <img class="header-img" src="/images/logo.png" />
+<div id="page">
+    <div>
+        <img class="header-img" src="/images/logo.png"/>
     </div>
-
-    <table>
-        <tr>
-            <form name="startDate" action="/vacationDays" method="POST" id="date_selector">
-                Start Date:  <input id="start-date-picker" type="text"
-                                                        name="startDate" size="15.5"><br>
-
-                Initial Accrual Rate in days per year (If different than 10 days): <input id="accrual_rate" type="text"
-                                                                                          name="accrualRate"
-                                                                                          size='22'><br>
-
-                Vacation Balance as of 7/1/2013: <input id="rolloverdays_field" type="text" name="rolloverdays"
-                                                        size='20'><br>
-
-                Text From SalesForce Time Off: <textarea ROWS=10 COLS=80 id="salesForceText" type="text"
-                                                        name="salesForceText"></textarea><br>
-
-                Calculate my vacation days as of: <input id='end-date-picker' type="text"
-                                                         name="endDate" size="15.5"><br>
-
+    <form name="startDate" action="/vacationDays" method="POST" id="date_selector">
+        <div id="main-section">
+            <div>
+                <label for="start-date-picker">Start Date:</label>
+                <input id="start-date-picker" class="banner" type="text" name="startDate">
+            </div>
+            <div>
+                <label for="accrual-rate">Initial Accrual Rate:</label>
+                <input id="accrual-rate" type="text" name="accrualRate">
+                <span class="annotation">days per year</span>
+            </div>
+            <div>
+                <label for="rolloverdays-field">Vacation Balance:</label>
+                <input id="rolloverdays-field" type="text" name="rolloverdays">
+                <span class="annotation">(as of 7/1/2013)</span>
+            </div>
+            <div>
+                <label for="sales-force-text">Text from SalesForce Time Off:</label>
+                <textarea id="sales-force-text" type="text" name="salesForceText"></textarea>
+            </div>
+        </div>
+        <div id="right-bar">
+            <div>
+                <label for="end-date-picker">Calculate my vacation days as of:</label>
+                <input id='end-date-picker' type="text" name="endDate">
+            </div>
+            <div>
                 <input type="submit" value="Submit" id="submit_button">
-            </form>
-        </tr>
-    </table>
-
+            </div>
+        </div>
+    </form>
 </div>
 </body>
 </html>
