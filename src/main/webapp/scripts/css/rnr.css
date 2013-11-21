@@ -37,6 +37,12 @@
     padding-top: 6px;
 }
 
+#centered-section {
+    margin: auto;
+    display: block;
+    width: 500px;
+}
+
 input, label {
     display: inline-block;
 }
