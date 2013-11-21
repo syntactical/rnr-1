@@ -35,6 +35,14 @@
             <div>
                 <label for="sales-force-text">Text from SalesForce Time Off:</label>
                 <textarea id="sales-force-text" type="text" name="salesForceText"></textarea>
+                <span id="sales-force-text-help">
+                    <div>
+                        <input class="button"  value="?">
+                        <div id="sales-force-help-box">
+                            Hello, I am the help box, here to help you.
+                        </div>
+                    </div>
+                </span>
             </div>
         </div>
         <div id="right-bar">
@@ -43,7 +51,7 @@
                 <input id='end-date-picker' type="text" name="endDate">
             </div>
             <div>
-                <input type="submit" value="Submit" id="submit-button">
+                <input type="submit" value="Submit" class="button" id="submit-button">
             </div>
         </div>
     </form>
