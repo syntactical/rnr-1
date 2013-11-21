@@ -43,7 +43,7 @@
                 <input id='end-date-picker' type="text" name="endDate">
             </div>
             <div>
-                <input type="submit" value="Submit" id="submit_button">
+                <input type="submit" value="Submit" id="submit-button">
             </div>
         </div>
     </form>
