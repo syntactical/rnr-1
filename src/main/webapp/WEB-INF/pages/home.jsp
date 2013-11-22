@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <html>
 <head>
     <title>RnR at ThoughtWorks</title>
@@ -37,13 +38,22 @@
                 <textarea id="sales-force-text" type="text" name="salesForceText"></textarea>
                 <span id="sales-force-text-help">
                     <div>
-                        <button type="button" class="button" id="sales-force-help-button" onclick="$('#sales-force-help-box').toggle()">
+                        <button type="button" class="square-button" id="sales-force-help-button" onclick="$('.sales-force-help-box').toggle()">
                         ?
                         </button>
-                        <div id="sales-force-help-box">
+                        <div class="sales-force-help-box" id="sales-force-help-box-1">
                             <span>Navigate to <a href="https://our.thoughtworks.com" target="_new">our.thoughtworks.com</a> and click the "Time Off" link in the left sidebar.</span>
                             <img id="sales-force-image-1" src="../../images/SFinctructions1.jpg"/>
-                            <%--<img src="../../images/SFinctructions2.jpg"/>--%>
+                            <button type="button" class="square-button" id="sales-force-next-button" onclick="$('#sales-force-help-box-2').style.zIndex=2">
+                                &#9654;
+                            </button>
+                        </div>
+                        <div class="sales-force-help-box" id="sales-force-help-box-2">
+                            <span>Copy and paste everything under the "Project Name" header.</span>
+                            <img id="sales-force-image-2" src="../../images/SFinctructions2.jpg"/>
+                            <button type="button" class="square-button" id="sales-force-back-button" onclick="$('#sales-force-help-box-1').style.zIndex=3">
+                                &#9664;
+                            </button>
                         </div>
                     </div>
                 </span>

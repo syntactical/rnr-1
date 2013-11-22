@@ -67,18 +67,25 @@ textarea#sales-force-text {
     resize: none;
 }
 
-.button {
+.square-button {
+    border-radius: 8px 8px 8px 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    background: white;
+    color: rgb(31,73,125);
+    border: 1px solid;
+    font-weight: normal;
+}
+
+#submit-button {
+    height: 35px;
     color: white;
     background: rgb(31,73,125);
     border-radius: 8px 8px 8px 8px;
     font-weight: bold;
     border: none;
     padding-bottom: 3px;
-
-}
-
-#submit-button {
-    height: 35px;
 }
 
 #sales-force-text-help {
@@ -88,17 +95,17 @@ textarea#sales-force-text {
     float: right;
 }
 
-#sales-force-help-box {
+.sales-force-help-box {
     position: absolute;
     background: none repeat scroll 0% 0% rgb(238, 238, 238);
     color: rgb(0, 0, 128);
-    width: 535px;
+    width: 582px;
     height: 324px;
     top: 190px;
     left: 150px;
     z-index: 1;
     border-radius: 10px 10px 10px 10px;
-    padding: 25px 50px;
+    padding: 25px 22px 25px 50px;
     display: none;
 }
 
@@ -109,17 +116,30 @@ textarea#sales-force-text {
     height: 20px;
 }
 
-#sales-force-help-button {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-    background: white;
-    color: rgb(31,73,125);
-    border: 1px solid;
-    font-weight: normal;
+#sales-force-help-box-1 {
+    z-index: 3;
+}
+
+#sales-force-help-box-2 {
+    z-index: 2;
 }
 
 #sales-force-image-1 {
+    width: 530px;
+    padding-top: 10px;
+}
+
+#sales-force-image-2 {
+    width: 530px;
+    padding-top: 10px;
+}
+
+#sales-force-next-button {
+    float: right;
+    margin-top: 139px;
+}
+
+#sales-force-back-button {
     width: 530px;
     padding-top: 10px;
 }
