@@ -37,9 +37,13 @@
                 <textarea id="sales-force-text" type="text" name="salesForceText"></textarea>
                 <span id="sales-force-text-help">
                     <div>
-                        <input class="button"  value="?">
+                        <button type="button" class="button" id="sales-force-help-button" onclick="$('#sales-force-help-box').toggle()">
+                        ?
+                        </button>
                         <div id="sales-force-help-box">
-                            Hello, I am the help box, here to help you.
+                            <span>Navigate to <a href="https://our.thoughtworks.com" target="_new">our.thoughtworks.com</a> and click the "Time Off" link in the left sidebar.</span>
+                            <img id="sales-force-image-1" src="../../images/SFinctructions1.jpg"/>
+                            <%--<img src="../../images/SFinctructions2.jpg"/>--%>
                         </div>
                     </div>
                 </span>

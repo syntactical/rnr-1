@@ -74,6 +74,7 @@ textarea#sales-force-text {
     font-weight: bold;
     border: none;
     padding-bottom: 3px;
+
 }
 
 #submit-button {
@@ -81,9 +82,9 @@ textarea#sales-force-text {
 }
 
 #sales-force-text-help {
-    padding-top: 10px;
+    padding-top: 10.7px;
     display: inline-block;
-    padding-right: 100px;
+    padding-right: 92px;
     float: right;
 }
 
@@ -91,13 +92,13 @@ textarea#sales-force-text {
     position: absolute;
     background: none repeat scroll 0% 0% rgb(238, 238, 238);
     color: rgb(0, 0, 128);
-    width: 300px;
-    height: 100px;
-    top: 0px;
-    left: 0px;
+    width: 535px;
+    height: 324px;
+    top: 190px;
+    left: 150px;
     z-index: 1;
     border-radius: 10px 10px 10px 10px;
-    padding: 30px 45px;
+    padding: 25px 50px;
     display: none;
 }
 
@@ -106,4 +107,19 @@ textarea#sales-force-text {
     font-size: 16px;
     width: 25px;
     height: 20px;
+}
+
+#sales-force-help-button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    background: white;
+    color: rgb(31,73,125);
+    border: 1px solid;
+    font-weight: normal;
+}
+
+#sales-force-image-1 {
+    width: 530px;
+    padding-top: 10px;
 }
