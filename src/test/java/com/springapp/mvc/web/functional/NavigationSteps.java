@@ -45,13 +45,13 @@ public class NavigationSteps extends UserJourneyBase {
         WebElement endDateField = driver.findElement(By.id("end-date-picker"));
         endDateField.sendKeys(date);
 
-        WebElement submitButton = driver.findElement(By.id("submit_button"));
+        WebElement submitButton = driver.findElement(By.id("submit-button"));
         submitButton.click();
     }
 
     @Then("the number of vacation days I have is my daily accrual rate times 14")
     public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual(){
-        WebElement form = driver.findElement(By.id("vacationDays"));
+        WebElement form = driver.findElement(By.id("vacation-days"));
         String vacationDays = form.getText();
 
         String twoWeeksAccrued = String.valueOf(Math.round((10 / 365.25) * 7 * 2*100)/100);
