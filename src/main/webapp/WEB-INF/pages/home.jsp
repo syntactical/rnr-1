@@ -13,6 +13,16 @@
     <script type="text/javascript" src="../../scripts/js/rnr.js"></script>
 </head>
 <body>
+<script>
+    function showFirstSalesForcePage(){
+        document.getElementById('sales-force-help-box-1').style.zIndex="3";
+        document.getElementById('sales-force-help-box-2').style.zIndex="2";
+    }
+    function showSecondSalesForcePage(){
+        document.getElementById('sales-force-help-box-1').style.zIndex="2";
+        document.getElementById('sales-force-help-box-2').style.zIndex="3";
+    }
+</script>
 <div id="page">
     <div>
         <img class="header-img" src="/images/logo.png"/>
@@ -44,15 +54,15 @@
                         <div class="sales-force-help-box" id="sales-force-help-box-1">
                             <span>Navigate to <a href="https://our.thoughtworks.com" target="_new">our.thoughtworks.com</a> and click the "Time Off" link in the left sidebar.</span>
                             <img id="sales-force-image-1" src="../../images/SFinctructions1.jpg"/>
-                            <button type="button" class="square-button" id="sales-force-next-button" onclick="$('#sales-force-help-box-2').style.zIndex=2">
-                                &#9654;
+                            <button type="button" class="square-button sales-force-button" id="sales-force-next-button" onclick="showSecondSalesForcePage()">
+                                &#9658;
                             </button>
                         </div>
                         <div class="sales-force-help-box" id="sales-force-help-box-2">
                             <span>Copy and paste everything under the "Project Name" header.</span>
                             <img id="sales-force-image-2" src="../../images/SFinctructions2.jpg"/>
-                            <button type="button" class="square-button" id="sales-force-back-button" onclick="$('#sales-force-help-box-1').style.zIndex=3">
-                                &#9664;
+                            <button type="button" class="square-button sales-force-button" id="sales-force-back-button" onclick="showFirstSalesForcePage()">
+                                &#9668;
                             </button>
                         </div>
                     </div>

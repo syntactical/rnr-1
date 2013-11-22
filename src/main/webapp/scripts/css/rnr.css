@@ -134,12 +134,12 @@ textarea#sales-force-text {
     padding-top: 10px;
 }
 
-#sales-force-next-button {
+.sales-force-button {
     float: right;
     margin-top: 139px;
+    padding-bottom: 3px;
 }
 
 #sales-force-back-button {
-    width: 530px;
-    padding-top: 10px;
+    padding-left: 0.5px;
 }

@@ -16,6 +16,3 @@ $(function () {
         yearRange: "+0:+3"
     });
 });
-
-
-
