@@ -1,6 +1,33 @@
 README
 
-Things you might want to install
+~~~~~~~~~
+Thanks for your interest in contributing to the ThoughtWorks RnR project!
+
+To get started, you will want to clone and set this project up locally, helpful tips are included below.
+
+To start contributing to this project, you will need to contact Alyssa Nabors (anabors@thoughtworks.com) for access to the Trello board,
+where information project setup and current iteration is stored. You will also need to contact Landon Medlock (lmedlock@thoughtworks.com)
+with your GitHub username to be added as a contributor to the project.
+~~~~~~~~~
+
+**Trello Etiquette**
+
+We are using Trello (https://trello.com/) as our story tracker as well as for iteration planning and tracking purposes. Information about project contributors,
+accessing the production server and ci pipeline, etc, can be found on the InfoBoard. Stories can be found on the currentIterationStoryBoard.
+
+If you would like to work on a story, please use Trello to Assign yourself to the story and put it in "Doing".
+
+If for any reason you ned to stop working on that story, please add an update on what you have accomplished in the comments, unassign yourself,
+and move the story back to "Ready for Development".
+
+This process should be used for stories being development as well as stories in QA.
+
+Since it is not always possible for everyone on this project to attend a stand-up, it is important that you keep the Trello board up to date with
+as much detail as possible.
+
+~~~~~~~~~~~~~
+
+**Things you might want to install**
 
     IntelliJ Ultimate Edition
     HomeBrew (http://brew.sh/ -- makes installation easy)
@@ -9,10 +36,10 @@ Things you might want to install
             Maven
             Tomcat
 
-************************************
-BEFORE OPENING PROJECT IN INTELLIJ *
-************************************
 
+**********************************
+BEFORE OPENING PROJECT IN INTELLIJ
+**********************************
 
 Run Maven compiler: compile in the directory where your pom xml file is located. (mvn compiler:compile)
 
@@ -31,7 +58,10 @@ Plus sign (for Deploy at the server startup box), select artifact, select the ex
 
 ~~~
 
-Troubleshooting
+**Troubleshooting**
+
+FEEL FREE TO ADD ANY TIPS OR PROBLEMS YOU ENCOUNTER TO THIS LIST
+
 
 If code shows errors due to missing libraries:
 	import libraries: junit-4.1.0 and spring-framework-web if it's not there
@@ -57,10 +87,4 @@ If you seem to be missing an inordinate number of libraries and the artifact can
 
 
 ~~~
-Linking your github account to the CI pipeline
 
-Before committing go to snap-ci.com and click on get started.  Allow snap privileges to your github account.
-Set up the rnr repo on snap. If the repo is not viewable on snap, talk to the github account manager, currently
-Landon(lmedlock@thoughtworks.com). If you break the build FIX IT.
-
-~~~
