@@ -117,19 +117,14 @@ textarea#sales-force-text {
 }
 
 #sales-force-help-box-1 {
-    z-index: 3;
+    z-index: -1;
 }
 
 #sales-force-help-box-2 {
-    z-index: 2;
+    z-index: -2;
 }
 
-#sales-force-image-1 {
-    width: 530px;
-    padding-top: 10px;
-}
-
-#sales-force-image-2 {
+.sales-force-image {
     width: 530px;
     padding-top: 10px;
 }
@@ -142,4 +137,8 @@ textarea#sales-force-text {
 
 #sales-force-back-button {
     padding-left: 0.5px;
+}
+
+#end-date-picker {
+    text-align: center;
 }
