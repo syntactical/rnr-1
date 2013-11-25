@@ -36,15 +36,6 @@ public class NavigationSteps extends UserJourneyBase {
 
     @When("I request my number of vacation days as of today")
     public void iClickSubmit() {
-        DateTime twoWeeksAgo = new DateTime();
-
-        String date = twoWeeksAgo.getMonthOfYear() + "/" +
-                twoWeeksAgo.getDayOfMonth() + "/" +
-                twoWeeksAgo.getYear();
-
-        WebElement endDateField = driver.findElement(By.id("end-date-picker"));
-        endDateField.sendKeys(date);
-
         WebElement submitButton = driver.findElement(By.id("submit-button"));
         submitButton.click();
     }
