@@ -38,6 +38,10 @@ $(function () {
     document.getElementById('end-date-picker').value=getTodaysDate()
 })
 
+$(function setDefaultInitialAccrualRate(){
+    document.getElementById('accrual-rate').value="10";
+})
+
 function showFirstSalesForcePage() {
     document.getElementById('sales-force-help-box-1').style.zIndex = "-1";
     document.getElementById('sales-force-help-box-2').style.zIndex = "-2";
