@@ -75,7 +75,8 @@ public class HomeController {
         ModelMap model = new ModelMap();
         model.put("days", roundToNearestHundredth(vacationDays));
         model.put("personalDays", roundToNearestHundredth(personalDays));
-        return new ModelAndView("vacay", "postedValues", model);
+
+        return new ModelAndView("home", "postedValues", model);
     }
 
     private Double roundToNearestHundredth(Double number){

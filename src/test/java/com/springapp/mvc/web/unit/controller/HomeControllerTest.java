@@ -14,6 +14,8 @@ import org.junit.Test;
 
 import javax.servlet.http.HttpServletRequest;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
@@ -40,6 +42,17 @@ public class HomeControllerTest {
         mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
         mockDateParserService = mock(DateParserService.class);
         mockPersonalDaysCalculator = mock(PersonalDaysCalculator.class);
+    }
+
+    @Test
+    public void post_shouldReturnHomeView() throws IOException, ParseException {
+        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator, mockDateParserService);
+        when(mockHttpServletRequest.getParameter("rolloverdays")).thenReturn("1");
+        when(mockHttpServletRequest.getParameter("accrualRate")).thenReturn("10");
+        when(mockHttpServletRequest.getParameter("salesForceText")).thenReturn("Test");
+        when(mockHttpServletRequest.getParameter("startDate")).thenReturn("10/22/2012");
+        when(mockHttpServletRequest.getParameter("endDate")).thenReturn("11/22/2013");
+        assertThat(homeController.postDate(mockHttpServletRequest).getViewName(), is("home"));
     }
 
     @Test
