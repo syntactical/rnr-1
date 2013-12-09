@@ -22,21 +22,21 @@
         <div id="main-section">
             <div>
                 <label for="start-date-picker">Start Date:</label>
-                <input id="start-date-picker" class="banner" type="text" name="startDate">
+                <input id="start-date-picker" class="banner" type="text" name="startDate" value="${postedValues.startDate}">
             </div>
             <div>
                 <label for="rolloverdays-field">Vacation Balance:</label>
-                <input id="rolloverdays-field" type="text" name="rolloverdays">
+                <input id="rolloverdays-field" type="text" name="rolloverdays" value="${postedValues.rollover}">
                 <span class="annotation">(as of 7/1/2013)</span>
             </div>
             <div>
                 <label for="accrual-rate">Initial Accrual Rate:</label>
-                <input id="accrual-rate" type="text" name="accrualRate">
+                <input id="accrual-rate" type="text" name="accrualRate" value="${postedValues.accrualRate}">
                 <span class="annotation">days per year</span>
             </div>
             <div>
                 <label for="sales-force-text">Text from SalesForce Time Off:</label>
-                <textarea id="sales-force-text" type="text" name="salesForceText"></textarea>
+                <textarea id="sales-force-text" type="text" name="salesForceText">${postedValues.salesForceText}</textarea>
                 <span id="sales-force-text-help">
                     <div>
                         <button type="button" class="square-button" id="sales-force-help-button"
@@ -67,7 +67,7 @@
         <div id="right-bar">
             <div id="end-date-picker-div">
                 <label for="end-date-picker">Calculate my vacation days as of:</label>
-                <input id="end-date-picker" type="text" name="endDate" position="relative">
+                <input id="end-date-picker" type="text" name="endDate" position="relative" value="${postedValues.endDate}">
             </div>
             <div>
                 <input type="submit" value="Submit" class="button" id="submit-button">
