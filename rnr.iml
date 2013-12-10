@@ -140,6 +140,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: de.codecentric:jbehave-junit-runner:1.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:1.9.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.objenesis:objenesis:1.0" level="project" />
+    <orderEntry type="library" name="javax.servlet:jstl:1.2" level="project" />
   </component>
 </module>
 
