@@ -37,10 +37,15 @@
     padding-top: 6px;
 }
 
-#centered-section {
-    margin: auto;
+#midsection {
+    height: 200px;
+}
+
+#balances {
     display: block;
-    width: 500px;
+    margin: 0px 90px 0px auto;
+    width: 300px;
+    height: 50px;
 }
 
 input, label {
