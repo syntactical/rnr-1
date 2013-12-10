@@ -68,12 +68,13 @@ public class HomeController {
         double vacationDays = vacationCalculator.getVacationDays(employee, accrualRateCalculator, convertedEndDate);
         double personalDays = personalDaysCalculator.calculatePersonalDays(employee, convertedStartDate, convertedEndDate);
 
-        return showVacationDays(vacationDays, rollover, accrualRate, salesForceText, startDate, endDate);
+        return showVacationDays(vacationDays, personalDays, rollover, accrualRate, salesForceText, startDate, endDate);
     }
 
-    private ModelAndView showVacationDays(Double vacationDays, String rollover, String accrualRate, String salesForceText, String startDate, String endDate) {
+    private ModelAndView showVacationDays(Double vacationDays, Double personalDays, String rollover, String accrualRate, String salesForceText, String startDate, String endDate) {
         ModelMap model = new ModelMap();
-        model.put("days", roundToNearestHundredth(vacationDays));
+        model.put("vacationDays", roundToNearestHundredth(vacationDays));
+        model.put("personalDays", roundToNearestHundredth(personalDays));
         model.put("startDate", startDate);
         model.put("endDate", endDate);
         model.put("rollover", rollover);

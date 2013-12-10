@@ -99,9 +99,11 @@
             </div>
         </div>
     </form>
-    <c:if test="${not empty postedValues.days}">
+    <c:if test="${not empty postedValues.vacationDays}">
         <div id="centered-section">
-            <span id="vacation-days">Your balance is ${postedValues.days} days.</span>
+            <span id="vacation-days">Your vacation balance is ${postedValues.vacationDays} days.</span>
+            <br>
+            <span id="personal-days">Your personal day balance is ${postedValues.personalDays} days.</span>
         </div>
     </c:if>
 </div>

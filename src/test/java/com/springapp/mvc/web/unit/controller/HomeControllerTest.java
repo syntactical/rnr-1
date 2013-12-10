@@ -46,7 +46,7 @@ public class HomeControllerTest {
 
     @Test
     public void post_shouldReturnHomeView() throws IOException, ParseException {
-        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator, mockDateParserService);
+        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator, mockDateParserService, mockPersonalDaysCalculator);
         when(mockHttpServletRequest.getParameter("rolloverdays")).thenReturn("1");
         when(mockHttpServletRequest.getParameter("accrualRate")).thenReturn("10");
         when(mockHttpServletRequest.getParameter("salesForceText")).thenReturn("Test");
