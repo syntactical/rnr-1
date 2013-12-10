@@ -48,6 +48,11 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping(value = "/vacationDays", method = RequestMethod.GET)
+    public String reload() {
+        return "home";
+    }
+
     @RequestMapping(value = "/vacationDays", method = RequestMethod.POST)
     public ModelAndView postDate(HttpServletRequest request) throws IOException, ParseException {
 
