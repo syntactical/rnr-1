@@ -20,7 +20,7 @@
     <bean id="employeeService" class="com.springapp.mvc.web.service.EmployeeService" />
     <bean id="salesForceParserService" class="com.springapp.mvc.web.service.SalesForceParserService" />
     <bean id="dateParserService" class="com.springapp.mvc.web.service.DateParserService" />
-
+    <bean id="personalDaysCalculator" class="com.springapp.mvc.web.model.PersonalDaysCalculator" />
 
 
 

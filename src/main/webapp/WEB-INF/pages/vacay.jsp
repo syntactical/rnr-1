@@ -12,7 +12,9 @@
         <img class="header-img" src="/images/logo.png"/>
     </div>
     <div id="centered-section">
-        <span id="vacation-days">Your balance is ${postedValues.days} days.</span>
+        <span id="vacation-days">Your vacation balance is ${postedValues.days} days.</span>
+        <br>
+        <span id="personal-days">Your personal day balance is ${postedValues.personalDays} days.</span>
     </div>
 </div>
 </body>

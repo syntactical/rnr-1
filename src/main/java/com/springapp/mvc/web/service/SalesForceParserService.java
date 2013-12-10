@@ -17,7 +17,7 @@ public class SalesForceParserService {
         this.dateParser = dateParser;
     }
 
-    public Map<LocalDate, Double> parse(String salesForceText) {
+    public Map<LocalDate, Double> extractVacationDaysUsed(String salesForceText) {
         Map<String, Double> vacationDaysAndHours = new HashMap<String, Double>();
 
         List<String> subProjects = Arrays.asList(salesForceText.split("Sub-Project Name"));
@@ -49,5 +49,30 @@ public class SalesForceParserService {
         }
 
         return localDatesAndDoubles;
+    }
+
+    public double extractPersonalDaysUsed(String salesForceText, LocalDate date) {
+        double personalDaysUsed = 0.0;
+
+        List<String> subProjects = Arrays.asList(salesForceText.split("Sub-Project Name"));
+
+        for (String subProject : subProjects) {
+            List<String> subProjectLines = Arrays.asList(subProject.split("\n"));
+
+            if (subProjectLines.get(0).contains("Personal/Sick") && subProjectLines.size() > 2) {
+                for (int line = 2; line < subProjectLines.size() - 1; line++) {
+                    List<String> parsedVacationInformation = Arrays.asList(subProjectLines.get(line).split("\t"));
+
+                    LocalDate dateOfPersonalDay = dateParser.parse(parsedVacationInformation.get(3));
+                    double hours = Double.parseDouble(parsedVacationInformation.get(5));
+
+                    if (dateOfPersonalDay.getYear() == date.getYear()){
+                        personalDaysUsed += hours / 8;
+                    }
+                }
+            }
+        }
+
+        return personalDaysUsed;
     }
 }

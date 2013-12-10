@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 
 public class EmployeeService {
-    public Employee createEmployee(LocalDate startDate, String rolloverDays, Map<LocalDate, Double> daysOff, String initialAccrualRate) {
+    public Employee createEmployee(LocalDate startDate, String rolloverDays, Map<LocalDate, Double> daysOff, double personalDaysTaken, String initialAccrualRate) {
         double convertedRolloverDays = parseStringWithDefaultValue(rolloverDays, 0d);
         double convertedInitialAccrualRate = parseStringWithDefaultValue(initialAccrualRate, Constants.DEFAULT_ACCRUAL_RATE);
 
-        return new Employee(startDate, convertedRolloverDays, daysOff, convertedInitialAccrualRate);
+        return new Employee(startDate, convertedRolloverDays, daysOff, personalDaysTaken, convertedInitialAccrualRate);
     }
 
     private double parseStringWithDefaultValue(String userEntry, double defaultValue){

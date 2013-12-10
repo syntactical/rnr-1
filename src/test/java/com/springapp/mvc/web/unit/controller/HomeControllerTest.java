@@ -2,6 +2,7 @@ package com.springapp.mvc.web.unit.controller;
 
 import com.springapp.mvc.web.controller.HomeController;
 import com.springapp.mvc.web.model.AccrualRateCalculator;
+import com.springapp.mvc.web.model.PersonalDaysCalculator;
 import com.springapp.mvc.web.model.VacationCalculator;
 import com.springapp.mvc.web.model.Employee;
 import com.springapp.mvc.web.service.DateParserService;
@@ -28,6 +29,7 @@ public class HomeControllerTest {
     VacationCalculator mockVacationCalculator;
     AccrualRateCalculator mockAccrualRateCalculator;
     DateParserService mockDateParserService;
+    PersonalDaysCalculator mockPersonalDaysCalculator;
 
     @Before
     public void setUp() throws Exception {
@@ -37,18 +39,19 @@ public class HomeControllerTest {
         mockVacationCalculator = mock(VacationCalculator.class);
         mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
         mockDateParserService = mock(DateParserService.class);
+        mockPersonalDaysCalculator = mock(PersonalDaysCalculator.class);
     }
 
     @Test
     public void get_shouldReturnHomeView() {
-        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator, mockDateParserService);
+        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator, mockDateParserService, mockPersonalDaysCalculator);
         assertThat(homeController.get(), is("home"));
     }
 
     @Test
     public void shouldInteractWithSalesForceParserServiceAndEmployeeService() throws Exception {
 
-        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator, mockDateParserService);
+        HomeController homeController = new HomeController(mockEmployeeService, mockSalesForceParserService, mockVacationCalculator, mockAccrualRateCalculator, mockDateParserService, mockPersonalDaysCalculator);
 
         when(mockHttpServletRequest.getParameter("rolloverdays")).thenReturn("1");
         when(mockHttpServletRequest.getParameter("accrualRate")).thenReturn("10");
@@ -57,11 +60,12 @@ public class HomeControllerTest {
         when(mockHttpServletRequest.getParameter("endDate")).thenReturn("11/22/2013");
 
         when(mockVacationCalculator.getVacationDays(any(Employee.class), any(AccrualRateCalculator.class), any(LocalDate.class))).thenReturn(20d);
+        when(mockPersonalDaysCalculator.calculatePersonalDays(any(Employee.class), any(LocalDate.class), any(LocalDate.class))).thenReturn(0d);
 
         homeController.postDate(mockHttpServletRequest);
 
-        verify(mockSalesForceParserService, times(1)).parse(anyString());
-        verify(mockEmployeeService, times(1)).createEmployee(any(LocalDate.class), anyString(), any(Map.class), anyString());
+        verify(mockSalesForceParserService, times(1)).extractVacationDaysUsed(anyString());
+        verify(mockEmployeeService, times(1)).createEmployee(any(LocalDate.class), anyString(), any(Map.class), anyDouble(), anyString());
         verify(mockDateParserService, times(2)).parse(anyString());
     }
 

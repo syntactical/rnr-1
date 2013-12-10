@@ -1,6 +1,7 @@
 package com.springapp.mvc.web.controller;
 
 import com.springapp.mvc.web.model.AccrualRateCalculator;
+import com.springapp.mvc.web.model.PersonalDaysCalculator;
 import com.springapp.mvc.web.model.VacationCalculator;
 import com.springapp.mvc.web.model.Employee;
 import com.springapp.mvc.web.service.DateParserService;
@@ -28,14 +29,18 @@ public class HomeController {
     private final VacationCalculator vacationCalculator;
     private final AccrualRateCalculator accrualRateCalculator;
     private final DateParserService dateParserService;
+    private final PersonalDaysCalculator personalDaysCalculator;
 
     @Autowired
-    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService, VacationCalculator vacationCalculator, AccrualRateCalculator accrualRateCalculator, DateParserService dateParserService) {
+    public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService,
+                          VacationCalculator vacationCalculator, AccrualRateCalculator accrualRateCalculator,
+                          DateParserService dateParserService, PersonalDaysCalculator personalDaysCalculator) {
         this.employeeService = employeeService;
         this.salesForceParserService = salesForceParserService;
         this.vacationCalculator = vacationCalculator;
         this.accrualRateCalculator = accrualRateCalculator;
         this.dateParserService = dateParserService;
+        this.personalDaysCalculator = personalDaysCalculator;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -52,20 +57,24 @@ public class HomeController {
         String startDate = request.getParameter("startDate");
         String endDate = request.getParameter("endDate");
 
-        Map<LocalDate, Double> parsedSalesForceData = salesForceParserService.parse(salesForceText);
         LocalDate convertedStartDate = dateParserService.parse(startDate);
         LocalDate convertedEndDate = dateParserService.parse(endDate);
 
-        Employee employee = employeeService.createEmployee(convertedStartDate, rollover, parsedSalesForceData, accrualRate);
+        Map<LocalDate, Double> parsedVacationDays = salesForceParserService.extractVacationDaysUsed(salesForceText);
+        double personalDaysTaken = salesForceParserService.extractPersonalDaysUsed(salesForceText, convertedEndDate);
+
+        Employee employee = employeeService.createEmployee(convertedStartDate, rollover, parsedVacationDays, personalDaysTaken, accrualRate);
 
         double vacationDays = vacationCalculator.getVacationDays(employee, accrualRateCalculator, convertedEndDate);
+        double personalDays = personalDaysCalculator.calculatePersonalDays(employee, convertedStartDate, convertedEndDate);
 
-        return showVacationDays(vacationDays);
+        return showVacationDays(vacationDays, personalDays);
     }
 
-    private ModelAndView showVacationDays(Double vacationDays) {
+    private ModelAndView showVacationDays(Double vacationDays, Double personalDays) {
         ModelMap model = new ModelMap();
         model.put("days", roundToNearestHundredth(vacationDays));
+        model.put("personalDays", roundToNearestHundredth(personalDays));
         return new ModelAndView("vacay", "postedValues", model);
     }
 

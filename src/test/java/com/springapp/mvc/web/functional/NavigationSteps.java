@@ -2,6 +2,7 @@ package com.springapp.mvc.web.functional;
 
 import org.jbehave.core.annotations.*;
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,16 +23,35 @@ public class NavigationSteps extends UserJourneyBase {
 
     WebDriver driver;
 
+    @BeforeScenario
+    public void openBrowser() {
+        driver = super.getDriver();
+        driver.get("http://localhost:8080/");
+    }
+
+    @AfterStories
+    public void closeBrowser() {
+        driver.quit();
+    }
+
     @Given("I started two weeks ago")
     public void iEnterStartDateTwoWeeksAgo(){
-        DateTime twoWeeksAgo = new DateTime().minusWeeks(2);
+        LocalDate twoWeeksAgo = new LocalDate().minusWeeks(2);
 
         String date = twoWeeksAgo.getMonthOfYear() + "/" +
                 twoWeeksAgo.getDayOfMonth() + "/" +
                 twoWeeksAgo.getYear();
 
-        WebElement startDateField = driver.findElement(By.id("start-date-picker"));
-        startDateField.sendKeys(date);
+        sendDateToStartDateField(date);
+    }
+
+    @Given("I started on January 1 of this year")
+    public void iStartedOnJanuary1(){
+        int thisYear = new LocalDate().getYear();
+
+        String date = "01/01/" + thisYear;
+
+        sendDateToStartDateField(date);
     }
 
     @When("I request my number of vacation days as of today")
@@ -42,23 +62,28 @@ public class NavigationSteps extends UserJourneyBase {
 
     @Then("the number of vacation days I have is my daily accrual rate times 14")
     public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual(){
-        WebElement form = driver.findElement(By.id("vacation-days"));
-        String vacationDays = form.getText();
-
+        String vacationDays = getTextFromFieldByID("vacation-days");
         String twoWeeksAccrued = String.valueOf(Math.round((10 / 365.25) * 7 * 2*100)/100);
 
 
         assertThat(vacationDays, containsString(twoWeeksAccrued));
     }
 
-    @BeforeScenario
-    public void openBrowser() {
-        driver = super.getDriver();
-        driver.get("http://localhost:8080/");
+    @Then("I should have 7 personal days")
+    public void shouldHaveSevenPersonalDays(){
+        String personalDays = getTextFromFieldByID("personal-days");
+        String sevenDays = "7";
+
+        assertThat(personalDays, containsString(sevenDays));
     }
 
-    @AfterScenario
-    public void closeBrowser() {
-        driver.quit();
+    private void sendDateToStartDateField(String date) {
+        WebElement startDateField = driver.findElement(By.id("start-date-picker"));
+        startDateField.sendKeys(date);
+    }
+
+    private String getTextFromFieldByID(String id){
+        WebElement form = driver.findElement(By.id(id));
+        return form.getText();
     }
 }
