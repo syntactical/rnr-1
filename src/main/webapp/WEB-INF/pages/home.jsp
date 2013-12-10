@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <html>
 <head>
@@ -22,7 +23,8 @@
         <div id="main-section">
             <div>
                 <label for="start-date-picker">Start Date:</label>
-                <input id="start-date-picker" class="banner" type="text" name="startDate" value="${postedValues.startDate}">
+                <input id="start-date-picker" class="banner" type="text" name="startDate"
+                       value="${postedValues.startDate}">
             </div>
             <div>
                 <label for="rolloverdays-field">Vacation Balance:</label>
@@ -31,12 +33,14 @@
             </div>
             <div>
                 <label for="accrual-rate">Initial Accrual Rate:</label>
-                <input id="accrual-rate" type="text" name="accrualRate" value="${postedValues.accrualRate}">
+                <input id="accrual-rate" type="text" name="accrualRate"
+                       value="${not empty postedValues.accrualRate?postedValues.accrualRate:'10'}">
                 <span class="annotation">days per year</span>
             </div>
             <div>
                 <label for="sales-force-text">Text from SalesForce Time Off:</label>
-                <textarea id="sales-force-text" type="text" name="salesForceText">${postedValues.salesForceText}</textarea>
+                <textarea id="sales-force-text" type="text"
+                          name="salesForceText">${postedValues.salesForceText}</textarea>
                 <span id="sales-force-text-help">
                     <div>
                         <button type="button" class="square-button" id="sales-force-help-button"
@@ -66,8 +70,19 @@
         </div>
         <div id="right-bar">
             <div id="end-date-picker-div">
+                <c:set var="today" value="<%=new java.util.Date()%>"/>
                 <label for="end-date-picker">Calculate my vacation days as of:</label>
-                <input id="end-date-picker" type="text" name="endDate" position="relative" value="${postedValues.endDate}">
+                <c:choose>
+                    <c:when test="${not empty postedValues.endDate}">
+                        <input id="end-date-picker" type="text" name="endDate" position="relative"
+                               value="${postedValues.endDate}">
+                    </c:when>
+
+                    <c:otherwise>
+                        <input id="end-date-picker" type="text" name="endDate" position="relative"
+                               value="<fmt:formatDate pattern="MM/dd/yyyy" value="${today}" />">
+                    </c:otherwise>
+                </c:choose>
             </div>
             <div>
                 <input type="submit" value="Submit" class="button" id="submit-button">
