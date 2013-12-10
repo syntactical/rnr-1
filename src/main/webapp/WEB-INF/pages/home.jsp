@@ -34,7 +34,17 @@
             <div>
                 <label for="accrual-rate">Initial Accrual Rate:</label>
                 <input id="accrual-rate" type="text" name="accrualRate"
-                       value="${not empty postedValues.accrualRate?postedValues.accrualRate:'10'}">
+                    <c:choose>
+                        <c:when test="${not empty postedValues.accrualRate}">
+                            <input id="accrual-rate" type="text" name="accrualRate"
+                                   value="${postedValues.accrualRate}">
+                        </c:when>
+
+                        <c:otherwise>
+                            <input id="accrual-rate" type="text" name="accrualRate"
+                                   value="10">
+                        </c:otherwise>
+                    </c:choose>
                 <span class="annotation">days per year</span>
             </div>
             <div>
