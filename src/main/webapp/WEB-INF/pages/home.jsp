@@ -85,7 +85,7 @@
             <div id="right-bar">
                 <div id="end-date-picker-div">
                     <c:set var="today" value="<%=new java.util.Date()%>"/>
-                    <label for="end-date-picker">Calculate my vacation days as of:</label>
+                    <label class="fieldLabel" for="end-date-picker">Calculate my vacation days as of:</label>
                     <c:choose>
                         <c:when test="${not empty postedValues.endDate}">
                             <input id="end-date-picker" type="text" name="endDate" position="relative"

@@ -1,7 +1,7 @@
 $().ready(function () {
     $("#date_selector").validate({
         errorPlacement: function(error, element) {
-            error.appendTo('#invalid-' + element.attr('id'));
+            error.insertBefore($('#label-for-' + element.attr('id')));
         },
         onkeyup: false,
         onfocusout: false,
@@ -12,15 +12,7 @@ $().ready(function () {
             },
             endDate: {
                 required: true
-            },
-            rolloverdays: {
-                range: [-5, 30]
-            },
-            accrualRate: {
-                required: true,
-                range: [10, 25]
             }
-
         }
     });
 });

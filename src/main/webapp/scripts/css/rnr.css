@@ -57,8 +57,9 @@ input, label {
     display: inline-block;
 }
 
-label.error{
+#main-section label.error{
     color: red;
+    display: inline;
 }
 
 #main-section label {
