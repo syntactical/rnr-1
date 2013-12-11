@@ -30,18 +30,26 @@ public class VacationCalculatorServiceTest {
         mockEmployee = mock(Employee.class);
         mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
         vacationCalculatorService = new VacationCalculatorService(mockVacationCalculator);
-
     }
 
     @Test
     public void shouldReturnCapReachedNoticeWhenCapIsReached(){
-        when(mockEmployee.getRolloverDays()).thenReturn(15.0);
-        when(mockAccrualRateCalculator.calculateVacationDayCap(mockEmployee, endDate)).thenReturn(15.0);
+        when(mockVacationCalculator.getDaysUntilCapIsReached(any(Employee.class), any(AccrualRateCalculator.class), any(LocalDate.class))).thenReturn(0.0);
 
         String actualCapNotice = vacationCalculatorService.getVacationCapNotice(mockEmployee, mockAccrualRateCalculator, endDate);
         String expectedCapNotice = "You have reached your vacation day cap.";
 
         assertThat(actualCapNotice, is(expectedCapNotice));
+    }
+
+    @Test
+    public void shouldReturnTimeUntilCapIsReachedIfUnderOneMonth(){
+
+    }
+
+    @Test
+    public void shouldReturnBlankStringIfMoreThanOneMonthAwayFromCap(){
+
     }
 
     @Test
