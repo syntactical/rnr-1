@@ -7,6 +7,7 @@ import com.springapp.mvc.web.model.Employee;
 import com.springapp.mvc.web.service.DateParserService;
 import com.springapp.mvc.web.service.EmployeeService;
 import com.springapp.mvc.web.service.SalesForceParserService;
+import com.springapp.mvc.web.service.VacationCalculatorService;
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,18 +27,18 @@ public class HomeController {
 
     private final EmployeeService employeeService;
     private final SalesForceParserService salesForceParserService;
-    private final VacationCalculator vacationCalculator;
+    private final VacationCalculatorService vacationCalculatorService;
     private final AccrualRateCalculator accrualRateCalculator;
     private final DateParserService dateParserService;
     private final PersonalDaysCalculator personalDaysCalculator;
 
     @Autowired
     public HomeController(EmployeeService employeeService, SalesForceParserService salesForceParserService,
-                          VacationCalculator vacationCalculator, AccrualRateCalculator accrualRateCalculator,
+                          VacationCalculatorService vacationCalculatorService, AccrualRateCalculator accrualRateCalculator,
                           DateParserService dateParserService, PersonalDaysCalculator personalDaysCalculator) {
         this.employeeService = employeeService;
         this.salesForceParserService = salesForceParserService;
-        this.vacationCalculator = vacationCalculator;
+        this.vacationCalculatorService = vacationCalculatorService;
         this.accrualRateCalculator = accrualRateCalculator;
         this.dateParserService = dateParserService;
         this.personalDaysCalculator = personalDaysCalculator;
@@ -72,6 +73,7 @@ public class HomeController {
 
         double vacationDays = vacationCalculator.getVacationDays(employee, accrualRateCalculator, convertedEndDate);
         double personalDays = personalDaysCalculator.calculatePersonalDays(employee, convertedStartDate, convertedEndDate);
+        String capReachedMessage =
 
         return showVacationDays(vacationDays, personalDays, rollover, accrualRate, salesForceText, startDate, endDate);
     }

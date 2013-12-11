@@ -1,7 +1,9 @@
 package com.springapp.mvc.web.model;
 
 import org.joda.time.LocalDate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PersonalDaysCalculator {
     public double calculatePersonalDays(Employee employee, LocalDate startDate, LocalDate endDate) {
         double personalDaysAllotted = calculatePersonalDaysBasedOnStartDate(startDate, endDate);

@@ -5,14 +5,15 @@ import com.springapp.mvc.web.model.Employee;
 import com.springapp.mvc.web.model.VacationCalculator;
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class VacationCalculatorService {
 
     @Autowired
     private VacationCalculator vacationCalculator;
 
     public VacationCalculatorService(VacationCalculator vacationCalculator) {
-
         this.vacationCalculator = vacationCalculator;
     }
 
@@ -24,7 +25,7 @@ public class VacationCalculatorService {
         double daysUntilCap = vacationCalculator.getDaysUntilCapIsReached(employee, accrualRateCalculator, date);
         String message = "You have reached your vacation day cap.";
 
-        if(daysUntilCap >= 30.0){
+        if (daysUntilCap >= 30.0) {
             message = "";
         } else if (daysUntilCap > 0.0) {
             message = "You are " + (int) Math.round(daysUntilCap) + " days away from reaching your vacation day cap.";

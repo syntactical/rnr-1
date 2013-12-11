@@ -1,7 +1,9 @@
 package com.springapp.mvc.web.service;
 
 import org.joda.time.LocalDate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DateParserService {
     public LocalDate parse(String stringDate) {
         String[] dateFields = stringDate.split("/");
