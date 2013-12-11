@@ -13,6 +13,7 @@ public class VacationCalculatorService {
     @Autowired
     private VacationCalculator vacationCalculator;
 
+    @Autowired
     public VacationCalculatorService(VacationCalculator vacationCalculator) {
         this.vacationCalculator = vacationCalculator;
     }

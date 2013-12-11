@@ -101,13 +101,18 @@
             </div>
         </form>
     </div>
-    <c:if test="${not empty postedValues.vacationDays}">
-        <div id="balances">
-            <span id="vacation-days">Your vacation balance is ${postedValues.vacationDays} days.</span>
-            <br>
-            <span id="personal-days">Your personal day balance is ${postedValues.personalDays} days.</span>
-        </div>
-    </c:if>
+    <div id="messages">
+        <c:if test="${not empty postedValues.vacationDays}">
+            <div id="balances">
+                <span id="vacation-days">Your vacation balance is ${postedValues.vacationDays} days.</span>
+                <br>
+                <span id="personal-days">Your personal day balance is ${postedValues.personalDays} days.</span>
+            </div>
+        </c:if>
+        <c:if test="${not empty postedValues.capReachedMessage}">
+            <div id="cap-message">${postedValues.capReachedMessage}</div>
+        </c:if>
+    </div>
 </div>
 </body>
 </html>
