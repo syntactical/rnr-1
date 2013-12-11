@@ -91,7 +91,6 @@
                             <input id="end-date-picker" type="text" name="endDate" position="relative"
                                    value="${postedValues.endDate}" readonly>
                         </c:when>
-
                         <c:otherwise>
                             <input id="end-date-picker" type="text" name="endDate" position="relative"
                                    value="<fmt:formatDate pattern="MM/dd/yyyy" value="${today}" />" readonly>

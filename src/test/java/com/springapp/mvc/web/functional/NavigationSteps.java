@@ -1,25 +1,23 @@
 package com.springapp.mvc.web.functional;
 
 import org.jbehave.core.annotations.*;
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.Select;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class NavigationSteps extends UserJourneyBase {
+
+    public static final String DATE_PICKER_MONTH =
+            "//select[@class='ui-datepicker-month']";
+    public static final String DATE_PICKER_YEAR =
+            "//select[@class='ui-datepicker-year']";
 
     WebDriver driver;
 
@@ -35,23 +33,15 @@ public class NavigationSteps extends UserJourneyBase {
     }
 
     @Given("I started two weeks ago")
-    public void iEnterStartDateTwoWeeksAgo(){
+    public void iEnterStartDateTwoWeeksAgo() {
         LocalDate twoWeeksAgo = new LocalDate().minusWeeks(2);
 
-        String date = twoWeeksAgo.getMonthOfYear() + "/" +
-                twoWeeksAgo.getDayOfMonth() + "/" +
-                twoWeeksAgo.getYear();
-
-        sendDateToStartDateField(date);
+        pickStartDate(twoWeeksAgo.getYear(), twoWeeksAgo.getMonthOfYear(), twoWeeksAgo.getDayOfMonth());
     }
 
     @Given("I started on January 1 of this year")
-    public void iStartedOnJanuary1(){
-        int thisYear = new LocalDate().getYear();
-
-        String date = "01/01/" + thisYear;
-
-        sendDateToStartDateField(date);
+    public void iStartedOnJanuary1() {
+        pickStartDate(new LocalDate().getYear(), 1, 1);
     }
 
     @When("I request my number of vacation days as of today")
@@ -61,28 +51,44 @@ public class NavigationSteps extends UserJourneyBase {
     }
 
     @Then("the number of vacation days I have is my daily accrual rate times 14")
-    public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual(){
+    public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual() {
         String vacationDays = getTextFromFieldByID("vacation-days");
-        String twoWeeksAccrued = String.valueOf(Math.round((10 / 365.25) * 7 * 2*100)/100);
-
+        String twoWeeksAccrued = String.valueOf(Math.round((10 / 365.25) * 7 * 2 * 100) / 100);
 
         assertThat(vacationDays, containsString(twoWeeksAccrued));
     }
 
     @Then("I should have 7 personal days")
-    public void shouldHaveSevenPersonalDays(){
+    public void shouldHaveSevenPersonalDays() {
         String personalDays = getTextFromFieldByID("personal-days");
         String sevenDays = "7";
 
         assertThat(personalDays, containsString(sevenDays));
     }
 
-    private void sendDateToStartDateField(String date) {
+    private void pickStartDate(int year, int month, int day) {
         WebElement startDateField = driver.findElement(By.id("start-date-picker"));
-        startDateField.sendKeys(date);
+        startDateField.click();
+
+        Select yearSelect = new Select(driver.findElement(By.xpath(DATE_PICKER_YEAR)));
+        yearSelect.selectByValue(String.valueOf(year));
+
+        Select monthSelect = new Select(driver.findElement(By.xpath(DATE_PICKER_MONTH)));
+        monthSelect.selectByValue(String.valueOf(month - 1));
+
+        WebElement dateWidget = driver.findElement(By.id("ui-datepicker-div"));
+        List<WebElement> rows=dateWidget.findElements(By.tagName("tr"));
+        List<WebElement> columns = dateWidget.findElements(By.tagName("td"));
+
+        for (WebElement cell: columns){
+            if (cell.getText().equals(String.valueOf(day))){
+                cell.findElement(By.linkText(String.valueOf(day))).click();
+                break;
+            }
+        }
     }
 
-    private String getTextFromFieldByID(String id){
+    private String getTextFromFieldByID(String id) {
         WebElement form = driver.findElement(By.id(id));
         return form.getText();
     }

@@ -5,12 +5,16 @@ $().ready(function () {
         },
         onkeyup: false,
         onfocusout: false,
+        focusInvalid: false,
         rules: {
             startDate: {
                 required: true
             },
             endDate: {
                 required: true
+            },
+            rolloverdays: {
+                range: [-5, 30]
             },
             accrualRate: {
                 required: true,
