@@ -11,6 +11,7 @@
     <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="../../scripts/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="../../scripts/js/jquery-ui-1.8.18.custom.min.js"></script>
+    <script type="text/javascript" src="../../scripts/js/jquery.validate.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript" src="../../scripts/js/rnr.js"></script>
 </head>
@@ -25,7 +26,7 @@
                 <div>
                     <label for="start-date-picker">Start Date:</label>
                     <input id="start-date-picker" class="banner" type="text" name="startDate"
-                           value="${postedValues.startDate}">
+                           value="${postedValues.startDate}" readonly>
                 </div>
                 <div>
                     <label for="rolloverdays-field">Vacation Balance:</label>
@@ -35,17 +36,17 @@
                 <div>
                     <label for="accrual-rate">Initial Accrual Rate:</label>
                     <input id="accrual-rate" type="text" name="accrualRate"
-                        <c:choose>
-                            <c:when test="${not empty postedValues.accrualRate}">
-                                <input id="accrual-rate" type="text" name="accrualRate"
-                                       value="${postedValues.accrualRate}">
-                            </c:when>
+                    <c:choose>
+                        <c:when test="${not empty postedValues.accrualRate}">
+                            <input id="accrual-rate" type="text" name="accrualRate"
+                                   value="${postedValues.accrualRate}">
+                        </c:when>
 
-                            <c:otherwise>
-                                <input id="accrual-rate" type="text" name="accrualRate"
-                                       value="10">
-                            </c:otherwise>
-                        </c:choose>
+                        <c:otherwise>
+                            <input id="accrual-rate" type="text" name="accrualRate"
+                                   value="10">
+                        </c:otherwise>
+                    </c:choose>
                     <span class="annotation">days per year</span>
                 </div>
                 <div>
@@ -62,7 +63,8 @@
                                 <span>Navigate to <a href="https://our.thoughtworks.com"
                                                      target="_new">our.thoughtworks.com</a> and click the "Time Off" link in the left sidebar.</span>
                                 <img class="sales-force-image" src="../../images/SFinctructions1.jpg"/>
-                                <button type="button" class="square-button sales-force-button" id="sales-force-next-button"
+                                <button type="button" class="square-button sales-force-button"
+                                        id="sales-force-next-button"
                                         onclick="showSecondSalesForcePage()">
                                     &#9658;
                                 </button>
@@ -70,7 +72,8 @@
                             <div class="sales-force-help-box" id="sales-force-help-box-2">
                                 <span>Copy and paste everything under the "Project Name" header.</span>
                                 <img class="sales-force-image" src="../../images/SFinctructions2.jpg"/>
-                                <button type="button" class="square-button sales-force-button" id="sales-force-back-button"
+                                <button type="button" class="square-button sales-force-button"
+                                        id="sales-force-back-button"
                                         onclick="showFirstSalesForcePage()">
                                     &#9668;
                                 </button>
@@ -86,12 +89,12 @@
                     <c:choose>
                         <c:when test="${not empty postedValues.endDate}">
                             <input id="end-date-picker" type="text" name="endDate" position="relative"
-                                   value="${postedValues.endDate}">
+                                   value="${postedValues.endDate}" readonly>
                         </c:when>
 
                         <c:otherwise>
                             <input id="end-date-picker" type="text" name="endDate" position="relative"
-                                   value="<fmt:formatDate pattern="MM/dd/yyyy" value="${today}" />">
+                                   value="<fmt:formatDate pattern="MM/dd/yyyy" value="${today}" />" readonly>
                         </c:otherwise>
                     </c:choose>
                 </div>

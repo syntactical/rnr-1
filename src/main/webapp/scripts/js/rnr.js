@@ -1,3 +1,26 @@
+$().ready(function () {
+    $("#date_selector").validate({
+        errorPlacement: function(error, element) {
+            error.appendTo('#invalid-' + element.attr('id'));
+        },
+        onkeyup: false,
+        onfocusout: false,
+        rules: {
+            startDate: {
+                required: true
+            },
+            endDate: {
+                required: true
+            },
+            accrualRate: {
+                required: true,
+                range: [10, 25]
+            }
+
+        }
+    });
+});
+
 $(function () {
     $("#start-date-picker").datepicker({
         changeMonth: true,
@@ -16,6 +39,17 @@ $(function () {
         yearRange: "+0:+3"
     });
 });
+
+function checkdate(input){
+    var dateFormat=/^\d{2}\/\d{2}\/\d{4}$/ //Basic check for format validity
+    var returnVal=false;
+    if (!dateFormat.test(input.value))
+        alert(input);
+    return returnVal;
+}
+
+
+
 
 function showFirstSalesForcePage() {
     document.getElementById('sales-force-help-box-1').style.zIndex = "-1";

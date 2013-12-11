@@ -57,6 +57,10 @@ input, label {
     display: inline-block;
 }
 
+label.error{
+    color: red;
+}
+
 #main-section label {
     text-align: right;
     width: 250px;
