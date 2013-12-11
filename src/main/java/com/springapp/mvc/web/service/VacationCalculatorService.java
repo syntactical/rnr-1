@@ -21,6 +21,15 @@ public class VacationCalculatorService {
     }
 
     public String getVacationCapNotice(Employee employee, AccrualRateCalculator accrualRateCalculator, LocalDate date) {
-        return "You have reached your vacation day cap.";
+        double daysUntilCap = vacationCalculator.getDaysUntilCapIsReached(employee, accrualRateCalculator, date);
+        String message = "You have reached your vacation day cap.";
+
+        if(daysUntilCap >= 30.0){
+            message = "";
+        } else if (daysUntilCap > 0.0) {
+            message = "You are " + (int) Math.round(daysUntilCap) + " days away from reaching your vacation day cap.";
+        }
+
+        return message;
     }
 }

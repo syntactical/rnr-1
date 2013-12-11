@@ -44,12 +44,22 @@ public class VacationCalculatorServiceTest {
 
     @Test
     public void shouldReturnTimeUntilCapIsReachedIfUnderOneMonth(){
+        when(mockVacationCalculator.getDaysUntilCapIsReached(any(Employee.class), any(AccrualRateCalculator.class), any(LocalDate.class))).thenReturn(10.0);
 
+        String actualCapNotice = vacationCalculatorService.getVacationCapNotice(mockEmployee, mockAccrualRateCalculator, endDate);
+        String expectedCapNotice = "You are 10 days away from reaching your vacation day cap.";
+
+        assertThat(actualCapNotice, is(expectedCapNotice));
     }
 
     @Test
-    public void shouldReturnBlankStringIfMoreThanOneMonthAwayFromCap(){
+    public void shouldReturnBlankStringIfMoreThanThirtyDaysAwayFromCap(){
+        when(mockVacationCalculator.getDaysUntilCapIsReached(any(Employee.class), any(AccrualRateCalculator.class), any(LocalDate.class))).thenReturn(31.0);
 
+        String actualCapNotice = vacationCalculatorService.getVacationCapNotice(mockEmployee, mockAccrualRateCalculator, endDate);
+        String expectedCapNotice = "";
+
+        assertThat(actualCapNotice, is(expectedCapNotice));
     }
 
     @Test
