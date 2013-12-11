@@ -1,7 +1,8 @@
-package com.springapp.mvc.web.service;
+package com.springapp.mvc.web.unit.service;
 
 import com.springapp.mvc.web.model.Constants;
 import com.springapp.mvc.web.model.Employee;
+import com.springapp.mvc.web.service.EmployeeService;
 import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
