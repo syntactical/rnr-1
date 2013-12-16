@@ -30,7 +30,7 @@ $(function () {
         changeMonth: true,
         changeYear: true,
         defaultDate: new Date(),
-        minDate: 0,
+        minDate: "-1Y",
         maxDate: "+3Y",
         yearRange: "+0:+3"
     });
