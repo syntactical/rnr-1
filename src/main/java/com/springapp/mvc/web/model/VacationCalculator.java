@@ -44,7 +44,7 @@ public class VacationCalculator {
 
         LocalDate endDate = date;
         double daysUntilCap = -1.0;
-        double vacationDays = employee.getRolloverDays();
+        double vacationDays = getVacationDays(employee, accrualRateCalculator, date);
 
         while (vacationDays <= accrualRateCalculator.calculateVacationDayCap(employee, endDate)){
             vacationDays += accrualRateCalculator.calculateDailyAccrualRate(employee, endDate);
