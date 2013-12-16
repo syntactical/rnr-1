@@ -24,17 +24,17 @@
         <form name="startDate" action="/vacationDays" method="POST" id="date_selector">
             <div id="main-section">
                 <div>
-                    <label for="start-date-picker">Start Date:</label>
+                    <label class="fieldLabel" for="start-date-picker">Start Date:</label>
                     <input id="start-date-picker" class="banner" type="text" name="startDate"
                            value="${postedValues.startDate}" readonly>
                 </div>
                 <div>
-                    <label for="rolloverdays-field">Vacation Balance:</label>
+                    <label class="fieldLabel" for="rolloverdays-field">Vacation Balance:</label>
                     <input id="rolloverdays-field" type="text" name="rolloverdays" value="${postedValues.rollover}">
                     <span class="annotation">(as of 7/1/2013)</span>
                 </div>
                 <div>
-                    <label for="accrual-rate">Initial Accrual Rate:</label>
+                    <label class="fieldLabel" for="accrual-rate">Initial Accrual Rate:</label>
                     <input id="accrual-rate" type="text" name="accrualRate"
                     <c:choose>
                         <c:when test="${not empty postedValues.accrualRate}">

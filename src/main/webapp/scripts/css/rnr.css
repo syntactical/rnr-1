@@ -59,10 +59,13 @@ input, label {
 
 #main-section label.error{
     color: red;
-    display: inline;
+    display: block;
+    position: relative;
+    right: -259px;
+    width: 300px;
 }
 
-#main-section label {
+#main-section label.fieldLabel {
     text-align: right;
     width: 250px;
 }
