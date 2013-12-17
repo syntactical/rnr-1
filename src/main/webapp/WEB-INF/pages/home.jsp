@@ -107,6 +107,8 @@
     <div id="messages">
         <c:if test="${not empty postedValues.vacationDays}">
             <div id="balances">
+                <span>As of ${postedValues.endDate}:</span>
+                <br>
                 <span id="vacation-days">Your vacation balance is ${postedValues.vacationDays} days.</span>
                 <br>
                 <span id="personal-days">Your personal day balance is ${postedValues.personalDays} days.</span>
