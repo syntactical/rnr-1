@@ -1,7 +1,17 @@
 $().ready(function () {
     $("#date_selector").validate({
-        errorPlacement: function(error, element) {
-            error.insertBefore($('#label-for-' + element.attr('id')));
+        errorLabelContainer:'.errorContainer',
+        showErrors: function(errorMap, errorList) {
+            if(errorList.length)
+            {
+                $('#errorContainer').html(errorList[0]['message']);
+            }
+        },
+        highlight:function(element,errorClass){
+            $(element).parent('td').addClass('error');
+        },
+        unhighlight:function(element,errorClass){
+            $(element).parent('td').removeClass('error');
         },
         onkeyup: false,
         onfocusout: false,

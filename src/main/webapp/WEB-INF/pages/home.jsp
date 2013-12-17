@@ -21,6 +21,7 @@
         <img class="header-img" src="/images/logo.png"/>
     </div>
     <div id="midsection">
+        <span id="errorContainer" class="errorContainer"></span>
         <form name="startDate" action="/" method="POST" id="date_selector">
             <div id="main-section">
                 <div>
