@@ -48,7 +48,11 @@ $(function () {
         defaultDate: new Date(),
         minDate: "-1Y",
         maxDate: "+3Y",
-        yearRange: "+0:+3"
+        yearRange: "+0:+3",
+        onSelect: function() {
+            var maxDate = $(this).datepicker('getDate');
+            $("#start-date-picker").datepicker( "option", "maxDate", maxDate);
+        }
     });
 });
 
