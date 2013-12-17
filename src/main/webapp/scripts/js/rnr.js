@@ -57,15 +57,27 @@ function checkdate(input){
     return returnVal;
 }
 
+function showSalesForceHelpBox() {
+    $('.sales-force-help-box').toggle();
 
-
+    if ($('#messages').css('display') == 'none')
+    {
+        $('#messages').css('display', 'block');
+    }
+    else
+    {
+        $('#messages').css('display', 'none');
+    }
+}
 
 function showFirstSalesForcePage() {
     document.getElementById('sales-force-help-box-1').style.zIndex = "-1";
     document.getElementById('sales-force-help-box-2').style.zIndex = "-2";
+    document.getElementById('messages').style.display = "none";
 }
 
 function showSecondSalesForcePage() {
     document.getElementById('sales-force-help-box-1').style.zIndex = "-2";
     document.getElementById('sales-force-help-box-2').style.zIndex = "-1";
+    document.getElementById('messages').style.display = "none";
 }

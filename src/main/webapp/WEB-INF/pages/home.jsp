@@ -57,7 +57,7 @@
                     <span id="sales-force-text-help">
                         <div>
                             <button type="button" class="square-button" id="sales-force-help-button"
-                                    onclick="$('.sales-force-help-box').toggle()">
+                                    onclick="showSalesForceHelpBox()">
                                 ?
                             </button>
                             <div class="sales-force-help-box" id="sales-force-help-box-1">
