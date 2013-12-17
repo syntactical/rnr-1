@@ -15,7 +15,10 @@ $().ready(function () {
             },
             accrualRate: {
                 required: true,
-                range: [10, 30]
+                range: [10, 25]
+            },
+            rolloverdays: {
+                range: [-5, 30]
             },
             messages: {
                 accrualRate: {

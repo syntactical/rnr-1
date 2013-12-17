@@ -30,7 +30,7 @@
                            value="${postedValues.startDate}" readonly>
                 </div>
                 <div>
-                    <label class="field-label" for="rolloverdays-field">Vacation Balance:</label>
+                    <label class="field-label" id="label-for-rolloverdays-field" for="rolloverdays-field">Vacation Balance:</label>
                     <input id="rolloverdays-field" type="text" name="rolloverdays" value="${postedValues.rollover}">
                     <span class="annotation">(as of 7/1/2013)</span>
                 </div>
