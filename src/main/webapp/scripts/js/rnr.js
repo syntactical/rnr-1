@@ -15,7 +15,7 @@ $().ready(function () {
             },
             accrualRate: {
                 required: true,
-                range: [10, 25]
+                min: 10
             },
             rolloverdays: {
                 range: [-5, 30]
