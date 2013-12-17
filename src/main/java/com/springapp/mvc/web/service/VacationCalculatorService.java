@@ -29,9 +29,19 @@ public class VacationCalculatorService {
         if (daysUntilCap >= 30.0) {
             message = "";
         } else if (daysUntilCap > 0.0) {
-            message = "You are " + (int) Math.round(daysUntilCap) + " days away from reaching your vacation day cap.";
+            message = "You are " + (int) Math.round(daysUntilCap) + " " + getPluralOrSingularDays(daysUntilCap) + " away from reaching your vacation day cap.";
         }
 
         return message;
+    }
+
+    private String getPluralOrSingularDays(double days){
+        String result = "days";
+
+        if((int) Math.round(days) == 1){
+            result = "day";
+        }
+
+        return result;
     }
 }

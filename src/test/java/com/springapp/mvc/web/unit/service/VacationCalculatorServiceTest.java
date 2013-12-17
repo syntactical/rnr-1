@@ -53,6 +53,16 @@ public class VacationCalculatorServiceTest {
     }
 
     @Test
+    public void shouldCorrectPluralityOfDaysWhenOnlyOneDayLeft(){
+        when(mockVacationCalculator.getDaysUntilCapIsReached(any(Employee.class), any(AccrualRateCalculator.class), any(LocalDate.class))).thenReturn(1.2);
+
+        String actualCapNotice = vacationCalculatorService.getVacationCapNotice(mockEmployee, mockAccrualRateCalculator, endDate);
+        String expectedCapNotice = "You are 1 day away from reaching your vacation day cap.";
+
+        assertThat(actualCapNotice, is(expectedCapNotice));
+    }
+
+    @Test
     public void shouldReturnBlankStringIfMoreThanThirtyDaysAwayFromCap(){
         when(mockVacationCalculator.getDaysUntilCapIsReached(any(Employee.class), any(AccrualRateCalculator.class), any(LocalDate.class))).thenReturn(31.0);
 
