@@ -35,7 +35,7 @@
                     <span class="annotation">(as of 7/1/2013)</span>
                 </div>
                 <div>
-                    <label class="field-label" for="accrual-rate">Initial Accrual Rate:</label>
+                    <label class="field-label" id="label-for-accrual-rate" for="accrual-rate">Initial Accrual Rate:</label>
                     <input id="accrual-rate" type="text" name="accrualRate"
                     <c:choose>
                         <c:when test="${not empty postedValues.accrualRate}">

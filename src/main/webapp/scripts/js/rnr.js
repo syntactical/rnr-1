@@ -12,6 +12,15 @@ $().ready(function () {
             },
             endDate: {
                 required: true
+            },
+            accrualRate: {
+                required: true,
+                range: [10, 30]
+            },
+            messages: {
+                accrualRate: {
+                    range: "Please enter a value between 10 and 30"
+                }
             }
         }
     });
