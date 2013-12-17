@@ -21,7 +21,7 @@
         <img class="header-img" src="/images/logo.png"/>
     </div>
     <div id="midsection">
-        <form name="startDate" action="/vacationDays" method="POST" id="date_selector">
+        <form name="startDate" action="/" method="POST" id="date_selector">
             <div id="main-section">
                 <div>
                     <label class="field-label" id="label-for-start-date-picker" for="start-date-picker">Start
