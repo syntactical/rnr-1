@@ -16,14 +16,6 @@ $().ready(function () {
             accrualRate: {
                 required: true,
                 min: 10
-            },
-            rolloverdays: {
-                range: [-5, 30]
-            },
-            messages: {
-                accrualRate: {
-                    range: "Please enter a value between 10 and 30"
-                }
             }
         }
     });
