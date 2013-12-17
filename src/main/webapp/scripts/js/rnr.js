@@ -23,7 +23,11 @@ $(function () {
         changeYear: true,
         defaultDate: new Date(),
         maxDate: 0,
-        yearRange: "1993:+0"
+        yearRange: "1993:+0",
+        onSelect: function() {
+            var minDate = $(this).datepicker('getDate');
+            $("#end-date-picker").datepicker( "option", "minDate", minDate);
+        }
     });
 
     $("#end-date-picker").datepicker({
