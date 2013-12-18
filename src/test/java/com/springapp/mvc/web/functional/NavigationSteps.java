@@ -37,11 +37,14 @@ public class NavigationSteps extends UserJourneyBase {
         LocalDate twoWeeksAgo = new LocalDate().minusWeeks(2);
 
         pickStartDate(twoWeeksAgo.getYear(), twoWeeksAgo.getMonthOfYear(), twoWeeksAgo.getDayOfMonth());
+
+        enterRolloverDays(0);
     }
 
     @Given("I started on January 1 of this year")
     public void iStartedOnJanuary1() {
         pickStartDate(new LocalDate().getYear(), 1, 1);
+        enterRolloverDays(0);
     }
 
     @When("I request my number of vacation days as of today")
@@ -86,6 +89,12 @@ public class NavigationSteps extends UserJourneyBase {
                 break;
             }
         }
+    }
+
+    private void enterRolloverDays(double rolloverDays){
+        String rolloverDaysAsString = Double.toString(rolloverDays);
+        WebElement rolloverDaysField = driver.findElement(By.id("rolloverdays-field"));
+        rolloverDaysField.sendKeys(rolloverDaysAsString);
     }
 
     private String getTextFromFieldByID(String id) {

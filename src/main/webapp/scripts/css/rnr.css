@@ -70,6 +70,13 @@ input, label {
     width: 250px;
 }
 
+#errorContainer{
+    color: red;
+    width: 400px;
+    text-align: center;
+    margin: -10px 0px 10px 150px;
+}
+
 #main-section input, #main-section textarea, #right-bar input {
     width: 180px;
     margin: 5px 0px 5px 4px;

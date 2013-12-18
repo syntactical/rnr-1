@@ -21,9 +21,9 @@
         <img class="header-img" src="/images/logo.png"/>
     </div>
     <div id="midsection">
-        <span id="errorContainer" class="errorContainer"></span>
         <form name="startDate" action="/" method="POST" id="date_selector">
             <div id="main-section">
+                <div id="errorContainer" class="field-label, errorContainer"></div>
                 <div>
                     <label class="field-label" id="label-for-start-date-picker" for="start-date-picker">Start
                         Date:</label>

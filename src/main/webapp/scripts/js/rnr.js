@@ -1,32 +1,38 @@
 $().ready(function () {
     $("#date_selector").validate({
-        errorLabelContainer:'.errorContainer',
-        showErrors: function(errorMap, errorList) {
-            if(errorList.length)
-            {
+        errorLabelContainer: '.errorContainer',
+        showErrors: function (errorMap, errorList) {
+            if (errorList.length) {
                 $('#errorContainer').html(errorList[0]['message']);
             }
         },
-        highlight:function(element,errorClass){
+        highlight: function (element, errorClass) {
             $(element).parent('td').addClass('error');
         },
-        unhighlight:function(element,errorClass){
+        unhighlight: function (element, errorClass) {
             $(element).parent('td').removeClass('error');
         },
         onkeyup: false,
         onfocusout: false,
-        focusInvalid: false,
+        focusInvalid: true,
         rules: {
-            startDate: {
-                required: true
-            },
-            endDate: {
-                required: true
-            },
+            startDate: "required",
+            endDate: "required",
             accrualRate: {
                 required: true,
                 min: 10
+            },
+            rolloverdays: {
+                required: true,
+                min: -5,
+                max: 30
             }
+        },
+
+        messages: {
+            startDate: "Please enter a start date.",
+            accrualRate: "Please enter an accrual rate of 10 days or more.",
+            rolloverdays: "Please enter a vacation day total between -5 and 30 days."
         }
     });
 });
@@ -38,9 +44,9 @@ $(function () {
         defaultDate: new Date(),
         maxDate: 0,
         yearRange: "1993:+0",
-        onSelect: function() {
+        onSelect: function () {
             var minDate = $(this).datepicker('getDate');
-            $("#end-date-picker").datepicker( "option", "minDate", minDate);
+            $("#end-date-picker").datepicker("option", "minDate", minDate);
         }
     });
 
@@ -51,16 +57,16 @@ $(function () {
         minDate: "-1Y",
         maxDate: "+3Y",
         yearRange: "+0:+3",
-        onSelect: function() {
+        onSelect: function () {
             var maxDate = $(this).datepicker('getDate');
-            $("#start-date-picker").datepicker( "option", "maxDate", maxDate);
+            $("#start-date-picker").datepicker("option", "maxDate", maxDate);
         }
     });
 });
 
-function checkdate(input){
-    var dateFormat=/^\d{2}\/\d{2}\/\d{4}$/ //Basic check for format validity
-    var returnVal=false;
+function checkdate(input) {
+    var dateFormat = /^\d{2}\/\d{2}\/\d{4}$/ //Basic check for format validity
+    var returnVal = false;
     if (!dateFormat.test(input.value))
         alert(input);
     return returnVal;
@@ -69,12 +75,10 @@ function checkdate(input){
 function showSalesForceHelpBox() {
     $('.sales-force-help-box').toggle();
 
-    if ($('#messages').css('display') == 'none')
-    {
+    if ($('#messages').css('display') == 'none') {
         $('#messages').css('display', 'block');
     }
-    else
-    {
+    else {
         $('#messages').css('display', 'none');
     }
 }
