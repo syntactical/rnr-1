@@ -126,7 +126,7 @@ textarea#sales-force-text {
     color: rgb(0, 0, 128);
     width: 582px;
     height: 324px;
-    top: 220px;
+    top: 205px;
     left: 180px;
     z-index: 1;
     border-radius: 10px 10px 10px 10px;
@@ -158,6 +158,14 @@ textarea#sales-force-text {
     float: right;
     margin-top: 139px;
     padding-bottom: 3px;
+}
+
+.sales-force-close-window-button {
+    margin-top: -24px;
+}
+
+.sales-force-arrow-button {
+    margin-top: -160px;
 }
 
 #sales-force-back-button {
