@@ -24,15 +24,16 @@ $().ready(function () {
             },
             rolloverdays: {
                 required: true,
-                min: -5,
-                max: 30
+                number: true
             }
         },
 
         messages: {
             startDate: "Please enter a start date.",
             accrualRate: "Please enter an accrual rate of 10 days or more.",
-            rolloverdays: "Please enter a vacation day total between -5 and 30 days."
+            rolloverdays: {
+                required: "Please enter a vacation balance."
+            }
         }
     });
 });
