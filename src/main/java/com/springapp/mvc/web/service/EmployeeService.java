@@ -10,7 +10,7 @@ import java.util.Map;
 
 @Component
 public class EmployeeService {
-    public Employee createEmployee(LocalDate startDate, String rolloverDays, Map<LocalDate, Double> daysOff, double personalDaysTaken, String initialAccrualRate) {
+    public Employee createEmployee(LocalDate startDate, String rolloverDays, Map<LocalDate, Double> daysOff, Map<LocalDate, Double> personalDaysTaken, String initialAccrualRate) {
         double convertedRolloverDays = parseStringWithDefaultValue(rolloverDays, 0d);
         double convertedInitialAccrualRate = parseStringWithDefaultValue(initialAccrualRate, Constants.DEFAULT_ACCRUAL_RATE);
 

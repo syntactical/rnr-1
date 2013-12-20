@@ -20,26 +20,8 @@ public class SalesForceParserService {
         this.dateParser = dateParser;
     }
 
-    public Map<LocalDate, Double> extractVacationDaysUsed(String salesForceText) {
-        return extractDatesAndHoursFromSalesForceText(salesForceText, Constants.VACATION_DAY_CODES);
-    }
-
-    public double extractPersonalDaysUsed(String salesForceText, LocalDate date) {
-        double personalDaysUsed = 0.0;
-        Map<LocalDate, Double> personalDaysMap = extractDatesAndHoursFromSalesForceText(salesForceText, Constants.PERSONAL_DAY_CODES);
-
-        for (LocalDate dateOfPersonalDay : personalDaysMap.keySet()) {
-            if (dateOfPersonalDay.getYear() == date.getYear()) {
-                personalDaysUsed += personalDaysMap.get(dateOfPersonalDay) / 8;
-            }
-        }
-
-        return personalDaysUsed;
-    }
-
-    private Map<LocalDate, Double> extractDatesAndHoursFromSalesForceText(String salesForceText, List<String> listOfTimeOffCodes) {
+    public Map<LocalDate, Double> extractDatesAndHoursFromSalesForceText(String salesForceText, List<String> listOfTimeOffCodes) {
         Map<String, Double> daysAndHours = new HashMap<String, Double>();
-
         List<String> subProjects = Arrays.asList(salesForceText.split("Sub-Project Name"));
 
         for (String subProject : subProjects) {

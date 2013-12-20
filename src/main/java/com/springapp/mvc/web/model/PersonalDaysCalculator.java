@@ -3,13 +3,24 @@ package com.springapp.mvc.web.model;
 import org.joda.time.LocalDate;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Component
 public class PersonalDaysCalculator {
     public double calculatePersonalDays(Employee employee, LocalDate startDate, LocalDate endDate) {
         double personalDaysAllotted = calculatePersonalDaysBasedOnStartDate(startDate, endDate);
-        double personalDaysTaken = employee.getPersonalDaysTaken();
+        double personalDaysTakenDuringTimePeriod = 0.0;
 
-        return personalDaysAllotted - personalDaysTaken;
+        Map<LocalDate, Double> personalDaysTaken = employee.getPersonalDaysTaken();
+
+        for (LocalDate dateOfPersonalDay : personalDaysTaken.keySet()) {
+            if (dateOfPersonalDay.getYear() == endDate.getYear() && dateOfPersonalDay.isBefore(endDate)) {
+                personalDaysTakenDuringTimePeriod += personalDaysTaken.get(dateOfPersonalDay) / 8;
+            }
+        }
+
+        return personalDaysAllotted - personalDaysTakenDuringTimePeriod;
     }
 
     private double calculatePersonalDaysBasedOnStartDate(LocalDate startDate, LocalDate endDate) {

@@ -7,10 +7,10 @@ public class Employee {
     private final LocalDate startDate;
     private final double rolloverDays;
     private final Map<LocalDate, Double> daysOff;
-    private double personalDaysTaken;
+    private final Map<LocalDate, Double> personalDaysTaken;
     private double initialAccrualRate;
 
-    public Employee(LocalDate startDate, double rolloverDays, Map<LocalDate, Double> daysOff, double personalDaysTaken, double initialAccrualRate) {
+    public Employee(LocalDate startDate, double rolloverDays, Map<LocalDate, Double> daysOff, Map<LocalDate, Double> personalDaysTaken, double initialAccrualRate) {
         this.startDate = startDate;
         this.rolloverDays = rolloverDays;
         this.daysOff = daysOff;
@@ -30,7 +30,7 @@ public class Employee {
         return daysOff;
     }
 
-    public double getPersonalDaysTaken() {
+    public Map<LocalDate, Double> getPersonalDaysTaken() {
         return personalDaysTaken;
     }
 

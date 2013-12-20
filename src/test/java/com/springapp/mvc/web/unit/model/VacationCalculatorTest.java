@@ -26,11 +26,11 @@ public class VacationCalculatorTest {
     private static final LocalDate SIX_MONTHS_BEFORE_SALESFORCE_START_DATE = SALESFORCE_START_DATE.minusMonths(6).minusDays(1);
     private static final LocalDate TODAY = new LocalDate();
 
-    private HashMap<LocalDate, Double> NO_TIME_OFF;
+    private Map<LocalDate, Double> NO_TIME_OFF;
+    private Map<LocalDate, Double> NO_PERSONAL_DAYS_TAKEN;
 
     private static final double CAP_FOR_DEFAULT_ACCRUAL_RATE = Constants.DEFAULT_ACCRUAL_RATE * 1.5;
     private static final double NO_ROLLOVER_DAYS = 0.0;
-    private static final double NO_PERSONAL_DAYS_TAKEN = 0.0;
 
     private VacationCalculator vacationCalculator;
     private AccrualRateCalculator mockAccrualRateCalculator;
@@ -40,6 +40,7 @@ public class VacationCalculatorTest {
         vacationCalculator = new VacationCalculator();
         mockAccrualRateCalculator = mock(AccrualRateCalculator.class);
         NO_TIME_OFF = new HashMap<LocalDate, Double>();
+        NO_PERSONAL_DAYS_TAKEN = new HashMap<LocalDate, Double>();
 
         when(mockAccrualRateCalculator.calculateDailyAccrualRate(any(Employee.class), any(LocalDate.class))).thenReturn(Constants.DEFAULT_ACCRUAL_RATE / Constants.YEAR_IN_DAYS);
         when(mockAccrualRateCalculator.calculateVacationDayCap(any(Employee.class), any(LocalDate.class))).thenReturn(CAP_FOR_DEFAULT_ACCRUAL_RATE);

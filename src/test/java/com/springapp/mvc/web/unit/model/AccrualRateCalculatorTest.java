@@ -26,9 +26,9 @@ public class AccrualRateCalculatorTest {
     private final LocalDate SIX_YEARS_FROM_NOW = new LocalDate().plusYears(6).plusDays(1);
 
     private final double CUSTOM_INITIAL_ACCRUAL_RATE = 17d;
-    private final double NO_PERSONAL_DAYS_TAKEN = 0.0;
 
-    private final Map<LocalDate, Double> NO_TIME_OFF = new HashMap<LocalDate, Double>();
+    private final Map<LocalDate, Double> NO_VACATION = new HashMap<LocalDate, Double>();
+    private final Map<LocalDate, Double> NO_PERSONAL_DAYS = new HashMap<LocalDate, Double>();
 
     AccrualRateCalculator accrualRateCalculator;
     Employee employee;
@@ -36,7 +36,7 @@ public class AccrualRateCalculatorTest {
     @Before
     public void setUp() throws Exception {
         accrualRateCalculator = new AccrualRateCalculator();
-        employee = new Employee(TODAY, NO_ROLLOVER_DAYS, NO_TIME_OFF, NO_PERSONAL_DAYS_TAKEN, Constants.DEFAULT_ACCRUAL_RATE);
+        employee = new Employee(TODAY, NO_ROLLOVER_DAYS, NO_VACATION, NO_PERSONAL_DAYS, Constants.DEFAULT_ACCRUAL_RATE);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class AccrualRateCalculatorTest {
 
     @Test
     public void shouldHaveCustomAccrualRateIfSpecified() {
-        Employee employeeWithCustomAccrualRate = new Employee(TODAY, NO_ROLLOVER_DAYS, NO_TIME_OFF, NO_PERSONAL_DAYS_TAKEN, CUSTOM_INITIAL_ACCRUAL_RATE);
+        Employee employeeWithCustomAccrualRate = new Employee(TODAY, NO_ROLLOVER_DAYS, NO_VACATION, NO_PERSONAL_DAYS, CUSTOM_INITIAL_ACCRUAL_RATE);
 
         assertThat(accrualRateCalculator.calculateDailyAccrualRate(employeeWithCustomAccrualRate, ONE_YEAR_FROM_NOW), is(CUSTOM_INITIAL_ACCRUAL_RATE / Constants.YEAR_IN_DAYS));
         assertThat(accrualRateCalculator.calculateDailyAccrualRate(employeeWithCustomAccrualRate, TOMORROW), is(CUSTOM_INITIAL_ACCRUAL_RATE / Constants.YEAR_IN_DAYS));

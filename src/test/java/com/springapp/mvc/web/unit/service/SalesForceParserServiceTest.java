@@ -1,5 +1,6 @@
 package com.springapp.mvc.web.unit.service;
 
+import com.springapp.mvc.web.model.Constants;
 import com.springapp.mvc.web.service.DateParserService;
 import com.springapp.mvc.web.service.SalesForceParserService;
 import org.joda.time.LocalDate;
@@ -19,8 +20,6 @@ public class SalesForceParserServiceTest {
     Map<LocalDate, Double> emptyMap;
     private DateParserService dateParserService;
     private SalesForceParserService salesForceParserService;
-
-    private LocalDate DATE_IN_2013;
 
     public static final String SAMPLE_SALES_FORCE_TEXT = "\n" +
             "Filtered By:   Edit \n" +
@@ -90,8 +89,6 @@ public class SalesForceParserServiceTest {
         emptyMap = new HashMap<LocalDate, Double>();
         dateParserService = new DateParserService();
         salesForceParserService = new SalesForceParserService(dateParserService);
-
-        DATE_IN_2013 = new LocalDate(2013, 1, 1);
     }
 
     @Test
@@ -100,17 +97,10 @@ public class SalesForceParserServiceTest {
         LocalDate vacationDate = new LocalDate(2013, 7, 29);
         LocalDate anotherVacationDate = new LocalDate(2013, 9, 2);
 
-        Map<LocalDate, Double> vacationDaysUsed = salesForceParserService.extractVacationDaysUsed(SAMPLE_SALES_FORCE_TEXT);
+        Map<LocalDate, Double> vacationDaysUsed = salesForceParserService.extractDatesAndHoursFromSalesForceText(SAMPLE_SALES_FORCE_TEXT, Constants.VACATION_DAY_CODES);
 
         assertThat(vacationDaysUsed.get(vacationDate), is(28.00));
         assertThat(vacationDaysUsed.get(anotherVacationDate), is(16.00));
-    }
-
-    @Test
-    public void shouldReturnNumberOfPersonalDaysTakenInGivenYear() {
-        double expectedPersonalDaysUsed = salesForceParserService.extractPersonalDaysUsed(SAMPLE_SALES_FORCE_TEXT, DATE_IN_2013);
-
-        assertThat(expectedPersonalDaysUsed, is(7.0));
     }
 
     @Test
@@ -121,7 +111,7 @@ public class SalesForceParserServiceTest {
         LocalDate vacationDateThree = new LocalDate(2013, 5, 27);
         LocalDate vacationDateFour = new LocalDate(2013, 9, 2);
         LocalDate vacationDateFive = new LocalDate(2013, 1, 21);
-        Map<LocalDate, Double> vacationDaysUsed = salesForceParserService.extractVacationDaysUsed(SAMPLE_SALES_FORCE_TEXT_WITH_ALTERNATE_VACATION_CODES);
+        Map<LocalDate, Double> vacationDaysUsed = salesForceParserService.extractDatesAndHoursFromSalesForceText(SAMPLE_SALES_FORCE_TEXT_WITH_ALTERNATE_VACATION_CODES, Constants.VACATION_DAY_CODES);
 
         assertThat(vacationDaysUsed.size(), is(10));
 
@@ -136,18 +126,17 @@ public class SalesForceParserServiceTest {
     public void shouldReturnEmptyMapIfNoLineContainsVacation() throws Exception {
         String salesForceText = "hi";
 
-        Map<LocalDate, Double> actualMap = salesForceParserService.extractVacationDaysUsed(salesForceText);
+        Map<LocalDate, Double> actualMap = salesForceParserService.extractDatesAndHoursFromSalesForceText(salesForceText, Constants.VACATION_DAY_CODES);
 
         assertThat(actualMap, is(emptyMap));
     }
 
     @Test
     public void shouldReturnEmptyMapIfLastLineContainsFirstInstanceOfWordVacation() throws Exception {
-        String salesForceText = "vacation";
-
-        Map<LocalDate, Double> vacationDayMap = salesForceParserService.extractVacationDaysUsed(salesForceText);
-
-        assertThat(vacationDayMap, is(emptyMap));
+        for (String incompleteInformation : Constants.PERSONAL_DAY_CODES){
+            Map<LocalDate, Double> vacationDayMap = salesForceParserService.extractDatesAndHoursFromSalesForceText(incompleteInformation, Constants.VACATION_DAY_CODES);
+            assertThat(vacationDayMap, is(emptyMap));
+        }
     }
 
     @Test
@@ -155,7 +144,7 @@ public class SalesForceParserServiceTest {
         String salesForceText = "laksjdflkasdjf" + "\nlaksjdflkasdjf" + "\nlaksjdflkasdjf" + "\nlaksjdflkasdjf" +
                 "vacation" + "\nlaksjdflkasdjf" + "\nlaksjdflkasdjf" + "\nlaksjdflkasdjf";
 
-        Map<LocalDate, Double> vacationDayMap = salesForceParserService.extractVacationDaysUsed(salesForceText);
+        Map<LocalDate, Double> vacationDayMap = salesForceParserService.extractDatesAndHoursFromSalesForceText(salesForceText, Constants.VACATION_DAY_CODES);
 
         assertThat(vacationDayMap, is(emptyMap));
     }
@@ -164,19 +153,7 @@ public class SalesForceParserServiceTest {
     public void shouldReturnEmptyMapIfEmptyString() throws Exception {
         String salesForceText = "";
 
-        Map<LocalDate, Double> vacationDayMap = salesForceParserService.extractVacationDaysUsed(salesForceText);
-
+        Map<LocalDate, Double> vacationDayMap = salesForceParserService.extractDatesAndHoursFromSalesForceText(salesForceText, Constants.VACATION_DAY_CODES);
         assertThat(vacationDayMap, is(emptyMap));
-    }
-
-    @Test
-    public void shouldReturnZeroPersonalDaysUsedIfGivenEmptyOrBadInput() {
-        String emptySalesforceText = "";
-        String badSalesforceText = "hey\nhi\nhello\n";
-        String salesforceTextWithPersonalDayHeader = "Personal/Sick";
-
-        assertThat(salesForceParserService.extractPersonalDaysUsed(emptySalesforceText, DATE_IN_2013), is(0.0));
-        assertThat(salesForceParserService.extractPersonalDaysUsed(badSalesforceText, DATE_IN_2013), is(0.0));
-        assertThat(salesForceParserService.extractPersonalDaysUsed(salesforceTextWithPersonalDayHeader, DATE_IN_2013), is(0.0));
     }
 }

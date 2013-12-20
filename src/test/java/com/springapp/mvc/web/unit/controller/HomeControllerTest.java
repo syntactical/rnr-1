@@ -78,8 +78,8 @@ public class HomeControllerTest {
 
         homeController.postDate(mockHttpServletRequest);
 
-        verify(mockSalesForceParserService, times(1)).extractVacationDaysUsed(anyString());
-        verify(mockEmployeeService, times(1)).createEmployee(any(LocalDate.class), anyString(), any(Map.class), anyDouble(), anyString());
+        verify(mockSalesForceParserService, times(2)).extractDatesAndHoursFromSalesForceText(anyString(), anyList());
+        verify(mockEmployeeService, times(1)).createEmployee(any(LocalDate.class), anyString(), anyMap(), anyMap(), anyString());
         verify(mockDateParserService, times(2)).parse(anyString());
     }
 

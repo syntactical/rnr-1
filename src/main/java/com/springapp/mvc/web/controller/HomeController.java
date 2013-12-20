@@ -1,9 +1,6 @@
 package com.springapp.mvc.web.controller;
 
-import com.springapp.mvc.web.model.AccrualRateCalculator;
-import com.springapp.mvc.web.model.PersonalDaysCalculator;
-import com.springapp.mvc.web.model.VacationCalculator;
-import com.springapp.mvc.web.model.Employee;
+import com.springapp.mvc.web.model.*;
 import com.springapp.mvc.web.service.DateParserService;
 import com.springapp.mvc.web.service.EmployeeService;
 import com.springapp.mvc.web.service.SalesForceParserService;
@@ -61,10 +58,10 @@ public class HomeController {
         LocalDate convertedStartDate = dateParserService.parse(startDate);
         LocalDate convertedEndDate = dateParserService.parse(endDate);
 
-        Map<LocalDate, Double> parsedVacationDays = salesForceParserService.extractVacationDaysUsed(salesForceText);
-        double personalDaysTaken = salesForceParserService.extractPersonalDaysUsed(salesForceText, convertedEndDate);
+        Map<LocalDate, Double> parsedVacationDays = salesForceParserService.extractDatesAndHoursFromSalesForceText(salesForceText, Constants.VACATION_DAY_CODES);
+        Map<LocalDate, Double> parsedPersonalDays = salesForceParserService.extractDatesAndHoursFromSalesForceText(salesForceText, Constants.PERSONAL_DAY_CODES);
 
-        Employee employee = employeeService.createEmployee(convertedStartDate, rollover, parsedVacationDays, personalDaysTaken, accrualRate);
+        Employee employee = employeeService.createEmployee(convertedStartDate, rollover, parsedVacationDays, parsedPersonalDays, accrualRate);
 
         double vacationDays = vacationCalculatorService.getVacationDays(employee, accrualRateCalculator, convertedEndDate);
         double personalDays = personalDaysCalculator.calculatePersonalDays(employee, convertedStartDate, convertedEndDate);

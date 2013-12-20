@@ -6,6 +6,9 @@ import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -15,27 +18,38 @@ public class PersonalDaysCalculatorTest {
 
     PersonalDaysCalculator personalDaysCalculator;
     Employee mockEmployee;
+    LocalDate beginningOf2013;
+    LocalDate middleOf2013;
     LocalDate endOf2013;
+
+    Map<LocalDate, Double> NO_PERSONAL_DAYS;
+    Map<LocalDate, Double> SOME_PERSONAL_DAYS;
 
     @Before
     public void setUp() {
         personalDaysCalculator = new PersonalDaysCalculator();
 
         endOf2013 = new LocalDate(2013, 12, 31);
+        middleOf2013 = new LocalDate(2013, 7, 1);
+        beginningOf2013 = new LocalDate(2013, 1, 1);
+
+        NO_PERSONAL_DAYS = new HashMap<LocalDate, Double>();
+        SOME_PERSONAL_DAYS = new HashMap<LocalDate, Double>();
+
+        SOME_PERSONAL_DAYS.put(new LocalDate(2013, 2, 1), 24.0);
+        SOME_PERSONAL_DAYS.put(new LocalDate(2013, 9, 1), 24.0);
 
         mockEmployee = mock(Employee.class);
-        when(mockEmployee.getPersonalDaysTaken()).thenReturn(0.0);
+        when(mockEmployee.getPersonalDaysTaken()).thenReturn(NO_PERSONAL_DAYS);
     }
 
     @Test
     public void shouldReturnSevenDaysIfStartDateBeforeMayFirst() {
-        LocalDate beginningOf2013 = new LocalDate(2013, 1, 1);
         assertExpectedPersonalDays(beginningOf2013, endOf2013, 7.0);
     }
 
     @Test
     public void shouldReturnFourDaysForStartDateBetweenMayAndAugust() {
-        LocalDate middleOf2013 = new LocalDate(2013, 6, 1);
         assertExpectedPersonalDays(middleOf2013, endOf2013, 4.0);
     }
 
@@ -46,11 +60,9 @@ public class PersonalDaysCalculatorTest {
 
     @Test
     public void shouldReturnPersonalDaysAllottedMinusPersonalDaysTaken() {
-        double personalDaysTaken = 6.0;
         double personalDaysLeft = 1.0;
 
-        when(mockEmployee.getPersonalDaysTaken()).thenReturn(personalDaysTaken);
-        LocalDate beginningOf2013 = new LocalDate(2013, 1, 1);
+        when(mockEmployee.getPersonalDaysTaken()).thenReturn(SOME_PERSONAL_DAYS);
 
         assertExpectedPersonalDays(beginningOf2013, endOf2013, personalDaysLeft);
     }
@@ -59,6 +71,13 @@ public class PersonalDaysCalculatorTest {
     public void shouldReturnSevenDaysIfEndDateInDifferentYearThanStartDate() {
         LocalDate endOf2012 = new LocalDate(2012, 12, 31);
         assertExpectedPersonalDays(endOf2012, endOf2013, 7.0);
+    }
+
+    @Test
+    public void shouldNotTakeOffPersonalDaysAfterEndDate() {
+        when(mockEmployee.getPersonalDaysTaken()).thenReturn(SOME_PERSONAL_DAYS);
+
+        assertExpectedPersonalDays(beginningOf2013, middleOf2013, 4.0);
     }
 
     private void assertExpectedPersonalDays(LocalDate startDate, LocalDate endDate, double expectedPersonalDays) {

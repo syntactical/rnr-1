@@ -12,8 +12,6 @@ import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.*;
 
 public class EmployeeServiceTest {
 
@@ -22,8 +20,8 @@ public class EmployeeServiceTest {
     public static final String NO_ROLLOVER_DAYS = "";
     public static final String NO_INITIAL_ACCRUAL_RATE = "";
     public static final String CUSTOM_ACCRUAL_RATE = "17";
-    public static final double PERSONAL_DAYS_TAKEN = 3.0;
-    public static final Map<LocalDate, Double> NO_DAYS_OFF = new HashMap<LocalDate, Double>();
+    public static final Map<LocalDate, Double> NO_PERSONAL_DAYS = new HashMap<LocalDate, Double>();
+    public static final Map<LocalDate, Double> NO_VACATION = new HashMap<LocalDate, Double>();
 
     EmployeeService employeeService;
 
@@ -34,25 +32,25 @@ public class EmployeeServiceTest {
 
     @Test
     public void shouldCreateNewEmployeeWithNoRolloverDaysIfNoRolloverDaysGiven() {
-        assertEmployeeEquality(DATE, NO_ROLLOVER_DAYS, NO_DAYS_OFF, PERSONAL_DAYS_TAKEN, NO_INITIAL_ACCRUAL_RATE);
+        assertEmployeeEquality(DATE, NO_ROLLOVER_DAYS, NO_VACATION, NO_PERSONAL_DAYS, NO_INITIAL_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldCreateEmployeeWithCertainAmountOfRolloverDays() {
-        assertEmployeeEquality(DATE, SOME_ROLLOVER_DAYS, NO_DAYS_OFF, PERSONAL_DAYS_TAKEN, NO_INITIAL_ACCRUAL_RATE);
+        assertEmployeeEquality(DATE, SOME_ROLLOVER_DAYS, NO_VACATION, NO_PERSONAL_DAYS, NO_INITIAL_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldCreateEmployeeWithCustomAccrualRateIfGiven() {
-        assertEmployeeEquality(DATE, NO_ROLLOVER_DAYS, NO_DAYS_OFF, PERSONAL_DAYS_TAKEN, CUSTOM_ACCRUAL_RATE);
+        assertEmployeeEquality(DATE, NO_ROLLOVER_DAYS, NO_VACATION, NO_PERSONAL_DAYS, CUSTOM_ACCRUAL_RATE);
     }
 
     @Test
     public void shouldCreateEmployeeWithDefaultAccrualRateIfRateNotGiven(){
-        assertEmployeeEquality(DATE, NO_ROLLOVER_DAYS, NO_DAYS_OFF, PERSONAL_DAYS_TAKEN, NO_INITIAL_ACCRUAL_RATE);
+        assertEmployeeEquality(DATE, NO_ROLLOVER_DAYS, NO_VACATION, NO_PERSONAL_DAYS, NO_INITIAL_ACCRUAL_RATE);
     }
 
-    private void assertEmployeeEquality(LocalDate date, String rolloverDays, Map<LocalDate, Double> daysOff, double personalDaysTaken, String accrualRate) {
+    private void assertEmployeeEquality(LocalDate date, String rolloverDays, Map<LocalDate, Double> daysOff, Map<LocalDate, Double> personalDaysTaken, String accrualRate) {
         Employee actualEmployee = employeeService.createEmployee(date, rolloverDays, daysOff, personalDaysTaken, accrualRate);
 
         double convertedRolloverDays = 0;
