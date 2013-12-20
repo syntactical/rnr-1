@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 public class SalesForceParserServiceTest {
 
     Map<LocalDate, Double> emptyMap;
-    private DateParserService mockDateParser;
+    private DateParserService dateParserService;
     private SalesForceParserService salesForceParserService;
 
     private LocalDate DATE_IN_2013;
@@ -88,8 +88,8 @@ public class SalesForceParserServiceTest {
     @Before
     public void setUp() throws Exception {
         emptyMap = new HashMap<LocalDate, Double>();
-        mockDateParser = mock(DateParserService.class);
-        salesForceParserService = new SalesForceParserService(mockDateParser);
+        dateParserService = new DateParserService();
+        salesForceParserService = new SalesForceParserService(dateParserService);
 
         DATE_IN_2013 = new LocalDate(2013, 1, 1);
     }
@@ -100,63 +100,33 @@ public class SalesForceParserServiceTest {
         LocalDate vacationDate = new LocalDate(2013, 7, 29);
         LocalDate anotherVacationDate = new LocalDate(2013, 9, 2);
 
-        when(mockDateParser.parse(anyString()))
-                .thenReturn(new LocalDate(2013, 7, 29))
-                .thenReturn(new LocalDate(2013, 8, 5))
-                .thenReturn(new LocalDate(2013, 8, 12))
-                .thenReturn(new LocalDate(2013, 9, 2));
-
         Map<LocalDate, Double> vacationDaysUsed = salesForceParserService.extractVacationDaysUsed(SAMPLE_SALES_FORCE_TEXT);
 
         assertThat(vacationDaysUsed.get(vacationDate), is(28.00));
         assertThat(vacationDaysUsed.get(anotherVacationDate), is(16.00));
-        verify(mockDateParser, times(4)).parse(anyString());
-
     }
 
     @Test
     public void shouldReturnNumberOfPersonalDaysTakenInGivenYear() {
-        when(mockDateParser.parse(anyString()))
-                .thenReturn(new LocalDate(2013, 2, 18))
-                .thenReturn(new LocalDate(2013, 3, 31))
-                .thenReturn(new LocalDate(2013, 4, 15))
-                .thenReturn(new LocalDate(2013, 7, 29))
-                .thenReturn(new LocalDate(2013, 7, 22));
-
         double expectedPersonalDaysUsed = salesForceParserService.extractPersonalDaysUsed(SAMPLE_SALES_FORCE_TEXT, DATE_IN_2013);
 
         assertThat(expectedPersonalDaysUsed, is(7.0));
-        verify(mockDateParser, times(5)).parse(anyString());
     }
 
     @Test
     public void shouldTakeTimeFromMultipleSubProjectNames() {
 
         LocalDate vacationDateOne = new LocalDate(2013, 7, 29);
-        LocalDate vacationDateTwo = new LocalDate(2013, 9, 2);
+        LocalDate vacationDateTwo = new LocalDate(2013, 6, 3);
         LocalDate vacationDateThree = new LocalDate(2013, 5, 27);
         LocalDate vacationDateFour = new LocalDate(2013, 9, 2);
         LocalDate vacationDateFive = new LocalDate(2013, 1, 21);
-
-        when(mockDateParser.parse(anyString()))
-                .thenReturn(new LocalDate(2013, 7, 29))
-                .thenReturn(new LocalDate(2013, 8, 5))
-                .thenReturn(new LocalDate(2013, 8, 12))
-                .thenReturn(new LocalDate(2013, 9, 2))
-                .thenReturn(new LocalDate(2012, 12, 31))
-                .thenReturn(new LocalDate(2013, 1, 21))
-                .thenReturn(new LocalDate(2013, 5, 27))
-                .thenReturn(new LocalDate(2013, 6, 3))
-                .thenReturn(new LocalDate(2013, 7, 1))
-                .thenReturn(new LocalDate(2013, 7, 22))
-                .thenReturn(new LocalDate(2013, 9, 2));
-
         Map<LocalDate, Double> vacationDaysUsed = salesForceParserService.extractVacationDaysUsed(SAMPLE_SALES_FORCE_TEXT_WITH_ALTERNATE_VACATION_CODES);
 
         assertThat(vacationDaysUsed.size(), is(10));
 
         assertThat(vacationDaysUsed.get(vacationDateOne), is(28.00));
-        assertThat(vacationDaysUsed.get(vacationDateTwo), is(16.00));
+        assertThat(vacationDaysUsed.get(vacationDateTwo), is(4.00));
         assertThat(vacationDaysUsed.get(vacationDateThree), is(4.00));
         assertThat(vacationDaysUsed.get(vacationDateFour), is(16.00 + 8.00));
         assertThat(vacationDaysUsed.get(vacationDateFive), is(8.00));
