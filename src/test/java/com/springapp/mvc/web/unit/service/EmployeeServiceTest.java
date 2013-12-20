@@ -15,19 +15,21 @@ import static org.hamcrest.core.Is.is;
 
 public class EmployeeServiceTest {
 
-    public static final LocalDate DATE = new LocalDate(2013, 10, 20);
-    public static final String SOME_ROLLOVER_DAYS = "6";
-    public static final String NO_ROLLOVER_DAYS = "";
-    public static final String NO_INITIAL_ACCRUAL_RATE = "";
-    public static final String CUSTOM_ACCRUAL_RATE = "17";
-    public static final Map<LocalDate, Double> NO_PERSONAL_DAYS = new HashMap<LocalDate, Double>();
-    public static final Map<LocalDate, Double> NO_VACATION = new HashMap<LocalDate, Double>();
+    private static final LocalDate DATE = new LocalDate(2013, 10, 20);
+    private static final String SOME_ROLLOVER_DAYS = "6";
+    private static final String NO_ROLLOVER_DAYS = "";
+    private static final String NO_INITIAL_ACCRUAL_RATE = "";
+    private static final String CUSTOM_ACCRUAL_RATE = "17";
+    private Map<LocalDate, Double> NO_PERSONAL_DAYS;
+    private Map<LocalDate, Double> NO_VACATION;
 
     EmployeeService employeeService;
 
     @Before
     public void setUp() {
         employeeService = new EmployeeService();
+        NO_PERSONAL_DAYS = new HashMap<LocalDate, Double>();
+        NO_VACATION = new HashMap<LocalDate, Double>();
     }
 
     @Test
