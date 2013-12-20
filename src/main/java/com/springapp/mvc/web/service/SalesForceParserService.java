@@ -1,5 +1,6 @@
 package com.springapp.mvc.web.service;
 
+import com.springapp.mvc.web.model.Constants;
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,23 +21,23 @@ public class SalesForceParserService {
     }
 
     public Map<LocalDate, Double> extractVacationDaysUsed(String salesForceText) {
-        return extractDatesAndHoursFromSalesForceText(salesForceText, "vacation");
+        return extractDatesAndHoursFromSalesForceText(salesForceText, Constants.VACATION_DAY_CODES);
     }
 
     public double extractPersonalDaysUsed(String salesForceText, LocalDate date) {
         double personalDaysUsed = 0.0;
-        Map<LocalDate, Double> personalDaysMap = extractDatesAndHoursFromSalesForceText(salesForceText, "Personal/Sick");
+        Map<LocalDate, Double> personalDaysMap = extractDatesAndHoursFromSalesForceText(salesForceText, Constants.PERSONAL_DAY_CODES);
 
-        for (LocalDate dateOfPersonalDay : personalDaysMap.keySet()){
-            if (dateOfPersonalDay.getYear() == date.getYear()){
+        for (LocalDate dateOfPersonalDay : personalDaysMap.keySet()) {
+            if (dateOfPersonalDay.getYear() == date.getYear()) {
                 personalDaysUsed += personalDaysMap.get(dateOfPersonalDay) / 8;
             }
         }
 
         return personalDaysUsed;
     }
-    
-    private Map<LocalDate, Double> extractDatesAndHoursFromSalesForceText(String salesForceText, String typeOfTimeOff){
+
+    private Map<LocalDate, Double> extractDatesAndHoursFromSalesForceText(String salesForceText, List<String> listOfTimeOffCodes) {
         Map<String, Double> daysAndHours = new HashMap<String, Double>();
 
         List<String> subProjects = Arrays.asList(salesForceText.split("Sub-Project Name"));
@@ -44,19 +45,42 @@ public class SalesForceParserService {
         for (String subProject : subProjects) {
             List<String> subProjectLines = Arrays.asList(subProject.split("\n"));
 
-            if (subProjectLines.get(0).contains(typeOfTimeOff) && subProjectLines.size() > 2) {
+            if (isATimeOffCode(subProjectLines.get(0), listOfTimeOffCodes) && subProjectLines.size() > 2) {
                 for (int line = 2; line < subProjectLines.size() - 1; line++) {
+
+                    if(subProjectLines.get(line).contains("Grand Totals")){
+                        break;
+                    }
+
                     List<String> parsedInformation = Arrays.asList(subProjectLines.get(line).split("\t"));
 
                     String date = parsedInformation.get(3);
                     double hours = Double.parseDouble(parsedInformation.get(5));
 
-                    daysAndHours.put(date, hours);
+                    if (daysAndHours.get(date) == null) {
+                        daysAndHours.put(date, hours);
+                    } else {
+                        double oldNumberOfHours = daysAndHours.get(date);
+                        daysAndHours.put(date, hours + oldNumberOfHours);
+                    }
                 }
             }
         }
 
         return convertStringsToLocalDates(daysAndHours);
+    }
+
+    private boolean isATimeOffCode(String stringToCheck, List<String> listOfTimeOffCodes) {
+        boolean isACode = false;
+
+        for (String code : listOfTimeOffCodes) {
+            if (stringToCheck.contains(code)) {
+                isACode = true;
+                break;
+            }
+        }
+
+        return isACode;
     }
 
     private Map<LocalDate, Double> convertStringsToLocalDates(Map<String, Double> mapWithStringDates) {
