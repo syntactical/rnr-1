@@ -8,8 +8,6 @@ import static java.lang.Math.min;
 @Component
 public class VacationCalculator {
 
-    public static final LocalDate SALESFORCE_START_DATE = new LocalDate(2013, 7, 1);
-
     public Double getVacationDays(Employee employee, AccrualRateCalculator accrualRateCalculator, LocalDate accrualEndDate) {
 
         LocalDate accrualStartDate = getAccrualStartDate(employee);
@@ -31,9 +29,9 @@ public class VacationCalculator {
     }
 
     private LocalDate getAccrualStartDate(Employee employee) {
-        LocalDate accrualStartDate = SALESFORCE_START_DATE;
+        LocalDate accrualStartDate = Constants.SALESFORCE_START_DATE;
 
-        if(employee.getStartDate().isAfter(SALESFORCE_START_DATE)){
+        if(employee.getStartDate().isAfter(Constants.SALESFORCE_START_DATE)){
             accrualStartDate = employee.getStartDate();
         }
 

@@ -21,9 +21,8 @@ public class VacationCalculatorTest {
 
     private static final LocalDate ONE_WEEK_AGO = new LocalDate().minusWeeks(1);
     private static final LocalDate FOUR_WEEKS_AGO = new LocalDate().minusWeeks(4);
-    private static final LocalDate SALESFORCE_START_DATE = new LocalDate(2013, 7, 1);
-    private static final LocalDate TWO_WEEKS_AFTER_SALESFORCE_START_DATE = SALESFORCE_START_DATE.plusWeeks(2);
-    private static final LocalDate SIX_MONTHS_BEFORE_SALESFORCE_START_DATE = SALESFORCE_START_DATE.minusMonths(6).minusDays(1);
+    private static final LocalDate TWO_WEEKS_AFTER_SALESFORCE_START_DATE = Constants.SALESFORCE_START_DATE.plusWeeks(2);
+    private static final LocalDate SIX_MONTHS_BEFORE_SALESFORCE_START_DATE = Constants.SALESFORCE_START_DATE.minusMonths(6).minusDays(1);
     private static final LocalDate TODAY = new LocalDate();
 
     private Map<LocalDate, Double> NO_TIME_OFF;
@@ -77,7 +76,7 @@ public class VacationCalculatorTest {
     @Test
     public void shouldDecrementVacationDaysFromTotal() {
         Map<LocalDate, Double> timeOff = new HashMap<LocalDate, Double>();
-        timeOff.put(SALESFORCE_START_DATE, 40.0);
+        timeOff.put(Constants.SALESFORCE_START_DATE, 40.0);
         double rolloverDays = 5d;
 
         Employee employee = new Employee(SIX_MONTHS_BEFORE_SALESFORCE_START_DATE, rolloverDays, timeOff, NO_PERSONAL_DAYS_TAKEN, Constants.DEFAULT_ACCRUAL_RATE);
