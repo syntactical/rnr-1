@@ -33,7 +33,7 @@
                 <div>
                     <label class="field-label" id="label-for-rolloverdays-field" for="rolloverdays-field">Vacation Balance:</label>
                     <input id="rolloverdays-field" type="text" name="rolloverdays" value="${postedValues.rollover}">
-                    <span class="annotation">(as of 7/1/2013)</span>
+                    <span class="annotation">(as of 1/1/2014)</span>
                 </div>
                 <div>
                     <label class="field-label" id="label-for-accrual-rate" for="accrual-rate">Initial Accrual Rate:</label>
