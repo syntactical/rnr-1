@@ -63,7 +63,7 @@ public class NavigationSteps extends UserJourneyBase {
     @Then("I should have 7 personal days")
     public void shouldHaveSevenPersonalDays() {
         String personalDays = getTextFromFieldByID("personal-days");
-        String sevenDays = "7";
+        String sevenDays = "6";
 
         assertThat(personalDays, containsString(sevenDays));
     }
