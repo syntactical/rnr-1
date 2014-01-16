@@ -31,12 +31,14 @@
                            value="${postedValues.startDate}" readonly>
                 </div>
                 <div>
-                    <label class="field-label" id="label-for-rolloverdays-field" for="rolloverdays-field">Vacation Balance:</label>
+                    <label class="field-label" id="label-for-rolloverdays-field" for="rolloverdays-field">Vacation
+                        Balance:</label>
                     <input id="rolloverdays-field" type="text" name="rolloverdays" value="${postedValues.rollover}">
                     <span class="annotation">(as of 1/1/2014)</span>
                 </div>
                 <div>
-                    <label class="field-label" id="label-for-accrual-rate" for="accrual-rate">Initial Accrual Rate:</label>
+                    <label class="field-label" id="label-for-accrual-rate" for="accrual-rate">Initial Accrual
+                        Rate:</label>
                     <input id="accrual-rate" type="text" name="accrualRate"
                     <c:choose>
                         <c:when test="${not empty postedValues.accrualRate}">
@@ -65,7 +67,8 @@
                                 <span>Navigate to <a href="https://our.thoughtworks.com"
                                                      target="_new">our.thoughtworks.com</a> and click the "Time Off" link in the left sidebar.</span>
                                 <img class="sales-force-image" src="../../images/SFinctructions1.jpg"/>
-                                <button type="button" class="square-button sales-force-button sales-force-close-window-button"
+                                <button type="button"
+                                        class="square-button sales-force-button sales-force-close-window-button"
                                         onclick="showSalesForceHelpBox()">
                                     X
                                 </button>
@@ -78,7 +81,8 @@
                             <div class="sales-force-help-box" id="sales-force-help-box-2">
                                 <span>Copy and paste everything under the "Project Name" header.</span>
                                 <img class="sales-force-image" src="../../images/SFinctructions2.jpg"/>
-                                <button type="button" class="square-button sales-force-button sales-force-close-window-button"
+                                <button type="button"
+                                        class="square-button sales-force-button sales-force-close-window-button"
                                         onclick="showSalesForceHelpBox()">
                                     X
                                 </button>
@@ -118,9 +122,13 @@
             <div id="balances">
                 <span>As of ${postedValues.endDate}:</span>
                 <br>
-                <span id="vacation-days">Your vacation balance is ${postedValues.vacationDays} days.</span>
+                <span class="vacation-days-container">Your vacation balance is </span>
+                <span id="vacation-days">${postedValues.vacationDays}</span>
+                <span class="vacation-days-container"> days.</span>
                 <br>
-                <span id="personal-days">Your personal day balance is ${postedValues.personalDays} days.</span>
+                <span class="personal-days-container">Your personal day balance is </span>
+                <span id="personal-days">${postedValues.personalDays}</span>
+                <span class="personal-days-container"> days.</span>
             </div>
         </c:if>
         <c:if test="${not empty postedValues.capReachedMessage}">

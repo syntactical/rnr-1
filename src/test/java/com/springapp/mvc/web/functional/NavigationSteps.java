@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class NavigationSteps extends UserJourneyBase {
@@ -53,19 +53,18 @@ public class NavigationSteps extends UserJourneyBase {
     }
 
     @Then("the number of vacation days I have is my daily accrual rate times 14")
-    public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual() {
-        String vacationDays = getTextFromFieldByID("vacation-days");
-        String twoWeeksAccrued = String.valueOf(Math.round((10 / 365.25) * 7 * 2 * 100) / 100);
+    public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual(@Named("days") double days) {
+        double vacationDays = Double.parseDouble(getTextFromFieldByID("vacation-days"));
+        double twoWeeksAccrued = Math.round((10 / 365.25) * days * 100) / 100;
 
-        assertThat(vacationDays, containsString(twoWeeksAccrued));
+        assertThat(vacationDays, is(twoWeeksAccrued));
     }
 
-    @Then("I should have 7 personal days")
-    public void shouldHaveSevenPersonalDays() {
-        String personalDays = getTextFromFieldByID("personal-days");
-        String sevenDays = "6";
+    @Then("I should have <days> personal days")
+    public void shouldHaveSevenPersonalDays(@Named("days") double days) {
+        double personalDays = Double.parseDouble(getTextFromFieldByID("personal-days"));
 
-        assertThat(personalDays, containsString(sevenDays));
+        assertThat(personalDays, is(days));
     }
 
     private void pickStartDate(int year, int month, int day) {
