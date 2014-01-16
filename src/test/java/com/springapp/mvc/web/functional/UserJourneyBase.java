@@ -29,10 +29,9 @@ public class UserJourneyBase {
     }
 
     private String rootUrl() {
-        String currentEnvironment = System.getenv().get("env");
         String url = "http://localhost:8080/";
 
-        if (currentEnvironment.equals("ci")) {
+        if (System.getenv().get("JENKINS_URL") != null) {
             url="http://localhost:9999/";
         }
 
