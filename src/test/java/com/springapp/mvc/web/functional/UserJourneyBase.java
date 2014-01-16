@@ -19,11 +19,24 @@ public class UserJourneyBase {
         firefoxBinary.setEnvironmentProperty("DISPLAY", ":99");
         driver = new FirefoxDriver(firefoxBinary, null);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        driver.get(rootUrl());
     }
 
     @AfterClass
     public void tearDown() {
         driver.quit();
+    }
+
+    private String rootUrl() {
+        String currentEnvironment = System.getenv().get("env");
+        String url = "http://localhost:8080/";
+
+        if (currentEnvironment.equals("ci")) {
+            url="http://localhost:9999/";
+        }
+
+        return url;
     }
 
     public WebDriver getDriver() {

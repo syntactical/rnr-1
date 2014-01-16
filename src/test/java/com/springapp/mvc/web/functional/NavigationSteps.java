@@ -24,7 +24,6 @@ public class NavigationSteps extends UserJourneyBase {
     @BeforeScenario
     public void openBrowser() {
         driver = super.getDriver();
-        driver.get("http://localhost:8080/");
     }
 
     @AfterStories
