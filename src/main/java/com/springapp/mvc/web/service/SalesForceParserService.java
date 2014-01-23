@@ -1,6 +1,5 @@
 package com.springapp.mvc.web.service;
 
-import com.springapp.mvc.web.model.Constants;
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,7 +20,7 @@ public class SalesForceParserService {
     }
 
     public Map<LocalDate, Double> extractDatesAndHoursFromSalesForceText(String salesForceText, List<String> listOfTimeOffCodes) {
-        Map<String, Double> daysAndHours = new HashMap<String, Double>();
+        Map<LocalDate, Double> daysAndHours = new HashMap<LocalDate, Double>();
         List<String> subProjects = Arrays.asList(salesForceText.split("Sub-Project Name"));
 
         for (String subProject : subProjects) {
@@ -36,20 +35,27 @@ public class SalesForceParserService {
 
                     List<String> parsedInformation = Arrays.asList(subProjectLines.get(line).split("\t"));
 
-                    String date = parsedInformation.get(3);
-                    double hours = Double.parseDouble(parsedInformation.get(5));
+                    LocalDate startOfWeek = dateParser.parse(parsedInformation.get(3));
 
-                    if (daysAndHours.get(date) == null) {
-                        daysAndHours.put(date, hours);
-                    } else {
-                        double oldNumberOfHours = daysAndHours.get(date);
-                        daysAndHours.put(date, hours + oldNumberOfHours);
+                    for(int dayOfWeek = 0; dayOfWeek <= 6; dayOfWeek++){
+                        double hoursForDayOfWeek = Double.parseDouble(parsedInformation.get(dayOfWeek + 6));
+
+                        LocalDate day = startOfWeek.plusDays(dayOfWeek);
+
+                        if(hoursForDayOfWeek > 0.0){
+                            if (daysAndHours.get(day) == null) {
+                                daysAndHours.put(day, hoursForDayOfWeek);
+                            } else {
+                                double oldNumberOfHours = daysAndHours.get(day);
+                                daysAndHours.put(day, hoursForDayOfWeek + oldNumberOfHours);
+                            }
+                        }
                     }
                 }
             }
         }
 
-        return convertStringsToLocalDates(daysAndHours);
+        return daysAndHours;
     }
 
     private boolean isATimeOffCode(String stringToCheck, List<String> listOfTimeOffCodes) {
@@ -63,16 +69,5 @@ public class SalesForceParserService {
         }
 
         return isACode;
-    }
-
-    private Map<LocalDate, Double> convertStringsToLocalDates(Map<String, Double> mapWithStringDates) {
-        Map<LocalDate, Double> localDatesAndDoubles = new HashMap<LocalDate, Double>();
-
-        for (String date : mapWithStringDates.keySet()) {
-            LocalDate parsedDate = dateParser.parse(date);
-            localDatesAndDoubles.put(parsedDate, mapWithStringDates.get(date));
-        }
-
-        return localDatesAndDoubles;
     }
 }

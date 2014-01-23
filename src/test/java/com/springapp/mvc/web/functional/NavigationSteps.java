@@ -1,5 +1,6 @@
 package com.springapp.mvc.web.functional;
 
+import com.springapp.mvc.web.model.Constants;
 import org.jbehave.core.annotations.*;
 import org.joda.time.LocalDate;
 import org.openqa.selenium.By;
@@ -19,6 +20,12 @@ public class NavigationSteps extends UserJourneyBase {
     public static final String DATE_PICKER_YEAR =
             "//select[@class='ui-datepicker-year']";
 
+    public static final String START_DATE_FIELD_ID = "start-date-picker";
+    public static final String ROLLOVER_DAYS_FIELD_ID = "rolloverdays-field";
+    public static final String PERSONAL_DAYS_FIELD_ID = "personal-days";
+    public static final String SUBMIT_BUTTON_ID = "submit-button";
+    public static final String VACATION_DAYS_ID = "vacation-days";
+
     WebDriver driver;
 
     @BeforeScenario
@@ -26,16 +33,22 @@ public class NavigationSteps extends UserJourneyBase {
         driver = super.getDriver();
     }
 
+    @AfterScenario
+    public void clearRolloverDaysField() {
+        WebElement rolloverDaysField = driver.findElement(By.id(ROLLOVER_DAYS_FIELD_ID));
+        rolloverDaysField.clear();
+    }
+
     @AfterStories
     public void closeBrowser() {
         driver.quit();
     }
 
-    @Given("I started two weeks ago")
-    public void iEnterStartDateTwoWeeksAgo() {
-        LocalDate twoWeeksAgo = new LocalDate().minusWeeks(2);
+    @Given("I started <days> days ago")
+    public void iEnterStartDate(@Named("days") int days) {
+        LocalDate startDate = new LocalDate().minusDays(days);
 
-        pickStartDate(twoWeeksAgo.getYear(), twoWeeksAgo.getMonthOfYear(), twoWeeksAgo.getDayOfMonth());
+        pickStartDate(startDate.getYear(), startDate.getMonthOfYear(), startDate.getDayOfMonth());
 
         enterRolloverDays(0);
     }
@@ -48,27 +61,27 @@ public class NavigationSteps extends UserJourneyBase {
 
     @When("I request my number of vacation days as of today")
     public void iClickSubmit() {
-        WebElement submitButton = driver.findElement(By.id("submit-button"));
+        WebElement submitButton = driver.findElement(By.id(SUBMIT_BUTTON_ID));
         submitButton.click();
-    }
-
-    @Then("the number of vacation days I have is my daily accrual rate times 14")
-    public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual(@Named("days") double days) {
-        double vacationDays = Double.parseDouble(getTextFromFieldByID("vacation-days"));
-        double twoWeeksAccrued = Math.round((10 / 365.25) * days * 100) / 100;
-
-        assertThat(vacationDays, is(twoWeeksAccrued));
     }
 
     @Then("I should have <days> personal days")
     public void shouldHaveSevenPersonalDays(@Named("days") double days) {
-        double personalDays = Double.parseDouble(getTextFromFieldByID("personal-days"));
+        double personalDays = Double.parseDouble(getTextFromFieldByID(PERSONAL_DAYS_FIELD_ID));
 
         assertThat(personalDays, is(days));
     }
 
+    @Then("the number of vacation days I have is my daily accrual rate times <days>")
+    public void vacationDaysAccruedShouldBeTwoWeeksWorthOfAccrual(@Named("days") int days) {
+        double actualVacationDays = Double.parseDouble(getTextFromFieldByID(VACATION_DAYS_ID));
+        double expectedVacationDays = Math.round((Constants.DEFAULT_ACCRUAL_RATE / Constants.YEAR_IN_DAYS) * days * 100) / 100.0;
+
+        assertThat(actualVacationDays, is(expectedVacationDays));
+    }
+
     private void pickStartDate(int year, int month, int day) {
-        WebElement startDateField = driver.findElement(By.id("start-date-picker"));
+        WebElement startDateField = driver.findElement(By.id(START_DATE_FIELD_ID));
         startDateField.click();
 
         Select yearSelect = new Select(driver.findElement(By.xpath(DATE_PICKER_YEAR)));
@@ -78,20 +91,20 @@ public class NavigationSteps extends UserJourneyBase {
         monthSelect.selectByValue(String.valueOf(month - 1));
 
         WebElement dateWidget = driver.findElement(By.id("ui-datepicker-div"));
-        List<WebElement> rows=dateWidget.findElements(By.tagName("tr"));
+        List<WebElement> rows = dateWidget.findElements(By.tagName("tr"));
         List<WebElement> columns = dateWidget.findElements(By.tagName("td"));
 
-        for (WebElement cell: columns){
-            if (cell.getText().equals(String.valueOf(day))){
+        for (WebElement cell : columns) {
+            if (cell.getText().equals(String.valueOf(day))) {
                 cell.findElement(By.linkText(String.valueOf(day))).click();
                 break;
             }
         }
     }
 
-    private void enterRolloverDays(double rolloverDays){
+    private void enterRolloverDays(double rolloverDays) {
         String rolloverDaysAsString = Double.toString(rolloverDays);
-        WebElement rolloverDaysField = driver.findElement(By.id("rolloverdays-field"));
+        WebElement rolloverDaysField = driver.findElement(By.id(ROLLOVER_DAYS_FIELD_ID));
         rolloverDaysField.sendKeys(rolloverDaysAsString);
     }
 
