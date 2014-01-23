@@ -66,7 +66,7 @@
                             <div class="sales-force-help-box" id="sales-force-help-box-1">
                                 <span>Navigate to <a href="https://our.thoughtworks.com"
                                                      target="_new">our.thoughtworks.com</a> and click the "Time Off" link in the left sidebar.</span>
-                                <img class="sales-force-image" src="../../images/SFinctructions1.jpg"/>
+                                <img class="sales-force-image" src="../../images/SFinstructions1.jpg"/>
                                 <button type="button"
                                         class="square-button sales-force-button sales-force-close-window-button"
                                         onclick="showSalesForceHelpBox()">
@@ -79,8 +79,8 @@
                                 </button>
                             </div>
                             <div class="sales-force-help-box" id="sales-force-help-box-2">
-                                <span>Copy and paste everything under the "Project Name" header.</span>
-                                <img class="sales-force-image" src="../../images/SFinctructions2.jpg"/>
+                                <span>Copy and paste the contents of the entire page. (Cmd-A on Macs, Ctrl-A on PCs).</span>
+                                <img class="sales-force-image" src="../../images/SFinstructions2.jpg"/>
                                 <button type="button"
                                         class="square-button sales-force-button sales-force-close-window-button"
                                         onclick="showSalesForceHelpBox()">
