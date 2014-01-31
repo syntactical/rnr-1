@@ -9,6 +9,7 @@
 
     <properties>
         <spring.version>3.2.0.RELEASE</spring.version>
+        <jettyVersion>9.1.1.v20140108</jettyVersion>
         <functional>**/HomepageFunctionalityTest.java</functional>
         <env>dev</env>
     </properties>
@@ -165,26 +166,15 @@
             </plugin>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.26</version>
+                <artifactId>jetty-maven-plugin</artifactId>
                 <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9998</stopPort>
-                    <contextPath>/</contextPath>
-                    <webAppSourceDirectory>${basedir}/src/main/webapp</webAppSourceDirectory>
-                    <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
-                    <connectors>
-                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                            <port>${jettyport}</port>
-                            <maxIdleTime>60000</maxIdleTime>
-                        </connector>
-                    </connectors>
                 </configuration>
                 <executions>
                     <execution>
                         <id>start-jetty</id>
-                        <phase>generate-test-resources</phase>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
@@ -201,42 +191,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.4.6</version>
-                <configuration>
-                    <container>
-                        <containerId>jetty6x</containerId>
-                        <type>remote</type>
-                    </container>
-
-                    <configuration>
-                        <type>runtime</type>
-                        <properties>
-                            <cargo.hostname>localhost</cargo.hostname>
-                            <cargo.servlet.port>${jettyport}</cargo.servlet.port>
-                            <cargo.remote.username>jetty</cargo.remote.username>
-                            <cargo.remote.password>jetty123</cargo.remote.password>
-                        </properties>
-                    </configuration>
-
-                    <deployer>
-                        <type>remote</type>
-                    </deployer>
-
-                    <deployables>
-                        <deployable>
-                            <groupId>com.springapp</groupId>
-                            <artifactId>rnr</artifactId>
-                            <type>war</type>
-                            <properties>
-                                <context>/</context>
-                            </properties>
-                        </deployable>
-                    </deployables>
-                </configuration>
             </plugin>
         </plugins>
     </build>
