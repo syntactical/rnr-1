@@ -10,7 +10,6 @@
     <properties>
         <spring.version>3.2.0.RELEASE</spring.version>
         <jettyVersion>9.1.1.v20140108</jettyVersion>
-        <functional>**/HomepageFunctionalityTest.java</functional>
         <env>dev</env>
     </properties>
 
@@ -160,7 +159,7 @@
                 <version>2.12.4</version>
                 <configuration>
                     <includes>
-                        <include>${testpath}</include>
+                        <include>**/*Test.java</include>
                     </includes>
                 </configuration>
             </plugin>
