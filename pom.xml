@@ -133,7 +133,6 @@
                 <version>2.2</version>
                 <configuration>
                     <url>${host}</url>
-                    <server>TomcatServer</server>
                     <path>/</path>
                 </configuration>
             </plugin>
